@@ -11,15 +11,19 @@
         <![endif]-->
         <title>Index</title>
         <?php
-        include '../Config/conBd.php';
+        foreach (glob("../Models/*.php") as $filename) {
+            include $filename;
+        }
+        //include '../Models/*.php';
+        //include '../DAO/*';
 
         if (!isset($_COOKIE['lang'])) {
             $idioma = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2);
-            setcookie("lang",$idioma,time()+3600);
+            setcookie("lang", $idioma, time() + 3600);
         } else {
-            $idioma=$_COOKIE['lang'];
+            $idioma = $_COOKIE['lang'];
         }
-        
+
         include_once "../lang/{$idioma}_lang.php";
         ?>
     </head>
@@ -29,13 +33,13 @@
 
             <div id="header">
                 <h1>Header</h1>
-                <div id= idiomas>
-                    <a href="../Controllers/controller.php?controller=LangController&action=setLang&idioma=en"> <img class="langimg" src="../img/in.png"> </a>
-                    <a href="../Controllers/controller.php?controller=LangController&action=setLang&idioma=es"> <img class="langimg" src="../img/sp.png"> </a>
-                    <a href="../Controllers/controller.php?controller=LangController&action=setLang&idioma=ca"> <img class="langimg" src="../img/cat.png"> </a>
-                    <?php
-                    echo LABEL_BENVINGUDA;
-                    ?>
+                <?php
+                echo LABEL_BENVINGUDA;
+                ?>
+                <div id="idiomas">
+                    <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=en"> <img class="langimg" src="../img/in.png"> </a>
+                    <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=es"> <img class="langimg" src="../img/sp.png"> </a>
+                    <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=ca"> <img class="langimg" src="../img/cat.png"> </a>
                 </div>
             </div>
 
@@ -44,8 +48,8 @@
                 echo LABEL_PRODUCTES;
 
 
-                $db = new DBConnection();
-                $iden = $db->getConn();
+                $prod = new Producte();
+                $resultado = $prod->selectAll();
 
                 function sql_dump_result($result) {
                     $line = '';
@@ -56,15 +60,14 @@
                             $keys = array_keys($temp);
                             $head = '<tr><th>' . implode('</th><th>', $keys) . '</th></tr>';
                         }
-
                         $line .= '<tr><td>' . implode('</td><td>', $temp) . '</td></tr>';
                     }
 
                     return '<table>' . $head . $line . '</table>';
                 }
 
-                $sentencia = "SELECT estoc, desc_curta, url_foto FROM producte";
-                $resultado = mysql_query($sentencia, $iden);
+                /* $sentencia = "SELECT estoc, desc_curta, url_foto FROM producte";
+                  $resultado = mysql_query($sentencia, $iden); */
                 if (!$resultado)
                     die("Error: no se pudo realizar la consulta");
 
@@ -72,10 +75,10 @@
                 echo sql_dump_result($resultado);
 
                 // Libera la memoria del resultado
-                mysql_free_result($resultado);
+                //mysql_free_result($resultado);
 
                 // Cierra la conexión con la base de datos 
-                mysql_close($iden);
+                //mysql_close($iden);
                 ?> 
             </div>
 

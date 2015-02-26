@@ -1,5 +1,4 @@
 <?php
-
 class ViewClass {
     private $layout;
 
@@ -11,5 +10,4 @@ class ViewClass {
         include($this->layout);
     }
 }
-
 ?>
