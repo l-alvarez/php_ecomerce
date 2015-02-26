@@ -40,7 +40,7 @@
             </div>
 
             <div id="content">
-                <?php
+               <?php
                 echo LABEL_PRODUCTES;
 
 
@@ -54,13 +54,12 @@
                     while ($temp = mysql_fetch_assoc($result)) {
                         if (empty($head)) {
                             $keys = array_keys($temp);
-                            $head = '<tr><th>' . implode('</th><th>', $keys) . '</th></tr>';
+                            $head = '<tr id="ctabla"><th>Estoc</th><th>Nom</th><th>Foto</th></tr>';
                         }
-
-                        $line .= '<tr><td>' . implode('</td><td>', $temp) . '</td></tr>';
+                        $line .= '<tr><td>'.$temp['estoc'].'</td><td>'.$temp['desc_curta'].'</td><td><img src='.$temp['url_foto'].' WIDTH=100 HEIGHT=100></td></tr>';
                     }
 
-                    return '<table>' . $head . $line . '</table>';
+                    return '<table id="tabla productos">' . $head . $line . '</table>';
                 }
 
                 $sentencia = "SELECT estoc, desc_curta, url_foto FROM producte";
