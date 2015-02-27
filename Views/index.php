@@ -1,3 +1,12 @@
+<?php
+if (!isset($_COOKIE["lang"])) {
+    $idioma = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2);
+    setcookie("lang", $idioma, time() + 3600, "/sce/");
+} else {
+    $idioma = $_COOKIE["lang"];
+}
+include "../lang/{$idioma}_lang.php";
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,32 +23,14 @@
         foreach (glob("../Models/*.php") as $filename) {
             include_once $filename;
         }
-
-        if (!isset($_COOKIE['lang'])) {
-            $idioma = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2);
-            setcookie("lang", $idioma, time() + 3600);
-        } else {
-            $idioma = $_COOKIE['lang'];
-        }
-
-        include_once "../lang/{$idioma}_lang.php";
         ?>
     </head>
     <body>
-
         <div id="pagewrap">
 
-            <div id="header">
-                <h1>Header</h1>
-                <?php
-                echo LABEL_BENVINGUDA;
-                ?>
-                <div id="idiomas">
-                    <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=en"> <img class="langimg" src="../img/in.png"> </a>
-                    <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=es"> <img class="langimg" src="../img/sp.png"> </a>
-                    <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=ca"> <img class="langimg" src="../img/cat.png"> </a>
-                </div>
-            </div>
+            <?php
+            include_once './templates/header.php';
+            ?>
 
             <div id="content">
                 <?php
@@ -68,19 +59,14 @@
                 echo sql_dump_result($resultado);
                 ?> 
             </div>
-
-            <div id="sidebar">
-                <?php
-                echo LABEL_MENU;
-                ?>
-
-            </div>
-
-            <div id="footer">
-                <?php
-                echo LABEL_INFO;
-                ?>
-            </div>
+            
+            <?php
+            include_once './templates/sidebar.php';
+            ?>
+            
+            <?php
+            include_once './templates/footer.php';
+            ?>
 
         </div>
 
