@@ -14,8 +14,6 @@
         foreach (glob("../Models/*.php") as $filename) {
             include_once $filename;
         }
-        //include '../Models/*.php';
-        //include '../DAO/*';
 
         if (!isset($_COOKIE['lang'])) {
             $idioma = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2);
@@ -67,19 +65,11 @@
                     return '<table id="tabla productos">' . $head . $line . '</table>';
                 }
 
-                /* $sentencia = "SELECT estoc, desc_curta, url_foto FROM producte";
-                  $resultado = mysql_query($sentencia, $iden); */
                 if (!$resultado)
                     die("Error: no se pudo realizar la consulta");
 
-                // Muestra el contenido de la tabla como una tabla HTML	
                 echo sql_dump_result($resultado);
 
-                // Libera la memoria del resultado
-                //mysql_free_result($resultado);
-
-                // Cierra la conexión con la base de datos 
-                //mysql_close($iden);
                 ?> 
             </div>
 
