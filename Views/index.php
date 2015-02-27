@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../stylesheet/cssresponsivedesign.css">
+        <link rel="stylesheet" type="text/css" href="stylesheet/cssresponsivedesign.css">
 
         <!-- css3-mediaqueries.js for IE8 or older -->
         <!--[if lt IE 9]>
@@ -22,7 +22,7 @@
             $idioma = $_COOKIE['lang'];
         }
 
-        include_once "../lang/{$idioma}_lang.php";
+        include_once "lang/{$idioma}_lang.php";
         ?>
     </head>
     <body>
@@ -35,9 +35,9 @@
                 echo LABEL_BENVINGUDA;
                 ?>
                 <div id="idiomas">
-                    <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=en"> <img class="langimg" src="../img/in.png"> </a>
-                    <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=es"> <img class="langimg" src="../img/sp.png"> </a>
-                    <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=ca"> <img class="langimg" src="../img/cat.png"> </a>
+                    <a href="Controllers/Command.php?controller=LangController&action=setLang&idioma=en"> <img class="langimg" src="img/in.png"> </a>
+                    <a href="Controllers/Command.php?controller=LangController&action=setLang&idioma=es"> <img class="langimg" src="img/sp.png"> </a>
+                    <a href="Controllers/Command.php?controller=LangController&action=setLang&idioma=ca"> <img class="langimg" src="img/cat.png"> </a>
                 </div>
             </div>
 
@@ -57,11 +57,8 @@
                             $keys = array_keys($temp);
                             $head = '<tr id="ctabla"><th>Estoc</th><th>Nom</th><th>Foto</th></tr>';
                         }
-
                         $line .= '<tr><td>'.$temp['estoc'].'</td><td>'.$temp['desc_curta'].'</td><td><img src='.$temp['url_foto'].' WIDTH=100 HEIGHT=100></td></tr>';
-
                     }
-
                     return '<table id="tabla productos">' . $head . $line . '</table>';
                 }
 

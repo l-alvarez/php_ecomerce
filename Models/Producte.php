@@ -1,5 +1,5 @@
 <?php
-include '../DAO/DAOProducte.php';
+include 'DAO/DAOProducte.php';
 
 class Producte {
     private $nom;
