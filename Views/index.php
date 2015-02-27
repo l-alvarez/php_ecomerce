@@ -12,7 +12,7 @@
         <title>Index</title>
         <?php
         foreach (glob("../Models/*.php") as $filename) {
-            include $filename;
+            include_once $filename;
         }
         //include '../Models/*.php';
         //include '../DAO/*';

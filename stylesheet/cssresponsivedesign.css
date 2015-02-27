@@ -87,7 +87,7 @@ MEDIA QUERIES
         font-size: 24px;
     }
     #sidebar {
-        display: none;
+        //display: none;
         height: auto;
     }
 
