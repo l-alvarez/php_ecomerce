@@ -14,7 +14,7 @@ function sql_dump_result($result) {
     while ($temp = mysql_fetch_assoc($result)) {
         if (empty($head)) {
             $keys = array_keys($temp);
-            $head = '<tr id="ctabla"><th>Estoc</th><th>Nom</th><th>Foto</th></tr>';
+            $head = '<tr id="ctabla"><th>'.LABEL_ESTOC.'</th><th>'.LABEL_NOM.'</th><th>'.LABEL_FOTO.'</th></tr>';
         }
         $line .= '<tr><td>' . $temp['estoc'] . '</td><td>' . $temp['desc_curta'] . '</td><td><img src=' . $temp['url_foto'] . ' WIDTH=100 HEIGHT=100></td></tr>';
     }
