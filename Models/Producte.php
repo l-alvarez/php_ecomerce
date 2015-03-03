@@ -1,5 +1,4 @@
 <?php
-include '../DAO/DAOProducte.php';
 
 class Producte {
     private $nom;
@@ -59,15 +58,6 @@ class Producte {
     public function setFoto($foto) {
         $this->foto = $foto;
         $this->update();
-    }
-    
-    private function update() {
-        
-    }
-    
-    public function selectAll() {
-        $dao = new DAOProducte();
-        return $dao->selectAll();
     }
 }
 

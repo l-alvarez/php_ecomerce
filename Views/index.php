@@ -28,45 +28,37 @@ include "../lang/{$idioma}_lang.php";
     <body>
         <div id="pagewrap">
 
-            <?php
-            include_once './templates/header.php';
-            ?>
+            <div id="header">
+                <a href="/sce/Views/index.php"><h1>Header</h1></a>
+                <?php
+                echo LABEL_BENVINGUDA;
+                ?>
+                <div id="idiomas">
+                    <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=en"> <img class="langimg" src="../img/in.png"> </a>
+                    <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=es"> <img class="langimg" src="../img/sp.png"> </a>
+                    <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=ca"> <img class="langimg" src="../img/cat.png"> </a>
+                </div>
+            </div>
+
 
             <div id="content">
                 <?php
-                echo LABEL_PRODUCTES;
-
-                $prod = new Producte();
-                $resultado = $prod->selectAll();
-
-                function sql_dump_result($result) {
-                    $line = '';
-                    $head = '';
-
-                    while ($temp = mysql_fetch_assoc($result)) {
-                        if (empty($head)) {
-                            $keys = array_keys($temp);
-                            $head = '<tr id="ctabla"><th>Estoc</th><th>Nom</th><th>Foto</th></tr>';
-                        }
-                        $line .= '<tr><td>' . $temp['estoc'] . '</td><td>' . $temp['desc_curta'] . '</td><td><img src=' . $temp['url_foto'] . ' WIDTH=100 HEIGHT=100></td></tr>';
-                    }
-                    return '<table id="tabla productos">' . $head . $line . '</table>';
-                }
-
-                if (!$resultado)
-                    die("Error: no se pudo realizar la consulta");
-
-                echo sql_dump_result($resultado);
-                ?> 
+                include './list.php';
+                ?>
             </div>
-            
-            <?php
-            include_once './templates/sidebar.php';
-            ?>
-            
-            <?php
-            include_once './templates/footer.php';
-            ?>
+
+            <div id = "sidebar">
+                <?php
+                echo LABEL_MENU;
+                ?>
+            </div>
+
+            <div id="footer">
+                <?php
+                echo LABEL_INFO;
+                ?>
+            </div>
+
 
         </div>
 
