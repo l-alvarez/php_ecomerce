@@ -17,6 +17,13 @@ a:hover {
 h1 {
     font: bold 36px/100% Arial, Helvetica, sans-serif;
 }
+#idiomas{
+    //height: 1000px
+
+    position: relative;
+    left: 10%;
+    top: 150px;
+}
 
 /************************************************************************************
 STRUCTURE
@@ -87,7 +94,7 @@ MEDIA QUERIES
         font-size: 24px;
     }
     #sidebar {
-        //display: none;
+        display: none;
         height: auto;
     }
 
@@ -110,3 +117,59 @@ MEDIA QUERIES
     with:20px;
     height:20px;
 }
+#ctabla{
+    height:20%;
+}
+table, td, th{
+    border: 1px solid grey;
+}
+
+table {
+    width:100%;
+    //height:80%;
+}
+
+th, td {
+    text-align: center;
+}
+
+th {
+    background-color: grey;
+    color: white;
+}
+.progress-bar {
+    background-color: black;
+    height: 15px;
+    padding: 2px;
+    width: 95%;
+    margin: 70px 0 20px 0;			
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+    -webkit-box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+    box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;           
+}
+
+.progress-bar span {
+    display: block;
+    height: 100%;
+    background-color: #777;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+    -webkit-transition: margin .4s ease-in-out;
+    -moz-transition: margin .4s ease-in-out;
+    -ms-transition: margin .4s ease-in-out;
+    -o-transition: margin .4s ease-in-out;
+    transition: margin .4s ease-in-out;		
+}
+
+
+.blue span {
+    background-color: green;   
+}
+

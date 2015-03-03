@@ -29,7 +29,7 @@ include "../lang/{$idioma}_lang.php";
         <div id="pagewrap">
 
             <div id="header">
-                <a href="/sce/Views/index.php"><h1>Header</h1></a>
+                <a href="/sce/Views/index.php"><h1>Futuro Logo</h1></a>
                 <?php
                 echo LABEL_BENVINGUDA;
                 ?>

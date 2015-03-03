@@ -7,7 +7,6 @@ class ProducteController {
         $dao = new DAOProducte();
         return $dao->selectAll();
     }
-
 }
 
 ?>
