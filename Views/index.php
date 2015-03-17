@@ -43,7 +43,11 @@ include "../lang/{$idioma}_lang.php";
 
             <div id="content">
                 <?php
-                include './list.php';
+                if (isset($_GET['view'])) {
+                    include './'.$_GET['view'].'.php';
+                } else {
+                    include './list.php';
+                }
                 ?>
             </div>
 
