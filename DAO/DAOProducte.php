@@ -13,7 +13,7 @@ class DAOProducte extends DBConnection{
         $con = parent::getConn();
         //$prepStatment = $con->prepare("SELECT * FROM producte WHERE id_producte = ?");
         //$prepStatment->execute($id);
-        
+        mysql_query ("set character_set_results='utf8'");
         $stmt = "SELECT * FROM producte WHERE id_producte = ".$id;
         $res = mysql_query($stmt, $con);
         mysql_close($con);

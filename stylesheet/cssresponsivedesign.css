@@ -39,12 +39,12 @@ STRUCTURE
 #content {
     width: 84%;
     float: right;
-    height: 30em;
+    height: 30em auto;
 }
 #sidebar {
     width: 15%;
     float: left;
-    height: 30em;
+    height: 30em auto;
 }
 #footer {
     clear: both;
