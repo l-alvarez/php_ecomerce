@@ -5,10 +5,12 @@
         <group>
             <file>file:/C:/xampp/htdocs/sce/Views/index.php</file>
             <file>file:/C:/xampp/htdocs/sce/DAO/DAOProducte.php</file>
+            <file>file:/C:/xampp/htdocs/sce/javascript/contador.php</file>
             <file>file:/C:/xampp/htdocs/sce/Views/list.php</file>
             <file>file:/C:/xampp/htdocs/sce/Controllers/ProducteController.php</file>
             <file>file:/C:/xampp/htdocs/sce/Controllers/LangController.php</file>
             <file>file:/C:/xampp/htdocs/sce/Views/showProduct.php</file>
+            <file>file:/C:/xampp/htdocs/sce/stylesheet/cssresponsivedesign.css</file>
         </group>
     </open-files>
 </project-private>
