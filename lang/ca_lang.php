@@ -6,4 +6,6 @@ define('LABEL_INFO','Coses d\'asumptes legals.');
 define('LABEL_NOM','Nom');
 define('LABEL_ESTOC','Estoc');
 define('LABEL_FOTO','Foto');
-?>
+define('LABEL_SEARCH','Cercar');
+define('LABEL_LOGIN','Accedir');
+define('LABEL_CATEGORIES','Categories');

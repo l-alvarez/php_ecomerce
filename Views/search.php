@@ -2,16 +2,25 @@
 
 include '../Controllers/ProductController.php';
 
-echo LABEL_PRODUCTES;
-
+//echo LABEL_PRODUCTES;
 $prod = new ProductController();
-$resultado = $prod->selectAll();
+if (isset($_GET['find'])) {
+    $word = $_GET['find'];
+    $resultado = $prod->selectByKeyWord($word);
+} else if (isset($_GET['filtr'])) {
+    $cat = (int) $_GET['filtr'];
+    // echo $cat;
+    $resultado = $prod->selectByCategory($cat);
+    // echo $resultado->fetch_assoc();
+} else {
+    //TODO: redireccion de error
+}
 
 function sql_dump_result($result) {
     $line = '';
     $head = '';
 
-    while ($temp = mysql_fetch_assoc($result)) {
+    while ($temp = $result->fetch_assoc()) {
         if (empty($head)) {
             $head = '<tr id="ctabla"><th>' . LABEL_ESTOC . '</th><th>' . LABEL_NOM . '</th><th>' . LABEL_FOTO . '</th></tr>';
         }
@@ -31,4 +40,5 @@ function sql_dump_result($result) {
 if (!$resultado) {
     die("Error: no se pudo realizar la consulta");
 }
+
 echo sql_dump_result($resultado);

@@ -1,6 +1,6 @@
 <?php
 
-class Producte {
+class Product {
     private $nom;
     private $preu;
     private $desc_llarga;

@@ -1,15 +1,15 @@
 <div id="pagina">
     <div id="login">
-        <div id="candau"><img src="../img/candado.png" alt="candado"/></div>
+        <!--<div id="candau"><img src="../img/candado.png" alt="candado"/></div>-->
         <div id="formulari">
             <form method="post" action="login/login.php" name="login">
                 <fieldset>
-                    <legend>LOGIN</legend>
+                    <?php echo '<legend>'.LABEL_LOGIN.'</legend>' ?>
                     <input type="text" name="user" id="user"/>
                     <br/>
                     <input type="password" name="password" id="password"/>
                     <br/>
-                    <input type="submit" value="LOGIN"/>
+                    <?php echo '<input type="submit" value="'.LABEL_LOGIN.'"/>' ?>
                 </fieldset>
             </form>
         </div>
@@ -27,6 +27,8 @@
          * 
          */
         ?>
-
+        <div>
+            Espacio para el boton de SignUp
+        </div>
     </div>
 </div>

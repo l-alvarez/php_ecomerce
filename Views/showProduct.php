@@ -1,15 +1,20 @@
 <?php
-include '../Controllers/ProducteController.php';
-$prod = new ProducteController();
-$resultado = $prod->selectById($_GET['id']);
+include '../Controllers/ProductController.php';
+include '../Controllers/CategoryController.php';
 
-function sql_dump_result($result) {
+$prod = new ProductController();
+$resultado = $prod->selectById($_GET['id']);
+$cat = new CategoryController();
+
+function mostrar_producte($result, $cat) {
     $line = '';
     $line1 = '';
     $line0 = '';
 
-    while ($temp = mysql_fetch_assoc($result)) {
-        $line0.='<p>/'.$temp['id_categoria'].'>'.$temp['nom'].'</p>';
+    while ($temp = $result->fetch_assoc()) {
+        $category = $cat->selectById($temp['id_categoria']);
+        $name = $category->fetch_assoc()['nom'];
+        $line0.='<p>'. $name .'>>'.$temp['nom'].'</p>';
         $line .= '<tr><td>' . $temp['nom'] . '</a></td><td><img src=' . $temp['url_foto'] . ' WIDTH=100 HEIGHT=100></td></tr>';
         $line1.='<tr><td>' . $temp['desc_llarga'] . '</td></tr>';
     }
@@ -18,8 +23,8 @@ function sql_dump_result($result) {
 if (!$resultado) {
     die("Error: no se pudo realizar la consulta");
 }
-
-echo sql_dump_result($resultado);
+//echo $resultado;
+echo mostrar_producte($resultado, $cat);
 
 //echo '<table id = "temporizador"><tr><td> '. include'../javascript/contador.php' . '</td><td></td></tr></table >';
 ?>

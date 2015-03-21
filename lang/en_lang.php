@@ -6,4 +6,6 @@ define('LABEL_INFO','Legal stuff');
 define('LABEL_NOM','Name');
 define('LABEL_ESTOC','Stock');
 define('LABEL_FOTO','Photo');
-?>
+define('LABEL_SEARCH','Search');
+define('LABEL_LOGIN','Login');
+define('LABEL_CATEGORIES','Categories');
