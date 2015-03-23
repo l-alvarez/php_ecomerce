@@ -1,6 +1,6 @@
 <?php
 
-include '../Models/ViewClass.php';
+include_once '../Models/ViewClass.php';
 
 class LangController {
 
@@ -11,5 +11,3 @@ class LangController {
     }
 
 }
-
-?>

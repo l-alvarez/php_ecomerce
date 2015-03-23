@@ -1,6 +1,6 @@
 <?php
 
-include '../Controllers/ProductController.php';
+include_once '../Controllers/ProductController.php';
 
 //echo LABEL_PRODUCTES;
 $prod = new ProductController();
@@ -11,7 +11,7 @@ if (isset($_GET['find'])) {
     $cat = (int) $_GET['filtr'];
     $resultado = $prod->selectByCategory($cat);
 } else {
-    //TODO: redireccion de error
+    header("Location: http://localhost/sce/Views/index.php?view=error&error=1");
 }
 
 function sql_dump_result($result) {

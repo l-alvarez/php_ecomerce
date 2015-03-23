@@ -8,10 +8,8 @@ if (isset($_GET['controller']) && in_array($_GET['controller'], $controllers)) {
     if (isset($_GET['action']) && method_exists($controller, $_GET['action'])) {
         $controller->$_GET['action']();
     } else {
-        //TODO: redirect to error page
+        header("Location: http://localhost/sce/Views/index.php?view=error&error=1");
     }
 } else {
-    //TODO: redirect to error page
+    header("Location: http://localhost/sce/Views/index.php?view=error&error=1");
 }
-?>
-

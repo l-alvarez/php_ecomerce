@@ -28,5 +28,5 @@
                 <input type="submit" name="enter" value="Enter"/>
             </div>
         </form>
-    </section><!-- content -->
-</div><!-- container -->
+    </section>
+</div>

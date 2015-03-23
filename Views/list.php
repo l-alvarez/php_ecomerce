@@ -1,6 +1,6 @@
 <?php
 
-include '../Controllers/ProductController.php';
+include_once '../Controllers/ProductController.php';
 
 echo LABEL_PRODUCTES;
 

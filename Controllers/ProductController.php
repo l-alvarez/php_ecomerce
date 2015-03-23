@@ -1,6 +1,6 @@
 <?php
 
-include '../DAO/DAOProduct.php';
+include_once '../DAO/DAOProduct.php';
 include_once '../Models/ViewClass.php';
 
 class ProductController {
@@ -33,15 +33,19 @@ class ProductController {
             $cat = (int) $_GET['cat'];
             $view = new ViewClass("index", "?view=search&filtr=$cat");
         } else {
-            //TODO: error
+            $view = new ViewClass("index", "?view=error&error=1");
         }
 
         $view->render();
     }
 
     public function show() {
-        $id = (int) $_GET['id'];
-        $view = new ViewClass("index", "?view=showProduct&id=$id");
+        if (isset($_GET['id'])) {
+            $id = (int) $_GET['id'];
+            $view = new ViewClass("index", "?view=showProduct&id=$id");
+        } else {
+            $view = new ViewClass("index", "?view=error&error=1");
+        }
         $view->render();
     }
 

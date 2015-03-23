@@ -1,6 +1,6 @@
 <?php
 
-include '../DAO/DAOCategory.php';
+include_once '../DAO/DAOCategory.php';
 include_once '../Models/ViewClass.php';
 
 class CategoryController {

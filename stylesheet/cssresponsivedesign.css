@@ -91,6 +91,11 @@ MEDIA QUERIES
     #header {
         height: auto;
     }
+    #content {
+        width: 100%;
+        float: none;
+
+    }
     h1 {
         font-size: 24px;
     }

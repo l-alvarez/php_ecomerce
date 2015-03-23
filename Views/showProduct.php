@@ -1,11 +1,21 @@
 <?php
 
-include '../Controllers/ProductController.php';
-include '../Controllers/CategoryController.php';
+include_once '../Controllers/ProductController.php';
+include_once '../Controllers/CategoryController.php';
 
-$prod = new ProductController();
-$resultado = $prod->selectById($_GET['id']);
-$cat = new CategoryController();
+if (isset($_GET['id'])) {
+    $prod = new ProductController();
+    $resultado = $prod->selectById($_GET['id']);
+    $cat = new CategoryController();
+
+    if (!$resultado) {
+        die("Error: no se pudo realizar la consulta");
+    }
+
+    echo mostrar_producte($resultado, $cat);
+} else {
+    header("Location: http://localhost/sce/Views/index.php?view=error&error=1");
+}
 
 function mostrar_producte($result, $cat) {
     $line = '';
@@ -21,15 +31,3 @@ function mostrar_producte($result, $cat) {
     }
     return $line0 . '<table id="tabla productos">' . $line . $line1 . '</table>';
 }
-
-if (!$resultado) {
-    die("Error: no se pudo realizar la consulta");
-}
-//echo $resultado;
-echo mostrar_producte($resultado, $cat);
-
-//echo '<table id = "temporizador"><tr><td> '. include'../javascript/contador.php' . '</td><td></td></tr></table >';
-?>
-
-
-
