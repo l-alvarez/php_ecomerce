@@ -29,7 +29,7 @@ include "../lang/{$idioma}_lang.php";
         <div id="pagewrap">
 
             <div id="header">
-                <a href="/sce/Views/index.php"><h1>Futuro Logo</h1></a>
+                <a href="/sce/Views/index.php"><img src="../img/icono.png" style="height: 100px; width: 100px" ></a>
                 <?php
                 echo LABEL_BENVINGUDA;
                 ?>
@@ -40,7 +40,7 @@ include "../lang/{$idioma}_lang.php";
                         <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=ca"> <img class="langimg" src="../img/cat.png"> </a>
                     </div>
                     <div id='login' style="width: 100px; float: right; height: 20px">
-                        <a href="./index.php?view=login"><?php echo LABEL_LOGIN ?></a>
+                        <a href="./index.php?view=login"><?php echo LABEL_LOGIN ?></a>/<a href="./index.php?view=signup"><?php echo LABEL_LOGIN ?></a>
                     </div>
                 </div>
             </div>
@@ -70,13 +70,8 @@ include "../lang/{$idioma}_lang.php";
             </div>
 
             <div id="footer">
-                <?php
-                echo LABEL_INFO;
-                ?>
+                <a href="./index.php?view=legal"><?php echo LABEL_INFO;?>
             </div>
-
-
         </div>
-
     </body>
 </html>

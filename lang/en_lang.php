@@ -17,3 +17,6 @@ define('LABEL_ERROR_TITLE', 'Ouch! Something went wrong.');
 define('LABEL_ERROR_0', '<p>Something went unexpectedly wrong.</p><p>We don\'t know what or why.</p><p>But it went wrong.</p>');
 define('LABEL_ERROR_1', 'The requested action could not be performed because one or more of the parameters were wrong. Sorry for the inconvenience.');
 define('LABEL_ERROR_2', 'The page you tried to access does not exist.');
+
+define ('LABEL_CON', 'Video Games Auctions is an online store where you can buy used, in good condition and proven performance games. We try to have the most popular games consoles, especially systems Microsoft, Sony, Nintendo and Sega.' );
+define ('LABEL_CON2', 'WHERE IS THE PLACE? So far Games Auctions is an online auction only, not have physical store but usually mounted stand in exhibitions and events comics, manga, video games, etc. throughout Spain predominating Catalonia. ');
