@@ -9,6 +9,7 @@ define('LABEL_ESTOC', 'Estoc');
 define('LABEL_FOTO', 'Foto');
 define('LABEL_SEARCH', 'Cercar');
 define('LABEL_LOGIN', 'Accedir');
+define('LABEL_SIGNUP', 'Registre');
 define('LABEL_CATEGORIES', 'Categories');
 define('LABEL_NO_RESULTS', 'No s\'han trobat prductes amb aquesta cerca.');
 
