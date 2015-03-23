@@ -37,3 +37,5 @@ define('LABEL_LASTNAME', 'Apellido');
 define('LABEL_PASS', 'Contraseña');
 define('LABEL_PHONE', 'Telefono');
 define('LABEL_MAIL', 'Correo electronico');
+
+define('LABEL_PUJAR', 'Subasta');

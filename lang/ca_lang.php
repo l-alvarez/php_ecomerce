@@ -37,3 +37,5 @@ define('LABEL_LASTNAME', 'Apellit');
 define('LABEL_PASS', 'Contrasenya');
 define('LABEL_PHONE', 'Telefon');
 define('LABEL_MAIL', 'Correu electronic');
+
+define('LABEL_PUJAR', 'Subhasta');
