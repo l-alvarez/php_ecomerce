@@ -40,9 +40,8 @@ include_once "../lang/{$idioma}_lang.php";
                         <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=ca"> <img class="langimg" src="../img/cat.png"> </a>
                     </div>
 
-                    <div id='login' style="width: 130px; float: right; height: 20px">
+                    <div id='login' style="width: 150px; float: right; height: 20px">
                         <a href="./index.php?view=login"><?php echo LABEL_LOGIN ?></a> / <a href="./index.php?view=signup"><?php echo LABEL_SIGNUP ?></a>
-
                     </div>
                 </div>
             </div>
