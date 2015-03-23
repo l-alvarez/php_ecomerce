@@ -9,6 +9,7 @@ define('LABEL_ESTOC', 'Cantidad');
 define('LABEL_FOTO', 'Fotografia');
 define('LABEL_SEARCH', 'Buscar');
 define('LABEL_LOGIN', 'Acceder');
+define('LABEL_SIGNUP', 'Registrar');
 define('LABEL_CATEGORIES', 'Categorias');
 define('LABEL_NO_RESULTS', 'No se han encontrado productos con esa búsqueda');
 
