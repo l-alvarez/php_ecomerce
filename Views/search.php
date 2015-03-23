@@ -9,9 +9,7 @@ if (isset($_GET['find'])) {
     $resultado = $prod->selectByKeyWord($word);
 } else if (isset($_GET['filtr'])) {
     $cat = (int) $_GET['filtr'];
-    // echo $cat;
     $resultado = $prod->selectByCategory($cat);
-    // echo $resultado->fetch_assoc();
 } else {
     //TODO: redireccion de error
 }
@@ -41,4 +39,10 @@ if (!$resultado) {
     die("Error: no se pudo realizar la consulta");
 }
 
-echo sql_dump_result($resultado);
+if ($resultado->num_rows == 0) {
+    echo LABEL_NO_RESULTS;
+} else {
+    echo sql_dump_result($resultado);
+}
+
+

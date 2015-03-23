@@ -62,9 +62,9 @@ include "../lang/{$idioma}_lang.php";
 
             <div id = "sidebar">
                 <?php
-                echo '<h3>'.LABEL_MENU.'</h3>';
+                echo '<h3>' . LABEL_MENU . '</h3>';
                 include './sidebar/search.php';
-                echo '<h3>'.LABEL_CATEGORIES.'</h3>';
+                echo '<h3>' . LABEL_CATEGORIES . '</h3>';
                 include './sidebar/categories.php';
                 ?>
             </div>

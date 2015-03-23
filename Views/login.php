@@ -4,12 +4,12 @@
         <div id="formulari">
             <form method="post" action="login/login.php" name="login">
                 <fieldset>
-                    <?php echo '<legend>'.LABEL_LOGIN.'</legend>' ?>
+                    <?php echo '<legend>' . LABEL_LOGIN . '</legend>' ?>
                     <input type="text" name="user" id="user"/>
                     <br/>
                     <input type="password" name="password" id="password"/>
                     <br/>
-                    <?php echo '<input type="submit" value="'.LABEL_LOGIN.'"/>' ?>
+                    <?php echo '<input type="submit" value="' . LABEL_LOGIN . '"/>' ?>
                 </fieldset>
             </form>
         </div>

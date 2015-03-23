@@ -29,7 +29,7 @@ class ProductController {
         if (isset($_GET['name'])) {
             $word = $_GET['name'];
             $view = new ViewClass("index", "?view=search&find=$word");
-        }else if (isset($_GET['cat'])) {
+        } else if (isset($_GET['cat'])) {
             $cat = (int) $_GET['cat'];
             $view = new ViewClass("index", "?view=search&filtr=$cat");
         } else {

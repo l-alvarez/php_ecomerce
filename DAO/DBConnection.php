@@ -17,7 +17,7 @@ class DBConnection {
 
         return $this->conn;
     }
-    
+
     public function getMySQLConn() {
         if (!($this->conn = mysql_connect(SERVER, USER, PSW))) {
             die("Error: No se pudo conectar");

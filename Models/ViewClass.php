@@ -7,8 +7,8 @@ class ViewClass {
 //    public function __construct($action) {
 //        $this->layout = "Views/" . $action . ".php";
 //    }
-    
-    public function __construct($action,$params) {
+
+    public function __construct($action, $params) {
         $this->layout = "Views/" . $action . ".php" . $params;
     }
 
