@@ -29,3 +29,10 @@ Cookies de registro: Cuando el usuario entra en nuestra web e inicia sesión se 
 
 define('LABEL_PRIV','Politica De Privacidad
 La visita a este sitio Web no implica que el usuario esté obligado a facilitar ninguna información. En el caso de que el usuario facilite alguna información de carácter personal, los datos recogidos en este sitio web serán tratados de forma leal y lícita con sujeción en todo momento a los principios y derechos recogidos en la Ley Orgánica 15/1999, de 13 de diciembre, de Protección de Datos de Carácter Personal (LOPD), y demás normativa de desarrollo.');
+
+define('LABEL_USERNAME','Usuario');
+define('LABEL_NAME','Nombre');
+define('LABEL_LASTNAME','Apellido');
+define('LABEL_PASS','Contraseña');
+define('LABEL_PHONE','Telefono');
+define('LABEL_MAIL','Correo electronico');

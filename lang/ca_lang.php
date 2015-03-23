@@ -28,3 +28,10 @@ Galetes de registre: Quan l\'usuari entra a la nostra web i inicia sessió s\'in
 
 define('LABEL_PRIV', 'Política de Privacitat
 La visita a aquest lloc web no implica que l\'usuari estigui obligat a facilitar cap informació. En el cas que l\'usuari faciliti alguna informació de caràcter personal, les dades recollides en aquest lloc web seran tractades de forma lleial i lícita amb subjecció en tot moment als principis i drets recollits en la Llei Orgànica 15/1999, de 13 de desembre, de Protecció de Dades de Caràcter Personal (LOPD), i altra normativa de desenvolupament. ');
+
+define('LABEL_USERNAME','Usuari');
+define('LABEL_NAME','Nom');
+define('LABEL_LASTNAME','Apellit');
+define('LABEL_PASS','Contrasenya');
+define('LABEL_PHONE','Telefon');
+define('LABEL_MAIL','Correu electronic');
