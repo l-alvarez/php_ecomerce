@@ -40,6 +40,7 @@ STRUCTURE
     width: 84%;
     float: right;
     height: 30em;
+    overflow:scroll;
 }
 #sidebar {
     width: 15%;
