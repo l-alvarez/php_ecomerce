@@ -2,7 +2,7 @@
 
 define('LABEL_BENVINGUDA', 'Benvingut a la millor tenda on-line de videojocs!');
 define('LABEL_PRODUCTES', 'Productes de la tenda:');
-define('LABEL_MENU', 'Men&uacute');
+define('LABEL_MENU', 'Menú');
 define('LABEL_INFO', 'Informació legal');
 define('LABEL_NOM', 'Nom');
 define('LABEL_ESTOC', 'Estoc');
@@ -33,7 +33,7 @@ La visita a aquest lloc web no implica que l\'usuari estigui obligat a facilitar
 /*LABEL's signup*/
 define('LABEL_USERNAME', 'Usuari');
 define('LABEL_NAME', 'Nom');
-define('LABEL_LASTNAME', 'Apellit');
+define('LABEL_LASTNAME', 'Cognom');
 define('LABEL_PASS', 'Contrasenya');
 define('LABEL_PHONE', 'Telefon');
 define('LABEL_MAIL', 'Correu electronic');

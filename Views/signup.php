@@ -1,8 +1,8 @@
 <div class="container">
     <section>
-        <form method="post" action="signin.do">
+        <form method="post" action="">
             <input type="hidden" name="form_action" value="signin" />
-            <h1>Sign in</h1>
+            <h1><?php echo LABEL_SIGNUP ?></h1>
             <div id="userIdMessage">
                 <input type="text" placeholder="<?php echo LABEL_USERNAME; ?>" name="user_name" value="" required="required" id="username" onkeyup="validateUserId()"/>
             </div>
@@ -26,6 +26,7 @@
             </div>
             <div>
                 <input type="submit" name="enter" value="Enter"/>
+                <input type="button" onClick="location.href = './index.php?view=login'" value="<?php echo LABEL_LOGIN ?>">
             </div>
         </form>
     </section>
