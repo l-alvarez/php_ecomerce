@@ -1,16 +1,31 @@
+<?php
+if (isset($_GET['err'])) {
+    $err = $_GET['err'];
+    switch ($err) {
+        case 0:
+            $label = LABEL_ERROR_0;
+            break;
+        case 1:
+            $label = LABEL_ERROR_1;
+            break;
+        case 2:
+            $label = LABEL_ERROR_2;
+            break;
+        case 3:
+            $label = LABEL_ERROR_0;
+            break;
+    }
+    echo $label;
+}
+?>
+
 <div class="container">
     <section>
-        <form method="post" action="">
+        <form method="post" action="../Controllers/Command.php?controller=AccesController&action=signup">
             <input type="hidden" name="form_action" value="signin" />
             <h1><?php echo LABEL_SIGNUP ?></h1>
             <div id="userIdMessage">
-                <input type="text" placeholder="<?php echo LABEL_USERNAME; ?>" name="user_name" value="" required="required" id="username" onkeyup="validateUserId()"/>
-            </div>
-            <div>
-                <input type="text"  placeholder="<?php echo LABEL_NAME; ?>" name="first_name" value="" required="required" id="firstname"/>
-            </div>
-            <div>
-                <input type="text" placeholder="<?php echo LABEL_LASTNAME; ?>" name="last_name" value="" required="required" id="lastname"/>
+                <input type="text" placeholder="<?php echo LABEL_USERNAME; ?>" name="user_name" value="" required="required" id="username"/>
             </div>
             <div>
                 <input type="password" placeholder="<?php echo LABEL_PASS; ?>" name="password" value="" required="required" id="passwordsign"/>
@@ -19,7 +34,10 @@
                 <input type="password" placeholder="<?php echo LABEL_PASS; ?>" name="password2" value="" required="required" id="passwordsign2"/>
             </div>
             <div>
-                <input type="text" placeholder="<?php echo LABEL_PHONE; ?>" name="phone" value=""  id="phone" />
+                <input type="text" placeholder="<?php echo LABEL_QUESTION; ?>" name="pregunta" value=""  id="pregunta" />
+            </div>
+            <div>
+                <input type="text" placeholder="<?php echo LABEL_ANSWER; ?>" name="respuesta" value=""  id="respuesta" />
             </div>
             <div>
                 <input type="email" placeholder="<?php echo LABEL_MAIL; ?>" name="email" value="" required="required" id="email" />

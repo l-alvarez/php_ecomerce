@@ -9,7 +9,7 @@ class ViewClass {
     }
 
     public function render() {
-        header("Location: http://localhost/sce/" . $this->layout);
+        header("Location: ../" . $this->layout);
         die();
     }
 

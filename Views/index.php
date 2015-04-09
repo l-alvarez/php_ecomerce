@@ -6,12 +6,18 @@ if (!isset($_COOKIE["lang"])) {
     $idioma = $_COOKIE["lang"];
 }
 include_once "../lang/{$idioma}_lang.php";
+
+if ($_SERVER['SERVER_PORT'] != '443') {
+    header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='https://www.google.com/recaptcha/api.js'></script>
         <link rel="stylesheet" type="text/css" href="../stylesheet/cssresponsivedesign.css">
 
         <!-- css3-mediaqueries.js for IE8 or older -->

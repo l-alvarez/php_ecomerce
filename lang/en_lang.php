@@ -1,6 +1,6 @@
 <?php
 
-define('LABEL_BENVINGUDA', 'Wellcome to the best videogames on-line shop!');
+define('LABEL_BENVINGUDA', 'Welcome to the best videogames on-line shop!');
 define('LABEL_PRODUCTES', 'Shop products:');
 define('LABEL_MENU', 'Menu');
 define('LABEL_INFO', 'Legal information');
@@ -35,7 +35,12 @@ define('LABEL_USERNAME', 'Username');
 define('LABEL_NAME', 'Name');
 define('LABEL_LASTNAME', 'Last Name');
 define('LABEL_PASS', 'Password');
-define('LABEL_PHONE', 'Phone');
+define('LABEL_QUESTION', 'Secret question');
+define('LABEL_ANSWER','Answer');
 define('LABEL_MAIL', 'E-mail');
 
 define('LABEL_PUJAR', 'Auction');
+
+/* LABEL's del correo */
+define('LABEL_MAIL_VERIFY', 'Verifica tu cuenta.');
+define('LABEL_MAIL_BODY', 'Estimado/a <usuario> para activar su cuenta acceda a este enlace: enlace activación.');

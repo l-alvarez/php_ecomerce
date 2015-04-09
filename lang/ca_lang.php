@@ -35,7 +35,12 @@ define('LABEL_USERNAME', 'Usuari');
 define('LABEL_NAME', 'Nom');
 define('LABEL_LASTNAME', 'Cognom');
 define('LABEL_PASS', 'Contrasenya');
-define('LABEL_PHONE', 'Telefon');
+define('LABEL_QUESTION', 'Pregunta secreta');
+define('LABEL_ANSWER','Resposta');
 define('LABEL_MAIL', 'Correu electronic');
 
 define('LABEL_PUJAR', 'Subhasta');
+
+/* LABEL's del correo */
+define('LABEL_MAIL_VERIFY', 'Verifica tu cuenta.');
+define('LABEL_MAIL_BODY', 'Estimado/a <usuario> para activar su cuenta acceda a este enlace: enlace activación.');
