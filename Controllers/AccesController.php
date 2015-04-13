@@ -48,7 +48,7 @@ class AccesController {
 
         $dao->insert($username, $subCryptPwd, $mail, $pregunta, $respuesta, $salt, $lang);
 
-        //$this->sendMail($mail, $lang);
+        $this->sendMail($mail, $lang);
 
         $view = new ViewClass("index", "");
         $view->render();
@@ -95,44 +95,37 @@ class AccesController {
         /*
           $view = new ViewClass("index", "");
           $view->render();
-        */
+         */
     }
 
     private function sendMail($dest, $lang) {
-
         include_once '../lang/' . $lang . '_lang.php';
-
-        echo MAIL;
-
-        $from = '<' . MAIL . '>';
-        $to = $dest;
+        $from = "SCE <luis.marc.sce2015@gmail.com>";
+        $to = $name . " <" . $dest . ">";
         $subject = LABEL_MAIL_VERIFY;
         $body = LABEL_MAIL_BODY;
 
-        $headers = array(
-            'From' => $from,
+        $host = "smtp.gmail.com";
+        $port = "587";
+        $username = "luis.marc.sce2015@gmail.com";
+        $password = "sce20142015";
+
+        $headers = array('From' => $from,
             'To' => $to,
-            'Subject' => $subject
-        );
-
-        $smtp = Mail::factory('smtp', array('host' => 'smtp.gmail.com',
-                    'port' => '465',
+            'Subject' => $subject);
+        $smtp = Mail::factory('smtp', array('host' => $host,
+                    'port' => $port,
                     'auth' => true,
-                    'username' => MAIL,
-                    'password' => PASSWD
-        ));
-
-        echo "hola";
+                    'username' => $username,
+                    'password' => $password));
 
         $mail = $smtp->send($to, $headers, $body);
-        //mail($to,$from,$body,$headers);
-
-        echo "enviado";
 
         if (PEAR::isError($mail)) {
-            echo('<p>' . $mail->getMessage() . '</p>');
+            echo("<p>" . $mail->getMessage() . "</p>");
         } else {
-            echo('<p>Message successfully sent!</p>');
+
+            $mis.="   email enviat OK";
         }
     }
 
