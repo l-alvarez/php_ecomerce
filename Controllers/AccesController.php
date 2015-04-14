@@ -56,7 +56,7 @@ class AccesController {
     public function login() {
         $userName = $_POST["user"];
         $pass = $_POST["password"];
-
+  
         $dao = new DAOUser();
         $user = $dao->selectByName($userName);
 
