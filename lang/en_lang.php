@@ -12,8 +12,13 @@ define('LABEL_LOGIN', 'Login');
 define('LABEL_SIGNUP', 'SignUp');
 define('LABEL_CATEGORIES', 'Categories');
 define('LABEL_NO_RESULTS', 'No products found with that search.');
+define('LABEL_GREET','Welcome, ');
 
 define('LABEL_PUJAR', 'Auction');
+
+define('LABEL_LOGOUT','Logout');
+define('LABEL_PASWD_RECOVERY', 'Password recovery');
+define('LABEL_ACCEPT', 'Accept');
 
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', 'Ouch! Something went wrong.');
@@ -25,6 +30,7 @@ define('LABEL_ERROR_SIGNUP_0','The password is too short. Should be between 8 an
 define('LABEL_ERROR_SIGNUP_1','The passwords do not match.');
 define('LABEL_ERROR_SIGNUP_2','Username already exists.');
 define('LABEL_ERROR_SIGNUP_3','E-mail already exists.');
+define('LABEL_ERROR_LOGIN_VERIFIED','The account has not been verified yet.');
 
 /*LABEL's legales*/
 define('LABEL_CON', 'Video Games Auctions is an online store where you can buy used, in good condition and proven performance games. We try to have the most popular games consoles, especially systems Microsoft, Sony, Nintendo and Sega.');
@@ -47,5 +53,8 @@ define('LABEL_ANSWER','Answer');
 define('LABEL_MAIL', 'E-mail');
 
 /* LABEL's del correo */
-define('LABEL_MAIL_VERIFY', 'Verifica tu cuenta.');
-define('LABEL_MAIL_BODY', 'Estimado/a <usuario> para activar su cuenta acceda a este enlace: enlace activación.');
+define('LABEL_MAIL_VERIFY', 'Verify your account.');
+define('LABEL_MAIL_GREET','Dear ');
+define('LABEL_MAIL_BODY', 'To acctivate your account follow the link: ');
+define('LABEL_MAIL_BODY_RECOVERY', 'To recovery your password follow the link: ');
+define('LABEL_MAIL_END','Greetings.');

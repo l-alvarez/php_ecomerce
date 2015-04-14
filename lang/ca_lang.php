@@ -12,8 +12,13 @@ define('LABEL_LOGIN', 'Accedir');
 define('LABEL_SIGNUP', 'Registre');
 define('LABEL_CATEGORIES', 'Categories');
 define('LABEL_NO_RESULTS', 'No s\'han trobat prductes amb aquesta cerca.');
+define('LABEL_GREET','Benvingut, ');
 
 define('LABEL_PUJAR', 'Subhasta');
+
+define('LABEL_LOGOUT','Desconectar-se');
+define('LABEL_PASWD_RECOVERY', 'Recuperar contrassenya');
+define('LABEL_ACCEPT', 'Acceptar');
 
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', 'Uuuuups! Alguna cosa ha anat malament.');
@@ -21,6 +26,11 @@ define('LABEL_ERROR_0', '<p>Alguna cosa ha anat malament de forma inesperada.</p
 define('LABEL_ERROR_1', 'L\'acció sol·licitada no s\'ha pogut dur a terme degut a que un o més dels paràmetres era incorrecte. Sentim les molèsties ocasionades.');
 define('LABEL_ERROR_2', 'La pàgina a la que has intentat accedir no existeix.');
 define('LABEL_ERROR_LOGIN','El nom d\'usuari o la contrassenya son incorrectes.');
+define('LABEL_ERROR_SIGNUP_0','La contrassenya es massa curta. Ha de tindre entre 8 i 20 caracters.');
+define('LABEL_ERROR_SIGNUP_1','Les contrassenyes no coincideixen.');
+define('LABEL_ERROR_SIGNUP_2','El nom d\'usuari ja existeix.');
+define('LABEL_ERROR_SIGNUP_3','El correu ja existeix.');
+define('LABEL_ERROR_LOGIN_VERIFIED','La compta encara no ha sigut verificada.');
 
 /*LABEL's legales*/
 define('LABEL_CON', 'Videojocs Subhastes és una botiga online on pots adquirir jocs usats, en bon estat i comprovat funcionament. Procurem tenir jocs de les consoles més conegudes, sobretot dels sistemes de Microsoft, Sony, Nintendo i Sega.');
@@ -43,5 +53,8 @@ define('LABEL_ANSWER','Resposta');
 define('LABEL_MAIL', 'Correu electronic');
 
 /* LABEL's del correo */
-define('LABEL_MAIL_VERIFY', 'Verifica tu cuenta.');
-define('LABEL_MAIL_BODY', 'Estimado/a <usuario> para activar su cuenta acceda a este enlace: enlace activación.');
+define('LABEL_MAIL_VERIFY', 'Verifica la teva compta.');
+define('LABEL_MAIL_GREET','Estimat/da ');
+define('LABEL_MAIL_BODY', 'Per a activar la teva compta segueix l\'enllaç: ');
+define('LABEL_MAIL_BODY_RECOVERY', 'Per a recuperar la teva contrassenya segueix l\'enllaç: ');
+define('LABEL_MAIL_END','Salut.');

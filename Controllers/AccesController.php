@@ -37,19 +37,17 @@ class AccesController {
             $view->render();
         }
 
-        $tmp = mcrypt_create_iv(10);
+        $tmp = mcrypt_create_iv(20);
 
         $salt = $tmp;
 
-        $cryptPwd = hash('sha512', $passwd . $salt);
+        $cryptPwd = hash('sha512', $salt . $passwd);
 
-        $subCryptPwd = substr($cryptPwd, 0, 10);
+        $cryptAns = hash('sha512', $salt . $respuesta);
 
-        $cryptAns = hash('sha512', $respuesta . $salt);
+        $dao->insert($username, $cryptPwd, $mail, $pregunta, $cryptAns, $salt, $lang);
 
-        $dao->insert($username, $subCryptPwd, $mail, $pregunta, $cryptAns, $salt, $lang);
-
-        //$this->sendMail($mail, $lang);
+        $this->sendMail($username, $mail, $lang, 1);
 
         $view = new ViewClass("index", "");
         $view->render();
@@ -68,68 +66,120 @@ class AccesController {
             $view = new ViewClass("index", "?view=login&err=err");
             $view->render();
         }
+        if ($info['baixa_logica'] == '0') {
+            $view = new ViewClass("index", "?view=login&err=1");
+            $view->render();
+        }
 
         $salt = $info['salt'];
         $hash = $info['pwd'];
 
         echo $salt . '<br>';
 
-        $cryptPwd = hash('sha512', $pass . $salt);
+        $cryptPwd = hash('sha512', $salt . $pass);
 
-        echo $cryptPwd . '<br>';
-
-        $subCryptPwd = substr($cryptPwd, 0, 10);
-
-        echo $hash . '<br>';
-        echo $subCryptPwd . '<br>';
-
-        if ($hash != $subCryptPwd) {
+        if ($hash != $cryptPwd) {
             $view = new ViewClass("index", "?view=login&err=err");
             $view->render();
         }
 
         session_start();
-        $_SESSION['user'] = $info;
-        
+        $_SESSION['loged'] = 1;
+        $_SESSION['user'] = $info['login'];
+        $_SESSION['type'] = $info['tipus_usuari'];
+
         $view = new ViewClass("index", "");
         $view->render();
     }
 
-    private function sendMail($dest, $lang) {
+    public function logout() {
+        session_start();
+        $_SESSION['loged'] = 0;
+        $_SESSION['user'] = "";
+        $_SESSION['type'] = "";
 
+        $view = new ViewClass("index", "");
+        $view->render();
+    }
+
+    public function activate() {
+        if (isset($_GET['user'])) {
+            $user = $_GET['user'];
+            $dao = new DAOUser();
+            $dao->activate($user);
+        }
+
+        $view = new ViewClass("index", "");
+        $view->render();
+    }
+
+    public function recovery() {
+        if (!isset($_POST['user'])) {
+            $view = new ViewClass("index", "?view=paswdRecovery&st=err");
+            $view->render();
+        }
+
+        $lang = $_COOKIE["lang"];
+        $user = $_POST['user'];
+        $dao = new DAOUser();
+        $res = $dao->selectByName($user);
+        $found = $res->fetch_assoc();
+
+        if ($found) {
+            $mail = $found['email'];
+            sendMail($user, $mail, $lang, 0);
+        }
+
+        $view = new ViewClass("index", "?view=paswdRecovery&st=end");
+        $view->render();
+    }
+
+    public function pwdRec() {
+        $name = $_GET['user'];
+        $dao = new DAOUser();
+        $res = $dao->selectByName($user);
+        $found = $res->fetch_assoc();
+
+        if (!$found) {
+            $view = new ViewClass("index", "");
+            $view->render();
+        }
+    }
+
+    private function sendMail($name, $dest, $lang, $type) {
         include_once '../lang/' . $lang . '_lang.php';
-
-        echo MAIL;
-
-        $from = '<' . MAIL . '>';
-        $to = $dest;
+        $from = "SCE <luis.marc.sce2015@gmail.com>";
+        $to = $name . " <" . $dest . ">";
         $subject = LABEL_MAIL_VERIFY;
-        $body = LABEL_MAIL_BODY;
+        if ($type == 1) {
+            $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY . "<a href=\"https://localhost/sce/Controllers/Command.php?controller=AccesController&action=activate&user=" . $name . "\"> Link </a>.<br>" . LABEL_MAIL_END;
+        } else {
+            $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY_RECOVERY . "<a href=\"https://localhost/sce/Controllers/Command.php?controller=AccesController&action=pwdRec&user=" . $name . "\"> Link </a>.<br>" . LABEL_MAIL_END;
+        }
 
-        $headers = array(
-            'From' => $from,
+        $host = "smtp.gmail.com";
+        $port = "587";
+        $username = "luis.marc.sce2015@gmail.com";
+        $password = "sce20142015";
+
+        $headers = array('From' => $from,
             'To' => $to,
-            'Subject' => $subject
-        );
+            'Subject' => $subject,
+            'MIME-Version' => '1.0',
+            'Content-type' => 'text/html; charset=iso-8859-1');
 
-        $smtp = Mail::factory('smtp', array('host' => 'smtp.gmail.com',
-                    'port' => '465',
+        $smtp = Mail::factory('smtp', array('host' => $host,
+                    'port' => $port,
                     'auth' => true,
-                    'username' => MAIL,
-                    'password' => PASSWD
-        ));
-
-        echo "hola";
+                    'username' => $username,
+                    'password' => $password));
 
         $mail = $smtp->send($to, $headers, $body);
-        //mail($to,$from,$body,$headers);
-
-        echo "enviado";
 
         if (PEAR::isError($mail)) {
-            echo('<p>' . $mail->getMessage() . '</p>');
+            echo("<p>" . $mail->getMessage() . "</p>");
         } else {
-            echo('<p>Message successfully sent!</p>');
+            $mis = "email enviat OK";
         }
     }
 

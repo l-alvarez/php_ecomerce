@@ -43,6 +43,17 @@ class DAOUser extends DBConnection {
 
         return $res;
     }
+    
+    public function activate($user) {
+        $con = parent::getMySQLIConn();
+        $prepStmt = $con->prepare("UPDATE usuaris SET baixa_logica = '1' WHERE login = ?;");
+        
+        $prepStmt->bind_param("s", $user);
+        $prepStmt->execute();
+        
+        $prepStmt->close();
+        $con->close();
+    }
 
     public function selectByEmail($email) {
         $con = parent::getMySQLIConn();
@@ -62,7 +73,7 @@ class DAOUser extends DBConnection {
 
     public function insert($name, $pwd, $mail, $pregunta, $respuesta, $salt, $lang) {
         $con = parent::getMySQLIConn();
-        $prepStmt = $con->prepare("INSERT INTO usuaris (login,pwd,tipus_usuari,email,pregunta,respuesta,salt,idioma) VALUES (?,?,'0',?,?,?,?,?)");        
+        $prepStmt = $con->prepare("INSERT INTO usuaris (login,pwd,tipus_usuari,baixa_logica,email,pregunta,respuesta,salt,idioma) VALUES (?,?,'0','0',?,?,?,?,?)");        
         $prepStmt->bind_param("sssssss", $name,$pwd,$mail,$pregunta,$respuesta,$salt,$lang);
         $prepStmt->execute();
 

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if (!isset($_COOKIE["lang"])) {
     $idioma = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2);
     setcookie("lang", $idioma, time() + 3600, "/sce/");
@@ -10,6 +12,10 @@ include_once "../lang/{$idioma}_lang.php";
 if ($_SERVER['SERVER_PORT'] != '443') {
     header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
     exit();
+}
+
+foreach (glob("../Models/*.php") as $filename) {
+    include_once $filename;
 }
 ?>
 <!DOCTYPE html>
@@ -25,15 +31,9 @@ if ($_SERVER['SERVER_PORT'] != '443') {
                 <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
         <![endif]-->
         <title>Index</title>
-        <?php
-        foreach (glob("../Models/*.php") as $filename) {
-            include_once $filename;
-        }
-        ?>
     </head>
     <body>
         <div id="pagewrap">
-
             <div id="header">
                 <a href="/sce/Views/index.php"><img src="../img/icono.jpg" style="height: 100px; width: 100px" ></a><br>
                 <?php
@@ -45,10 +45,17 @@ if ($_SERVER['SERVER_PORT'] != '443') {
                         <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=es"> <img class="langimg" src="../img/sp.png"> </a>
                         <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=ca"> <img class="langimg" src="../img/cat.png"> </a>
                     </div>
-
-                    <div id='login' style="width: 150px; float: right; height: 20px">
-                        <a href="./index.php?view=login"><?php echo LABEL_LOGIN ?></a> / <a href="./index.php?view=signup"><?php echo LABEL_SIGNUP ?></a>
-                    </div>
+                    <?php
+                    if (isset($_SESSION['user']) && $_SESSION['loged'] == 1) {
+                        echo "<div id = 'login' style = \"width: auto; float: right; height: 20px\">";
+                        echo LABEL_GREET . $_SESSION['user'] . " (<a href = \"../Controllers/Command.php?controller=AccesController&action=logout\">" . LABEL_LOGOUT . "</a>)";
+                        echo "</div>";
+                    } else {
+                        echo "<div id = 'login' style = \"width: 150px; float: right; height: 20px\">";
+                        echo "<a href = \"./index.php?view=login\">" . LABEL_LOGIN . "</a> / <a href = \"./index.php?view=signup\">" . LABEL_SIGNUP . "</a>";
+                        echo "</div>";
+                    }
+                    ?>
                 </div>
             </div>
 
