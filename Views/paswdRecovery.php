@@ -1,5 +1,11 @@
 <?php
-
+if (isset($_GET['st'])) {
+    if ($_GET['st'] == 'err') {
+        echo "Error";
+    } else {
+        echo LABEL_VERIFY_MESSAGE;
+    }
+}
 ?>
 <form method = "post" action = "../Controllers/Command.php?controller=AccesController&action=recovery" name = "login">
     <fieldset>

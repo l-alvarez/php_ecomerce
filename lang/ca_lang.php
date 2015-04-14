@@ -19,6 +19,7 @@ define('LABEL_PUJAR', 'Subhasta');
 define('LABEL_LOGOUT','Desconectar-se');
 define('LABEL_PASWD_RECOVERY', 'Recuperar contrassenya');
 define('LABEL_ACCEPT', 'Acceptar');
+define('LABEL_VERIFY_MESSAGE','Si l\'usuari existeix, se lo ha enviat un correu per a recuperar la contrassenya.');
 
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', 'Uuuuups! Alguna cosa ha anat malament.');
@@ -31,6 +32,7 @@ define('LABEL_ERROR_SIGNUP_1','Les contrassenyes no coincideixen.');
 define('LABEL_ERROR_SIGNUP_2','El nom d\'usuari ja existeix.');
 define('LABEL_ERROR_SIGNUP_3','El correu ja existeix.');
 define('LABEL_ERROR_LOGIN_VERIFIED','La compta encara no ha sigut verificada.');
+define('LABEL_ERROR_ANSWER_INCORRECT','La resposta es incorrecta.');
 
 /*LABEL's legales*/
 define('LABEL_CON', 'Videojocs Subhastes és una botiga online on pots adquirir jocs usats, en bon estat i comprovat funcionament. Procurem tenir jocs de les consoles més conegudes, sobretot dels sistemes de Microsoft, Sony, Nintendo i Sega.');
@@ -58,3 +60,4 @@ define('LABEL_MAIL_GREET','Estimat/da ');
 define('LABEL_MAIL_BODY', 'Per a activar la teva compta segueix l\'enllaç: ');
 define('LABEL_MAIL_BODY_RECOVERY', 'Per a recuperar la teva contrassenya segueix l\'enllaç: ');
 define('LABEL_MAIL_END','Salut.');
+define('LABEL_MAIL_RECOVERY', 'Recuperació de contrassenya.');

@@ -8,7 +8,6 @@ if (isset($_GET['err'])) {
 }
 ?>
 
-
 <div id="formulari">
     <form method="post" action="../Controllers/Command.php?controller=AccesController&action=login" name="login">
         <fieldset>

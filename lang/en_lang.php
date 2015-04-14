@@ -19,6 +19,7 @@ define('LABEL_PUJAR', 'Auction');
 define('LABEL_LOGOUT','Logout');
 define('LABEL_PASWD_RECOVERY', 'Password recovery');
 define('LABEL_ACCEPT', 'Accept');
+define('LABEL_VERIFY_MESSAGE','If the user exists, an email has been sent to recovery the password.');
 
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', 'Ouch! Something went wrong.');
@@ -31,6 +32,7 @@ define('LABEL_ERROR_SIGNUP_1','The passwords do not match.');
 define('LABEL_ERROR_SIGNUP_2','Username already exists.');
 define('LABEL_ERROR_SIGNUP_3','E-mail already exists.');
 define('LABEL_ERROR_LOGIN_VERIFIED','The account has not been verified yet.');
+define('LABEL_ERROR_ANSWER_INCORRECT','The answer is incorrect.');
 
 /*LABEL's legales*/
 define('LABEL_CON', 'Video Games Auctions is an online store where you can buy used, in good condition and proven performance games. We try to have the most popular games consoles, especially systems Microsoft, Sony, Nintendo and Sega.');
@@ -58,3 +60,4 @@ define('LABEL_MAIL_GREET','Dear ');
 define('LABEL_MAIL_BODY', 'To acctivate your account follow the link: ');
 define('LABEL_MAIL_BODY_RECOVERY', 'To recovery your password follow the link: ');
 define('LABEL_MAIL_END','Greetings.');
+define('LABEL_MAIL_RECOVERY', 'Password recovery.');

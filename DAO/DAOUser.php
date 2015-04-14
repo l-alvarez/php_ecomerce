@@ -70,6 +70,16 @@ class DAOUser extends DBConnection {
 
         return $res;
     }
+    
+    public function updatePwd($user, $password){
+        $con = parent::getMySQLIConn();
+        $prepStmt = $con->prepare("UPDATE usuaris SET pwd = ? WHERE login = ?;");
+        $prepStmt->bind_param("ss",$password,$user);
+        $prepStmt->execute();
+        
+        $prepStmt->close();
+        $con->close();
+    }
 
     public function insert($name, $pwd, $mail, $pregunta, $respuesta, $salt, $lang) {
         $con = parent::getMySQLIConn();

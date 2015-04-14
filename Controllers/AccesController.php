@@ -74,8 +74,6 @@ class AccesController {
         $salt = $info['salt'];
         $hash = $info['pwd'];
 
-        echo $salt . '<br>';
-
         $cryptPwd = hash('sha512', $salt . $pass);
 
         if ($hash != $cryptPwd) {
@@ -127,7 +125,7 @@ class AccesController {
 
         if ($found) {
             $mail = $found['email'];
-            sendMail($user, $mail, $lang, 0);
+            $this->sendMail($user, $mail, $lang, 0);
         }
 
         $view = new ViewClass("index", "?view=paswdRecovery&st=end");
@@ -137,6 +135,28 @@ class AccesController {
     public function pwdRec() {
         $name = $_GET['user'];
         $dao = new DAOUser();
+        $res = $dao->selectByName($name);
+        $found = $res->fetch_assoc();
+
+        if (!$found) {
+            $view = new ViewClass("index", "");
+            $view->render();
+        }
+        session_start();
+        $_SESSION['username'] = $name;
+        $_SESSION['pregunta'] = $found['pregunta'];
+
+        $view = new ViewClass("index", "?view=pwdRec");
+        $view->render();
+    }
+
+    public function pwdRecVerify() {
+        $user = $_POST['user'];
+        $pwd1 = $_POST['password'];
+        $pwd2 = $_POST['password2'];
+        $resp = $_POST['respuesta'];
+
+        $dao = new DAOUser();
         $res = $dao->selectByName($user);
         $found = $res->fetch_assoc();
 
@@ -144,16 +164,44 @@ class AccesController {
             $view = new ViewClass("index", "");
             $view->render();
         }
+
+        if (strlen($pwd1) > 20 || strlen($pwd1) < 8) {
+            $view = new ViewClass("index", "?view=pwdRec&err=1");
+            $view->render();
+        }
+        if ($pwd1 != $pwd2) {
+            $view = new ViewClass("index", "?view=pwdRec&err=2");
+            $view->render();
+        }
+
+        $salt = $found['salt'];
+
+        $cryptAns = hash('sha512', $salt . $resp);
+
+        $hashResp = $found['respuesta'];
+
+        if ($hashResp != $cryptAns) {
+            $view = new ViewClass("index", "?view=pwdRec&err=3");
+            $view->render();
+        }
+
+        $cryptPwd = hash('sha512', $salt . $pwd1);
+
+        $dao->updatePwd($user, $cryptPwd);
+
+        $view = new ViewClass("index", "");
+        $view->render();
     }
 
     private function sendMail($name, $dest, $lang, $type) {
         include_once '../lang/' . $lang . '_lang.php';
         $from = "SCE <luis.marc.sce2015@gmail.com>";
         $to = $name . " <" . $dest . ">";
-        $subject = LABEL_MAIL_VERIFY;
         if ($type == 1) {
+            $subject = LABEL_MAIL_VERIFY;
             $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY . "<a href=\"https://localhost/sce/Controllers/Command.php?controller=AccesController&action=activate&user=" . $name . "\"> Link </a>.<br>" . LABEL_MAIL_END;
         } else {
+            $subject = LABEL_MAIL_RECOVERY;
             $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY_RECOVERY . "<a href=\"https://localhost/sce/Controllers/Command.php?controller=AccesController&action=pwdRec&user=" . $name . "\"> Link </a>.<br>" . LABEL_MAIL_END;
         }
 
