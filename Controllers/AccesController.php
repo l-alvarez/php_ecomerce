@@ -45,8 +45,9 @@ class AccesController {
 
         $subCryptPwd = substr($cryptPwd, 0, 10);
 
+        $cryptAns = hash('sha512', $respuesta . $salt);
 
-        $dao->insert($username, $subCryptPwd, $mail, $pregunta, $respuesta, $salt, $lang);
+        $dao->insert($username, $subCryptPwd, $mail, $pregunta, $cryptAns, $salt, $lang);
 
         //$this->sendMail($mail, $lang);
 
@@ -64,9 +65,8 @@ class AccesController {
         $info = $user->fetch_assoc();
 
         if (!$info) {
-            echo "usuario no existe";
-            die();
-            ///TODO: error
+            $view = new ViewClass("index", "?view=login&err=err");
+            $view->render();
         }
 
         $salt = $info['salt'];
@@ -84,18 +84,15 @@ class AccesController {
         echo $subCryptPwd . '<br>';
 
         if ($hash != $subCryptPwd) {
-            echo "contraseña incorrecta";
-            die();
-            //TODO: error
+            $view = new ViewClass("index", "?view=login&err=err");
+            $view->render();
         }
 
-        //session stuff
-
-        echo "login correcto, falta implementar sesion";
-        /*
-          $view = new ViewClass("index", "");
-          $view->render();
-        */
+        session_start();
+        $_SESSION['user'] = $info;
+        
+        $view = new ViewClass("index", "");
+        $view->render();
     }
 
     private function sendMail($dest, $lang) {

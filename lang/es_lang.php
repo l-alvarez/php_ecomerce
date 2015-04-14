@@ -13,11 +13,18 @@ define('LABEL_SIGNUP', 'Registrar');
 define('LABEL_CATEGORIES', 'Categorias');
 define('LABEL_NO_RESULTS', 'No se han encontrado productos con esa búsqueda');
 
+define('LABEL_PUJAR', 'Subasta');
+
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', '¡Uuuuups! Algo ha ido mal.');
 define('LABEL_ERROR_0', '<p>Algo ha ido inesperadamente mal.</p><p>No sabemos el que, ni porque.</p><p>Pero ha ido mal.</p>');
 define('LABEL_ERROR_1', 'La acción solicitada no se ha podido llevar a cabo debido a que uno o varios de los parámetros era incorrecto. Sentimos las molestias ocasionadas.');
 define('LABEL_ERROR_2', 'La página a la que has intentado acceder no existe.');
+define('LABEL_ERROR_LOGIN','El nombre de usuario o la contraseña son incorrectos.');
+define('LABEL_ERROR_SIGNUP_0','La contraseña es demasiado corta. Tiene que tener entre 8 y 20 caracteres.');
+define('LABEL_ERROR_SIGNUP_1','Las contraseñas no coinciden.');
+define('LABEL_ERROR_SIGNUP_2','El nombre de usuario ya existe.');
+define('LABEL_ERROR_SIGNUP_3','El correo electrónico ya existe.');
 
 /* LABEL's legales */
 define('LABEL_CON', 'Videojuegos Subastas es una tienda online donde puedes adquirir juegos usados, en buen estado y comprobado funcionamiento. Procuramos tener juegos de las consolas más conocidas, sobre todo de los sistemas de Microsoft, Sony, Nintendo y Sega.');
@@ -38,8 +45,6 @@ define('LABEL_PASS', 'Contraseña');
 define('LABEL_QUESTION', 'Pregunta secreta');
 define('LABEL_ANSWER', 'Respuesta');
 define('LABEL_MAIL', 'Correo');
-
-define('LABEL_PUJAR', 'Subasta');
 
 /* LABEL's del correo */
 define('LABEL_MAIL_VERIFY', 'Verifica tu cuenta.');

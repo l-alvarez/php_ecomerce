@@ -1,4 +1,10 @@
- <div id="pagina">
+<?php
+if (isset($_GET['err'])) {
+    echo LABEL_ERROR_LOGIN;
+}
+?>
+
+<div id="pagina">
     <div id="login">
         <div id="formulari">
             <form method="post" action="../Controllers/Command.php?controller=AccesController&action=login" name="login">

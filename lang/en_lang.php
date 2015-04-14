@@ -13,11 +13,18 @@ define('LABEL_SIGNUP', 'SignUp');
 define('LABEL_CATEGORIES', 'Categories');
 define('LABEL_NO_RESULTS', 'No products found with that search.');
 
+define('LABEL_PUJAR', 'Auction');
+
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', 'Ouch! Something went wrong.');
 define('LABEL_ERROR_0', '<p>Something went unexpectedly wrong.</p><p>We don\'t know what or why.</p><p>But it went wrong.</p>');
 define('LABEL_ERROR_1', 'The requested action could not be performed because one or more of the parameters were wrong. Sorry for the inconvenience.');
 define('LABEL_ERROR_2', 'The page you tried to access does not exist.');
+define('LABEL_ERROR_LOGIN','Username or pasword incorrect.');
+define('LABEL_ERROR_SIGNUP_0','The password is too short. Should be between 8 and 20 characters.');
+define('LABEL_ERROR_SIGNUP_1','The passwords do not match.');
+define('LABEL_ERROR_SIGNUP_2','Username already exists.');
+define('LABEL_ERROR_SIGNUP_3','E-mail already exists.');
 
 /*LABEL's legales*/
 define('LABEL_CON', 'Video Games Auctions is an online store where you can buy used, in good condition and proven performance games. We try to have the most popular games consoles, especially systems Microsoft, Sony, Nintendo and Sega.');
@@ -38,8 +45,6 @@ define('LABEL_PASS', 'Password');
 define('LABEL_QUESTION', 'Secret question');
 define('LABEL_ANSWER','Answer');
 define('LABEL_MAIL', 'E-mail');
-
-define('LABEL_PUJAR', 'Auction');
 
 /* LABEL's del correo */
 define('LABEL_MAIL_VERIFY', 'Verifica tu cuenta.');
