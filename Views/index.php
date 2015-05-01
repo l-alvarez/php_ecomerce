@@ -26,6 +26,8 @@ foreach (glob("../Models/*.php") as $filename) {
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <link rel="stylesheet" type="text/css" href="../stylesheet/cssresponsivedesign.css">
 
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+
         <!-- css3-mediaqueries.js for IE8 or older -->
         <!--[if lt IE 9]>
                 <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
@@ -78,6 +80,12 @@ foreach (glob("../Models/*.php") as $filename) {
                 <?php
                 echo '<h3>' . LABEL_MENU . '</h3>';
                 include_once './sidebar/search.php';
+
+                if (isset($_SESSION['type']) && $_SESSION['type'] == 1) {
+                    echo '<h3>Admin</h3>';
+                    include_once './sidebar/sidebarAdmin.php';
+                }
+
                 echo '<h3>' . LABEL_CATEGORIES . '</h3>';
                 include_once './sidebar/categories.php';
                 ?>

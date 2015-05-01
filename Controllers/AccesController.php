@@ -8,6 +8,7 @@ require_once '../DAO/DAOUser.php';
 class AccesController {
 
     public function signup() {
+
         $username = $_POST["user_name"];
         $passwd = $_POST["password"];
         $passwd2 = $_POST["password2"];
@@ -15,6 +16,8 @@ class AccesController {
         $respuesta = $_POST["respuesta"];
         $mail = $_POST["email"];
         $lang = $_COOKIE["lang"];
+
+        $captcha = $_POST["g-recaptcha-response"];
 
         if (strlen($passwd) > 20 || strlen($passwd) < 8) {
             $view = new ViewClass("index", "?view=signup&err=0");
@@ -34,6 +37,10 @@ class AccesController {
         $res2 = $dao->selectByEmail($mail);
         if ($res2->fetch_assoc()) {
             $view = new ViewClass("index", "?view=signup&err=3");
+            $view->render();
+        }
+        if (!$captcha) {
+            $view = new ViewClass("index", "?view=signup&err=4");
             $view->render();
         }
 
@@ -56,7 +63,7 @@ class AccesController {
     public function login() {
         $userName = $_POST["user"];
         $pass = $_POST["password"];
-  
+
         $dao = new DAOUser();
         $user = $dao->selectByName($userName);
 

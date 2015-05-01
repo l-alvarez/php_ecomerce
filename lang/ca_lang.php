@@ -31,6 +31,7 @@ define('LABEL_ERROR_SIGNUP_0','La contrassenya es massa curta. Ha de tindre entr
 define('LABEL_ERROR_SIGNUP_1','Les contrassenyes no coincideixen.');
 define('LABEL_ERROR_SIGNUP_2','El nom d\'usuari ja existeix.');
 define('LABEL_ERROR_SIGNUP_3','El correu ja existeix.');
+define('LABEL_ERROR_SIGNUP_4','No has omplert el captcha.');
 define('LABEL_ERROR_LOGIN_VERIFIED','La compta encara no ha sigut verificada.');
 define('LABEL_ERROR_ANSWER_INCORRECT','La resposta es incorrecta.');
 

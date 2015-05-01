@@ -14,9 +14,13 @@ if (isset($_GET['err'])) {
         case 3:
             $label = LABEL_ERROR_SIGNUP_3;
             break;
+        case 4:
+            $label = LABEL_ERROR_SIGNUP_4;
+            break;
     }
     echo $label;
 }
+
 ?>
 
 <div class="container">
@@ -45,6 +49,7 @@ if (isset($_GET['err'])) {
                     <input type="email" placeholder="<?php echo LABEL_MAIL; ?>" name="email" value="" required="required" id="email" />
                 </div>
                 <div>
+                    <div class="g-recaptcha" data-sitekey="6LfbVwUTAAAAALvm41fBHov9zLAEOTvO-nJ4AGKp"></div>
                     <input type="submit" name="enter" value="Enter"/>
                     <input type="button" onClick="location.href = './index.php?view=login'" value="<?php echo LABEL_LOGIN ?>">
                 </div>

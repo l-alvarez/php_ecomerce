@@ -31,6 +31,7 @@ define('LABEL_ERROR_SIGNUP_0','La contraseña es demasiado corta. Tiene que tene
 define('LABEL_ERROR_SIGNUP_1','Las contraseñas no coinciden.');
 define('LABEL_ERROR_SIGNUP_2','El nombre de usuario ya existe.');
 define('LABEL_ERROR_SIGNUP_3','El correo electrónico ya existe.');
+define('LABEL_ERROR_SIGNUP_4','No has rellenado el captcha.');
 define('LABEL_ERROR_LOGIN_VERIFIED','La cuenta no ha sido verificada aún.');
 define('LABEL_ERROR_ANSWER_INCORRECT','La respuesta es incorrecta.');
 

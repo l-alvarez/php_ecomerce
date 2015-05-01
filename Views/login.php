@@ -6,20 +6,8 @@ if (isset($_GET['err'])) {
         echo LABEL_ERROR_LOGIN;
     }
 }
-// tu clave secreta
-include_once "../Config/ReCaptcha.php";
-/*$secret = "6LfbVwUTAAAAABXxjnGltsMj5nIN6etJyLutItJa";
- 
-// respuesta vacía
-$response = null;
- 
-// comprueba la clave secreta
-$reCaptcha = new ReCaptchaReCaptcha($secret, $requestMethod);
-
- * ?>
- */
 ?>
-<script src='https://www.google.com/recaptcha/api.js'></script>
+
 <div id="formulari">
     <form method="post" action="../Controllers/Command.php?controller=AccesController&action=login" name="login">
         <fieldset>
@@ -28,7 +16,7 @@ $reCaptcha = new ReCaptchaReCaptcha($secret, $requestMethod);
             <br/>
             <input type="password" placeholder="<?php echo LABEL_PASS ?>" name="password" id="password"/>
             <br/>
-            <div class="g-recaptcha" data-sitekey="6LfbVwUTAAAAALvm41fBHov9zLAEOTvO-nJ4AGKp"></div>
+           
             <?php echo '<input type="submit" value="' . LABEL_LOGIN . '"/ payload>' ?>
             <input type="button" onClick="location.href = './index.php?view=signup'" value="<?php echo LABEL_SIGNUP ?>">
             <br>

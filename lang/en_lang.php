@@ -31,6 +31,7 @@ define('LABEL_ERROR_SIGNUP_0','The password is too short. Should be between 8 an
 define('LABEL_ERROR_SIGNUP_1','The passwords do not match.');
 define('LABEL_ERROR_SIGNUP_2','Username already exists.');
 define('LABEL_ERROR_SIGNUP_3','E-mail already exists.');
+define('LABEL_ERROR_SIGNUP_4','Captcha is empty.');
 define('LABEL_ERROR_LOGIN_VERIFIED','The account has not been verified yet.');
 define('LABEL_ERROR_ANSWER_INCORRECT','The answer is incorrect.');
 
