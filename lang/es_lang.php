@@ -5,6 +5,7 @@ define('LABEL_PRODUCTES', 'Productos de la tienda:');
 define('LABEL_MENU', 'Menú');
 define('LABEL_INFO', 'Información legal');
 define('LABEL_NOM', 'Nombre');
+define('LABEL_DESCRIPTION', 'Descripción');
 define('LABEL_ESTOC', 'Cantidad');
 define('LABEL_FOTO', 'Fotografia');
 define('LABEL_SEARCH', 'Buscar');
@@ -13,6 +14,11 @@ define('LABEL_SIGNUP', 'Registrar');
 define('LABEL_CATEGORIES', 'Categorias');
 define('LABEL_NO_RESULTS', 'No se han encontrado productos con esa búsqueda');
 define('LABEL_GREET','Bienvenido, ');
+define('LABEL_NONE','Ninguno');
+define('LABEL_FATHER','Padre');
+define('LABEL_UPDATE','Actualizar');
+
+define('LABEL_CHOOSE_NEW','Selecciona uno nuevo');
 
 define('LABEL_PUJAR', 'Subasta');
 
@@ -21,11 +27,14 @@ define('LABEL_PASWD_RECOVERY', 'Recuperar contraseña');
 define('LABEL_ACCEPT', 'Aceptar');
 define('LABEL_VERIFY_MESSAGE','Si el usuario introducido existe, se ha enviado un correo para recuperar la contraseña.');
 
+define('LABEL_ADMIN_CATEGORIES','Administrar categorias');
+
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', '¡Uuuuups! Algo ha ido mal.');
 define('LABEL_ERROR_0', '<p>Algo ha ido inesperadamente mal.</p><p>No sabemos el que, ni porque.</p><p>Pero ha ido mal.</p>');
 define('LABEL_ERROR_1', 'La acción solicitada no se ha podido llevar a cabo debido a que uno o varios de los parámetros era incorrecto. Sentimos las molestias ocasionadas.');
 define('LABEL_ERROR_2', 'La página a la que has intentado acceder no existe.');
+define('LABEL_ERROR_3', 'No tienes permiso para acceder a esta página.');
 define('LABEL_ERROR_LOGIN','El nombre de usuario o la contraseña son incorrectos.');
 define('LABEL_ERROR_SIGNUP_0','La contraseña es demasiado corta. Tiene que tener entre 8 y 20 caracteres.');
 define('LABEL_ERROR_SIGNUP_1','Las contraseñas no coinciden.');

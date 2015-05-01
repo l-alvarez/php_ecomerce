@@ -19,4 +19,5 @@ function mostrar_categories($result) {
 if (!$resultado) {
     die("Error: no se pudo realizar la consulta");
 }
+
 echo mostrar_categories($resultado);

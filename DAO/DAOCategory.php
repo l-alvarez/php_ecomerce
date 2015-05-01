@@ -24,5 +24,16 @@ class DAOCategory extends DBConnection {
         $con->close();
         return $res;
     }
-
+    
+    public function update($name, $desc, $father,$id) {
+        $con = parent::getMySQLIConn();
+        // UPDATE Applicant SET phone_number=?, street_name=?, city=?, county=?, zip_code=?, day_date=?, month_date=?, year_date=? WHERE account_id=?
+        $prepStmt = $con->prepare("UPDATE `categoria` SET `id_categoria_pare`=?, `nom`=?, `desc`=? WHERE `id_categoria`=?");
+        echo $con->error;
+        $prepStmt->bind_param("dssd",$father,$name,$desc,$id);
+        $prepStmt->execute();
+        
+        $prepStmt->close();
+        $con->close();
+    }
 }

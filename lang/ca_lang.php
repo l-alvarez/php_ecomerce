@@ -5,6 +5,7 @@ define('LABEL_PRODUCTES', 'Productes de la tenda:');
 define('LABEL_MENU', 'Menú');
 define('LABEL_INFO', 'Informació legal');
 define('LABEL_NOM', 'Nom');
+define('LABEL_DESCRIPTION', 'Descripció');
 define('LABEL_ESTOC', 'Estoc');
 define('LABEL_FOTO', 'Foto');
 define('LABEL_SEARCH', 'Cercar');
@@ -13,6 +14,11 @@ define('LABEL_SIGNUP', 'Registre');
 define('LABEL_CATEGORIES', 'Categories');
 define('LABEL_NO_RESULTS', 'No s\'han trobat prductes amb aquesta cerca.');
 define('LABEL_GREET','Benvingut, ');
+define('LABEL_NONE','Cap');
+define('LABEL_FATHER','Pare');
+define('LABEL_UPDATE','Actualitzar');
+
+define('LABEL_CHOOSE_NEW','Selecciona un nou');
 
 define('LABEL_PUJAR', 'Subhasta');
 
@@ -21,11 +27,14 @@ define('LABEL_PASWD_RECOVERY', 'Recuperar contrassenya');
 define('LABEL_ACCEPT', 'Acceptar');
 define('LABEL_VERIFY_MESSAGE','Si l\'usuari existeix, se lo ha enviat un correu per a recuperar la contrassenya.');
 
+define('LABEL_ADMIN_CATEGORIES','Administrar categories');
+
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', 'Uuuuups! Alguna cosa ha anat malament.');
 define('LABEL_ERROR_0', '<p>Alguna cosa ha anat malament de forma inesperada.</p><p>No sabem el que, ni perquè.</p><p>Però ha anat malament.</p>');
 define('LABEL_ERROR_1', 'L\'acció sol·licitada no s\'ha pogut dur a terme degut a que un o més dels paràmetres era incorrecte. Sentim les molèsties ocasionades.');
 define('LABEL_ERROR_2', 'La pàgina a la que has intentat accedir no existeix.');
+define('LABEL_ERROR_3', 'No tens permís per a accedir a aquesta página.');
 define('LABEL_ERROR_LOGIN','El nom d\'usuari o la contrassenya son incorrectes.');
 define('LABEL_ERROR_SIGNUP_0','La contrassenya es massa curta. Ha de tindre entre 8 i 20 caracters.');
 define('LABEL_ERROR_SIGNUP_1','Les contrassenyes no coincideixen.');

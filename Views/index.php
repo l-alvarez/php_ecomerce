@@ -14,9 +14,9 @@ if ($_SERVER['SERVER_PORT'] != '443') {
     exit();
 }
 
-foreach (glob("../Models/*.php") as $filename) {
+/*foreach (glob("../Models/*.php") as $filename) {
     include_once $filename;
-}
+}*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,7 +60,6 @@ foreach (glob("../Models/*.php") as $filename) {
                     ?>
                 </div>
             </div>
-
 
             <div id="content">
                 <?php

@@ -11,6 +11,12 @@ if (isset($_GET['error'])) {
         case 2:
             $label = LABEL_ERROR_2;
             break;
+        case 3:
+            $label = LABEL_ERROR_3;
+            break;
+        default:
+            $label = LABEL_ERROR_0;
+            break;
     }
 } else {
     $label = LABEL_ERROR_0;

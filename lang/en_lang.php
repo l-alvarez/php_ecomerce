@@ -5,6 +5,7 @@ define('LABEL_PRODUCTES', 'Shop products:');
 define('LABEL_MENU', 'Menu');
 define('LABEL_INFO', 'Legal information');
 define('LABEL_NOM', 'Name');
+define('LABEL_DESCRIPTION', 'Description');
 define('LABEL_ESTOC', 'Stock');
 define('LABEL_FOTO', 'Photo');
 define('LABEL_SEARCH', 'Search');
@@ -13,6 +14,11 @@ define('LABEL_SIGNUP', 'SignUp');
 define('LABEL_CATEGORIES', 'Categories');
 define('LABEL_NO_RESULTS', 'No products found with that search.');
 define('LABEL_GREET','Welcome, ');
+define('LABEL_NONE','None');
+define('LABEL_FATHER','Father');
+define('LABEL_UPDATE','Update');
+
+define('LABEL_CHOOSE_NEW','Choose a new one');
 
 define('LABEL_PUJAR', 'Auction');
 
@@ -21,11 +27,14 @@ define('LABEL_PASWD_RECOVERY', 'Password recovery');
 define('LABEL_ACCEPT', 'Accept');
 define('LABEL_VERIFY_MESSAGE','If the user exists, an email has been sent to recovery the password.');
 
+define('LABEL_ADMIN_CATEGORIES','Administrate categories');
+
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', 'Ouch! Something went wrong.');
 define('LABEL_ERROR_0', '<p>Something went unexpectedly wrong.</p><p>We don\'t know what or why.</p><p>But it went wrong.</p>');
 define('LABEL_ERROR_1', 'The requested action could not be performed because one or more of the parameters were wrong. Sorry for the inconvenience.');
 define('LABEL_ERROR_2', 'The page you tried to access does not exist.');
+define('LABEL_ERROR_3', 'You have no access right to this page.');
 define('LABEL_ERROR_LOGIN','Username or pasword incorrect.');
 define('LABEL_ERROR_SIGNUP_0','The password is too short. Should be between 8 and 20 characters.');
 define('LABEL_ERROR_SIGNUP_1','The passwords do not match.');

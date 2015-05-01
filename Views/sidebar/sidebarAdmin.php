@@ -1,5 +1,4 @@
-
-<body onLoad="timer()">
+<!--<body onLoad="timer()">
     <div id="cuerpo_dow">
         <div id="contador"></div>
         <script language="javascript">
@@ -13,4 +12,6 @@
             }
             i = 5;
         </script>
-    </div>
+    </div>-->
+
+<a href="../Controllers/Command.php?controller=CategoryController&action=admin"><?php echo LABEL_ADMIN_CATEGORIES ?></a>

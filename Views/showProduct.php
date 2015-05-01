@@ -32,6 +32,3 @@ function mostrar_producte($result, $cat) {
     }
     return $line0 . '<table id="tabla productos">' . $line . $line1 . '</table>';
 }
-
-?>
-
