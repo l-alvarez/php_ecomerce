@@ -55,5 +55,45 @@ class DAOProduct extends DBConnection {
 
         return $res;
     }
+    
+    public function create($id_categoria, $preu_inicial,$nom,$desc_llarga,$url_foto) {
+        $con = parent::getMySQLIConn();
+        $prepStmt = $con->prepare("INSERT INTO producte (`id_categoria`,`preu_inicial`,`nom`,`dec_llarga`,`url_foto`) VALUES (?,?,?,?,?)");
+        //echo $con->error;
+        $prepStmt->bind_param("ddsss",$id_categoria, $preu_inicial, $nom,$desc_llarga,$url_foto );
+        $prepStmt->execute();
+
+        $prepStmt->close();
+        $con->close();
+    }
+
+    public function delete($id) {
+        $con = parent::getMySQLIConn();
+
+        $con->autocommit(FALSE);
+        $delete = $con->prepare("DELETE FROM `producte` WHERE `id_producte`=?");
+        $delete->bind_param("d", $id);
+
+        if (!$delete->execute()) {
+            $con->rollback();
+        } else {
+            $con->commit();
+        }
+
+        $updateProducts->close();
+        $updateCategories->close();
+        $delete->close();
+
+        $con->close();
+    }
+    public function update($id_producte, $id_categoria, $preu_inicial,$nom,$desc_llarga,$url_foto) {
+        $con = parent::getMySQLIConn();
+        $prepStmt = $con->prepare("UPDATE `producte` SET `id_producte`=?, `id_categoria`=?, `preu_inicial`=?,`nom`=?,`desc_llarga`=?,`url_foto`=? WHERE `id_producte`=?");        //echo $con->error;
+        $prepStmt->bind_param("dddsss", $id_producte,$id_categoria,$preu_inicial, $nom, $desc_llarga, $url_foto, $id_producte);
+        $prepStmt->execute();
+
+        $prepStmt->close();
+        $con->close();
+    }
 
 }

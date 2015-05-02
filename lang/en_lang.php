@@ -18,6 +18,7 @@ define('LABEL_NONE','Any');
 define('LABEL_FATHER','Father');
 define('LABEL_UPDATE','Update');
 define('LABEL_CREATE_CATEGORY','Create a new category');
+define('LABEL_CREATE_PRODUCT','Create a new product');
 define('LABEL_DELETE','Delete');
 
 define('LABEL_CHOOSE_NEW','Choose a new one');
@@ -30,6 +31,7 @@ define('LABEL_ACCEPT', 'Accept');
 define('LABEL_VERIFY_MESSAGE','If the user exists, an email has been sent to recovery the password.');
 
 define('LABEL_ADMIN_CATEGORIES','Administrate categories');
+define('LABEL_ADMIN_PRODUCT','Administrar products');
 
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', 'Ouch! Something went wrong.');

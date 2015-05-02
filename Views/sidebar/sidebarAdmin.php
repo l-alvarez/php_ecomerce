@@ -15,4 +15,5 @@
     </div>-->
 <table>
 <tr><td><a href="../Controllers/Command.php?controller=CategoryController&action=admin"><?php echo LABEL_ADMIN_CATEGORIES ?></a></td></tr>
+<tr><td><a href="../Controllers/Command.php?controller=ProductController&action=admin"><?php echo LABEL_ADMIN_PRODUCT ?></a></td></tr>
 </table>
