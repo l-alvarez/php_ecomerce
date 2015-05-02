@@ -108,11 +108,11 @@ class SubastaController {
         $hora_limit = $_POST['hora_limit'];
         $estat = $_POST['estat'];
 
-
+        echo $id_sub;
         $dao = new DAOSubasta();
         $dao->update($id_sub, $id_prod, $id_max_postor, $data_limit, $hora_limit, $estat);
 
-        $view = new ViewClass("index", "?view=subDetails&sub=" . $id_sub);
+        $view = new ViewClass("index", "?view=subDetails&sub=".$id_sub);
         $view->render();
     }
 

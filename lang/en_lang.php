@@ -54,8 +54,7 @@ define('LABEL_TIME','Time limit');
 define('LABEL_CREATE_SUBASTA','Create auction');
 define('LABEL_ESTAT','Status');
 
-define('LABEL_ADMIN_CATEGORIES','Manage categories');
-define('LABEL_ADMIN_PRODUCTS','Manage products');
+
 define('LABEL_ADMIN_USERS','Manage users');
 
 

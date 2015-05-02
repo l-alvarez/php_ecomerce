@@ -59,7 +59,7 @@ class DAOSubasta extends DBConnection {
         $con = parent::getMySQLIConn();
         $prepStmt = $con->prepare("UPDATE `subhasta` SET `id_subhasta`=?, `id_producte`=?, `id_max_postor`=?, `data_limit`=?, `hora_limit`=?,`estat`=? WHERE `id_subhasta`=?");
         echo $con->error;
-        $prepStmt->bind_param("ddddddd",$id_sub, $id_prod, $id_max_postor, $data_limit, $hora_limit, $estat, $id_sub);
+        $prepStmt->bind_param("dddssdd",$id_sub, $id_prod, $id_max_postor, $data_limit, $hora_limit, $estat, $id_sub);
         $prepStmt->execute();
 
         $prepStmt->close();

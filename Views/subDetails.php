@@ -35,7 +35,7 @@ if (isset($_GET['sub'])) {
 <div id="formulari">
     <form method="post" action="../Controllers/Command.php?controller=SubastaController&action=update" name="update">
         <fieldset>
-            <input type="hidden" name="id_subhasta" id="id_sub" value="<?php echo $id_subhasta?>">
+            <input type="hidden" name="id_sub" id="id_sub" value="<?php echo $id_subhasta?>">
             <?php echo "Id: " . $id_subhasta ?>
             <br>
              <?php echo LABEL_PRODUCTES ?><input type="text" placeholder="<?php echo LABEL_PRODUCTES ?>" value="<?php echo $id_prod ?>" name="id_prod" id="id_prod"/>
