@@ -19,7 +19,7 @@ function list_prod($result) {
 
     while ($temp = mysql_fetch_assoc($result)) {
         $line .= '<tr><td><a href="../Controllers/Command.php?controller=ProductController&action=details&prod=' . $temp['id_producte'] . '">' . $temp['nom'] . '</a></td>'
-                . '<td><a href="../Controllers/Command.php?controller^ProductController&action=delete&prod=' . $temp['id_producte'] . '">' . LABEL_DELETE . '</a></td></tr>';
+                . '<td><a href="../Controllers/Command.php?controller=ProductController&action=delete&prod=' . $temp['id_producte'] . '">' . LABEL_DELETE . '</a></td></tr>';
     }
     return '<table id="tabla productos">' . $line . '</table>';
 }

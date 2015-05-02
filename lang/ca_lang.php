@@ -33,6 +33,8 @@ define('LABEL_VERIFY_MESSAGE','Si l\'usuari existeix, se lo ha enviat un correu 
 define('LABEL_ADMIN_CATEGORIES','Administrar categories');
 define('LABEL_ADMIN_PRODUCT','Administrar productes');
 
+define('LABEL_PREU_INI','Preu inicial');
+define('LABEL_URL_FOTO','URL imatge');
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', 'Uuuuups! Alguna cosa ha anat malament.');
 define('LABEL_ERROR_0', '<p>Alguna cosa ha anat malament de forma inesperada.</p><p>No sabem el que, ni perquè.</p><p>Però ha anat malament.</p>');

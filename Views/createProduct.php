@@ -22,20 +22,21 @@ while ($next = mysql_fetch_assoc($all)) {
     <form method="post" action="../Controllers/Command.php?controller=ProductController&action=create" name="update">
         <fieldset>
             <br>
-            <select name="categori">
+            <?php echo LABEL_CATEGORIES?>
+            <select name="id_cat">
                 <option value="-1"><?php echo LABEL_NONE ?></option>
                 <?php echo $options ?>
             </select>
             <br>
             <br>
-            <?php echo LABEL_NAME ?>: <input type="text" placeholder="<?php echo LABEL_NAME ?>" name="preu_ini" id="name"/>
+            <?php echo LABEL_NAME ?>: <input type="text" placeholder="<?php echo LABEL_NAME ?>" name="nom" id="nom"/>
+            <br>
+            <br>
+            <?php echo LABEL_PREU_INI ?>: <input type="text" placeholder="<?php echo LABEL_PREU_INI ?>" name="preu_ini" id="preu_ini"/>
             <br>
             <?php echo LABEL_DESCRIPTION ?>:<br> <textarea name="desc_llarga"><?php echo LABEL_DESCRIPTION ?></textarea>
             <br>
-            <select name="categori">
-                <option value="-1"><?php echo LABEL_NONE ?></option>
-                <?php echo $options ?>
-            </select>
+            <?php echo LABEL_URL_FOTO ?>: <input type="text" placeholder="<?php echo LABEL_URL_FOTO ?>" name="url_foto" id="url_foto"/>
             <br>
             <input type="submit" value="<?php echo LABEL_ACCEPT ?>"/>
             <br>

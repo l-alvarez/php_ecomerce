@@ -33,6 +33,8 @@ define('LABEL_VERIFY_MESSAGE','If the user exists, an email has been sent to rec
 define('LABEL_ADMIN_CATEGORIES','Administrate categories');
 define('LABEL_ADMIN_PRODUCT','Administrar products');
 
+define('LABEL_PREU_INI','Initial priece');
+define('LABEL_URL_FOTO','URL photo');
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', 'Ouch! Something went wrong.');
 define('LABEL_ERROR_0', '<p>Something went unexpectedly wrong.</p><p>We don\'t know what or why.</p><p>But it went wrong.</p>');

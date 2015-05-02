@@ -33,6 +33,10 @@ define('LABEL_VERIFY_MESSAGE','Si el usuario introducido existe, se ha enviado u
 
 define('LABEL_ADMIN_CATEGORIES','Administrar categorias');
 define('LABEL_ADMIN_PRODUCT','Administrar productos');
+
+define('LABEL_PREU_INI','Precio inicial');
+define('LABEL_URL_FOTO','URL imagen');
+
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', '¡Uuuuups! Algo ha ido mal.');
 define('LABEL_ERROR_0', '<p>Algo ha ido inesperadamente mal.</p><p>No sabemos el que, ni porque.</p><p>Pero ha ido mal.</p>');
