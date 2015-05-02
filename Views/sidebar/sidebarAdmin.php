@@ -17,4 +17,7 @@
 <tr><td><a href="../Controllers/Command.php?controller=CategoryController&action=admin"><?php echo LABEL_ADMIN_CATEGORIES ?></a></td></tr>
 <tr><td><a href="../Controllers/Command.php?controller=ProductController&action=admin"><?php echo LABEL_ADMIN_PRODUCT ?></a></td></tr>
 <tr><td><a href="../Controllers/Command.php?controller=SubastaController&action=admin"><?php echo LABEL_ADMIN_SUBASTA ?></a></td></tr>
+<tr><td><a href="../Controllers/Command.php?controller=UserController&action=admin"><?php echo LABEL_ADMIN_USERS ?></a></td></tr>
+
+
 </table>

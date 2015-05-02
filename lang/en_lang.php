@@ -1,5 +1,6 @@
 <?php
 
+
 define('LABEL_BENVINGUDA', 'Welcome to the best videogames on-line shop!');
 define('LABEL_PRODUCTES', 'Shop products:');
 define('LABEL_MENU', 'Menu');
@@ -17,8 +18,20 @@ define('LABEL_GREET','Welcome, ');
 define('LABEL_NONE','Any');
 define('LABEL_FATHER','Father');
 define('LABEL_UPDATE','Update');
+
+define('LABEL_DATE','Date');
+define('LABEL_ADMIN','Administrator');
+define('LABEL_USER','User');
+define('LABEL_USER_TYPE','Type');
+define('LABEL_VERIFIED','Verified');
+define('LABEL_YES','Yes');
+define('LABEL_NO','No');
+define('LABEL_LANG','Language');
+
 define('LABEL_CREATE_CATEGORY','Create a new category');
 define('LABEL_CREATE_PRODUCT','Create a new product');
+define('LABEL_CREATE_USER','Create a new user');
+
 define('LABEL_DELETE','Delete');
 
 define('LABEL_CHOOSE_NEW','Choose a new one');
@@ -30,6 +43,7 @@ define('LABEL_PASWD_RECOVERY', 'Password recovery');
 define('LABEL_ACCEPT', 'Accept');
 define('LABEL_VERIFY_MESSAGE','If the user exists, an email has been sent to recovery the password.');
 
+
 define('LABEL_ADMIN_CATEGORIES','Administrate categories');
 define('LABEL_ADMIN_PRODUCT','Administrate products');
 define('LABEL_ADMIN_SUBASTA','Administrate auctions');
@@ -40,8 +54,14 @@ define('LABEL_TIME','Time limit');
 define('LABEL_CREATE_SUBASTA','Create auction');
 define('LABEL_ESTAT','Status');
 
+define('LABEL_ADMIN_CATEGORIES','Manage categories');
+define('LABEL_ADMIN_PRODUCTS','Manage products');
+define('LABEL_ADMIN_USERS','Manage users');
+
+
 define('LABEL_PREU_INI','Initial priece');
 define('LABEL_URL_FOTO','URL photo');
+
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', 'Ouch! Something went wrong.');
 define('LABEL_ERROR_0', '<p>Something went unexpectedly wrong.</p><p>We don\'t know what or why.</p><p>But it went wrong.</p>');

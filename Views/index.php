@@ -1,22 +1,24 @@
 <?php
 session_start();
 
-if (!isset($_COOKIE["lang"])) {
-    $idioma = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2);
+if (isset($_SESSION)) {
+    $idioma = $_SESSION['lang'];
     setcookie("lang", $idioma, time() + 3600, "/sce/");
 } else {
-    $idioma = $_COOKIE["lang"];
+    if (!isset($_COOKIE["lang"])) {
+        $idioma = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2);
+        setcookie("lang", $idioma, time() + 3600, "/sce/");
+    } else {
+        $idioma = $_COOKIE["lang"];
+    }
 }
+
 include_once "../lang/{$idioma}_lang.php";
 
 if ($_SERVER['SERVER_PORT'] != '443') {
     header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
     exit();
 }
-
-/*foreach (glob("../Models/*.php") as $filename) {
-    include_once $filename;
-}*/
 ?>
 <!DOCTYPE html>
 <html>
