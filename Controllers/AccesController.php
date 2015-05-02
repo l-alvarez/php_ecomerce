@@ -52,7 +52,7 @@ class AccesController {
 
         $cryptAns = hash('sha512', $salt . $respuesta);
 
-        $dao->insert($username, $cryptPwd, $mail, $pregunta, $cryptAns, $salt, $lang);
+        $dao->create($username, $cryptPwd, $mail, $pregunta, $cryptAns, $salt, $lang, 0, 0);
 
         $this->sendMail($username, $mail, $lang, 1);
 
@@ -92,6 +92,7 @@ class AccesController {
         $_SESSION['loged'] = 1;
         $_SESSION['user'] = $info['login'];
         $_SESSION['type'] = $info['tipus_usuari'];
+        $_SESSION['lang'] = $info['idioma'];
 
         $view = new ViewClass("index", "");
         $view->render();

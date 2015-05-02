@@ -18,6 +18,15 @@ define('LABEL_NONE','Cap');
 define('LABEL_FATHER','Pare');
 define('LABEL_UPDATE','Actualitzar');
 
+define('LABEL_DATE','Data');
+define('LABEL_ADMIN','Administrador');
+define('LABEL_USER','Usuari');
+define('LABEL_USER_TYPE','Tipus');
+define('LABEL_VERIFIED','Verificat');
+define('LABEL_YES','Si');
+define('LABEL_NO','No');
+define('LABEL_LANG','Idioma');
+
 define('LABEL_CREATE_CATEGORY','Crear una nova categoria');
 define('LABEL_CREATE_PRODUCT','Crear un nou producte');
 define('LABEL_CREATE_USER','Crear un nou usuari');
@@ -36,6 +45,9 @@ define('LABEL_VERIFY_MESSAGE','Si l\'usuari existeix, se lo ha enviat un correu 
 define('LABEL_ADMIN_CATEGORIES','Administrar categories');
 define('LABEL_ADMIN_PRODUCTS','Administrar productes');
 define('LABEL_ADMIN_USERS','Administrar usuaris');
+
+define('LABEL_PREU_INI','Preu inicial');
+define('LABEL_URL_FOTO','URL imatge');
 
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', 'Uuuuups! Alguna cosa ha anat malament.');

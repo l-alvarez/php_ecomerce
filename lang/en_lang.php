@@ -18,6 +18,15 @@ define('LABEL_NONE','Any');
 define('LABEL_FATHER','Father');
 define('LABEL_UPDATE','Update');
 
+define('LABEL_DATE','Date');
+define('LABEL_ADMIN','Administrator');
+define('LABEL_USER','User');
+define('LABEL_USER_TYPE','Type');
+define('LABEL_VERIFIED','Verified');
+define('LABEL_YES','Yes');
+define('LABEL_NO','No');
+define('LABEL_LANG','Language');
+
 define('LABEL_CREATE_CATEGORY','Create a new category');
 define('LABEL_CREATE_PRODUCT','Create a new product');
 define('LABEL_CREATE_USER','Create a new user');
@@ -36,6 +45,9 @@ define('LABEL_VERIFY_MESSAGE','If the user exists, an email has been sent to rec
 define('LABEL_ADMIN_CATEGORIES','Manage categories');
 define('LABEL_ADMIN_PRODUCTS','Manage products');
 define('LABEL_ADMIN_USERS','Manage users');
+
+define('LABEL_PREU_INI','Initial priece');
+define('LABEL_URL_FOTO','URL photo');
 
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', 'Ouch! Something went wrong.');

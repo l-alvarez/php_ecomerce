@@ -18,6 +18,16 @@ define('LABEL_NONE','Ninguno');
 define('LABEL_FATHER','Padre');
 define('LABEL_UPDATE','Actualizar');
 
+define('LABEL_DATE','Fecha');
+define('LABEL_ADMIN','Administrador');
+define('LABEL_USER','Usuario');
+define('LABEL_USER_TYPE','Tipo');
+define('LABEL_VERIFIED','Verificado');
+define('LABEL_YES','Si');
+define('LABEL_NO','No');
+define('LABEL_LANG','Idioma');
+
+
 define('LABEL_CREATE_CATEGORY','Crear una nueva categoria');
 define('LABEL_CREATE_PRODUCT','Crear un nuevo producto');
 define('LABEL_CREATE_USER','Crear un nuevo usuario');
@@ -36,6 +46,9 @@ define('LABEL_VERIFY_MESSAGE','Si el usuario introducido existe, se ha enviado u
 define('LABEL_ADMIN_CATEGORIES','Administrar categorias');
 define('LABEL_ADMIN_PRODUCTS','Administrar productos');
 define('LABEL_ADMIN_USERS','Administrar usuarios');
+
+define('LABEL_PREU_INI','Precio inicial');
+define('LABEL_URL_FOTO','URL imagen');
 
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', '¡Uuuuups! Algo ha ido mal.');
