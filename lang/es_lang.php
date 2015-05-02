@@ -33,6 +33,14 @@ define('LABEL_VERIFY_MESSAGE','Si el usuario introducido existe, se ha enviado u
 
 define('LABEL_ADMIN_CATEGORIES','Administrar categorias');
 define('LABEL_ADMIN_PRODUCT','Administrar productos');
+define('LABEL_ADMIN_SUBASTA','Administrar subasta');
+
+define('LABEL_SUBASTA','Subasta');
+define('LABEL_DATA_LIMIT','Fecha limite');
+define('LABEL_TIME','Hora limite');
+define('LABEL_CREATE_SUBASTA','Crear subasta');
+define('LABEL_ESTAT','Estado');
+
 
 define('LABEL_PREU_INI','Precio inicial');
 define('LABEL_URL_FOTO','URL imagen');

@@ -32,6 +32,13 @@ define('LABEL_VERIFY_MESSAGE','Si l\'usuari existeix, se lo ha enviat un correu 
 
 define('LABEL_ADMIN_CATEGORIES','Administrar categories');
 define('LABEL_ADMIN_PRODUCT','Administrar productes');
+define('LABEL_ADMIN_SUBASTA','Administrar subhasta');
+
+define('LABEL_SUBASTA','Subhasta');
+define('LABEL_DATA_LIMIT','Data límit');
+define('LABEL_TIME','Hora límit');
+define('LABEL_CREATE_SUBASTA','Crear subhasta');
+define('LABEL_ESTAT','Estat');
 
 define('LABEL_PREU_INI','Preu inicial');
 define('LABEL_URL_FOTO','URL imatge');

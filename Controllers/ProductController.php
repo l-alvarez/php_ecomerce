@@ -49,18 +49,18 @@ class ProductController {
         $view->render();
     }
 
-    public function admin() {
-        if (!isset($_SESSION)) {
-            session_start();
-        }
+        public function admin() {
+            if (!isset($_SESSION)) {
+                session_start();
+            }
 
-        if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
-        }
+            if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
+                header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            }
 
-        $view = new ViewClass("index", "?view=adminProducts");
-        $view->render();
-    }
+            $view = new ViewClass("index", "?view=adminProducts");
+            $view->render();
+        }
 
     public function create() {
         if (!isset($_SESSION)) {

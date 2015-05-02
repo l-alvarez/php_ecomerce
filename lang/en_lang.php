@@ -31,7 +31,14 @@ define('LABEL_ACCEPT', 'Accept');
 define('LABEL_VERIFY_MESSAGE','If the user exists, an email has been sent to recovery the password.');
 
 define('LABEL_ADMIN_CATEGORIES','Administrate categories');
-define('LABEL_ADMIN_PRODUCT','Administrar products');
+define('LABEL_ADMIN_PRODUCT','Administrate products');
+define('LABEL_ADMIN_SUBASTA','Administrate auctions');
+
+define('LABEL_SUBASTA','Auction');
+define('LABEL_DATA_LIMIT','Deadline');
+define('LABEL_TIME','Time limit');
+define('LABEL_CREATE_SUBASTA','Create auction');
+define('LABEL_ESTAT','Status');
 
 define('LABEL_PREU_INI','Initial priece');
 define('LABEL_URL_FOTO','URL photo');
