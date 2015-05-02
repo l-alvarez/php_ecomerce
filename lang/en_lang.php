@@ -14,9 +14,11 @@ define('LABEL_SIGNUP', 'SignUp');
 define('LABEL_CATEGORIES', 'Categories');
 define('LABEL_NO_RESULTS', 'No products found with that search.');
 define('LABEL_GREET','Welcome, ');
-define('LABEL_NONE','None');
+define('LABEL_NONE','Any');
 define('LABEL_FATHER','Father');
 define('LABEL_UPDATE','Update');
+define('LABEL_CREATE_CATEGORY','Create a new category');
+define('LABEL_DELETE','Delete');
 
 define('LABEL_CHOOSE_NEW','Choose a new one');
 

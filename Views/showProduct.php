@@ -21,14 +21,18 @@ function mostrar_producte($result, $cat) {
     $line = '';
     $line1 = '';
     $line0 = '';
-    $sub=LABEL_PUJAR;
+    $sub = LABEL_PUJAR;
 
     while ($temp = $result->fetch_assoc()) {
-        $category = $cat->selectById($temp['id_categoria']);
-        $name = $category->fetch_assoc()['nom'];
+        if($temp['id_categoria'] != -1) {
+            $category = $cat->selectById($temp['id_categoria']);
+            $name = $category->fetch_assoc()['nom'];
+        } else {
+            $name = LABEL_NONE;
+        }
         $line0.='<p>' . $name . '>>' . $temp['nom'] . '</p>';
         $line .= '<tr><td>' . $temp['nom'] . '</a></td><td><img src=' . $temp['url_foto'] . ' WIDTH=100 HEIGHT=100></td></tr>';
-        $line1.='<tr><td>' . $temp['desc_llarga'] . '</td><td><button onclick="location.href=\'./index.php?view=signup\'">'. $sub.'</button></td></tr>';
+        $line1.='<tr><td>' . $temp['desc_llarga'] . '</td><td><button onclick="location.href=\'./index.php?view=signup\'">' . $sub . '</button></td></tr>';
     }
     return $line0 . '<table id="tabla productos">' . $line . $line1 . '</table>';
 }

@@ -13,5 +13,6 @@
             i = 5;
         </script>
     </div>-->
-
-<a href="../Controllers/Command.php?controller=CategoryController&action=admin"><?php echo LABEL_ADMIN_CATEGORIES ?></a>
+<table>
+<tr><td><a href="../Controllers/Command.php?controller=CategoryController&action=admin"><?php echo LABEL_ADMIN_CATEGORIES ?></a></td></tr>
+</table>

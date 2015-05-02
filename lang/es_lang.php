@@ -17,6 +17,8 @@ define('LABEL_GREET','Bienvenido, ');
 define('LABEL_NONE','Ninguno');
 define('LABEL_FATHER','Padre');
 define('LABEL_UPDATE','Actualizar');
+define('LABEL_CREATE_CATEGORY','Crear nueva categoria');
+define('LABEL_DELETE','Borrar');
 
 define('LABEL_CHOOSE_NEW','Selecciona uno nuevo');
 

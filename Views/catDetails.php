@@ -1,6 +1,9 @@
 <?php
-session_start();
-if(!isset($_SESSION['type']) || $_SESSION['type'] != 1){
+if (!isset($_SESSION)){
+    session_start();
+}
+
+if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
     header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
 }
 
@@ -8,28 +11,30 @@ include_once '../Controllers/CategoryController.php';
 
 if (isset($_GET['cat'])) {
     $options = "";
-    
-    $ctrl= new CategoryController();
+
+    $ctrl = new CategoryController();
     $resultado = $ctrl->selectById($_GET['cat']);
 
     if (!$resultado) {
         die("Error: no se pudo realizar la consulta");
     }
-    
-    $all = $ctrl->selectAll();
-                
-    while( $next = mysql_fetch_assoc($all) ){
-        $options .='<option value="' . $next['id_categoria'] . '">'. $next['nom'] .'</option>';
-    }
-    
+
     $info = $resultado->fetch_assoc();
-    
+
     $id = $info['id_categoria'];
     $name = $info['nom'];
-    $desc = $info['desc'];
-    $padre = (double)$info['id_categoria_pare'];
-    
-    if($padre != -1) {
+    $desc = $info['descripcio'];
+    $padre = (double) $info['id_categoria_pare'];
+
+    $all = $ctrl->selectAll();
+
+    while ($next = mysql_fetch_assoc($all)) {
+        if ($next['id_categoria'] != $id) {
+            $options .='<option value="' . $next['id_categoria'] . '">' . $next['nom'] . '</option>';
+        }
+    }
+
+    if ($padre != -1) {
         $fetch = $ctrl->selectById($padre);
         $father = $fetch->fetch_assoc();
         $father_name = $father['nom'];
@@ -38,7 +43,6 @@ if (isset($_GET['cat'])) {
         $father_name = LABEL_NONE;
         $father_id = -1;
     }
-    
 } else {
     header("Location: http://localhost/sce/Views/index.php?view=error&error=1");
 }

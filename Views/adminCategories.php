@@ -1,6 +1,10 @@
 <?php
-session_start();
-if(!isset($_SESSION['type']) || $_SESSION['type'] != 1){
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
     header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
 }
 
@@ -13,7 +17,8 @@ function list_categories($result) {
     $line = '';
 
     while ($temp = mysql_fetch_assoc($result)) {
-        $line .= '<tr><td><a href="../Controllers/Command.php?controller=CategoryController&action=details&cat=' . $temp['id_categoria'] . '">' . $temp['nom'] . '</a></td></tr>';
+        $line .= '<tr><td><a href="../Controllers/Command.php?controller=CategoryController&action=details&cat=' . $temp['id_categoria'] . '">' . $temp['nom'] . '</a></td>'
+                . '<td><a href="../Controllers/Command.php?controller=CategoryController&action=delete&cat=' . $temp['id_categoria'] . '">' . LABEL_DELETE . '</a></td></tr>';
     }
     return '<table id="tabla productos">' . $line . '</table>';
 }
@@ -21,5 +26,7 @@ function list_categories($result) {
 if (!$resultado) {
     die("Error: no se pudo realizar la consulta");
 }
+
+echo '<a href="../Controllers/Command.php?controller=CategoryController&action=createView" >' . LABEL_CREATE_CATEGORY . '</a>';
 
 echo list_categories($resultado);
