@@ -39,13 +39,13 @@ STRUCTURE
 #content {
     width: 84%;
     float: right;
-    height: 30em;
+    min-height: 30em;
     overflow: auto;
 }
 #sidebar {
     width: 15%;
     float: left;
-    height: 30em;
+    min-height: 30em;
 }
 #footer {
     clear: both;

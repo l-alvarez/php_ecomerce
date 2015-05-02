@@ -17,8 +17,11 @@ define('LABEL_GREET','Benvingut, ');
 define('LABEL_NONE','Cap');
 define('LABEL_FATHER','Pare');
 define('LABEL_UPDATE','Actualitzar');
+
 define('LABEL_CREATE_CATEGORY','Crear una nova categoria');
 define('LABEL_CREATE_PRODUCT','Crear un nou producte');
+define('LABEL_CREATE_USER','Crear un nou usuari');
+
 define('LABEL_DELETE','Esborrar');
 
 define('LABEL_CHOOSE_NEW','Selecciona un nou');
@@ -31,7 +34,8 @@ define('LABEL_ACCEPT', 'Acceptar');
 define('LABEL_VERIFY_MESSAGE','Si l\'usuari existeix, se lo ha enviat un correu per a recuperar la contrassenya.');
 
 define('LABEL_ADMIN_CATEGORIES','Administrar categories');
-define('LABEL_ADMIN_PRODUCT','Administrar productes');
+define('LABEL_ADMIN_PRODUCTS','Administrar productes');
+define('LABEL_ADMIN_USERS','Administrar usuaris');
 
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', 'Uuuuups! Alguna cosa ha anat malament.');

@@ -10,8 +10,8 @@ if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
 
 include_once '../Controllers/CategoryController.php';
 
-$prod = new CategoryController();
-$resultado = $prod->selectAll();
+$ctrl = new CategoryController();
+$resultado = $ctrl->selectAll();
 
 function list_categories($result) {
     $line = '';

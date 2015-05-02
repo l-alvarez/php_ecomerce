@@ -48,7 +48,8 @@ class ProductController {
         }
         $view->render();
     }
-        public function admin() {
+
+    public function admin() {
         if (!isset($_SESSION)) {
             session_start();
         }
@@ -60,7 +61,8 @@ class ProductController {
         $view = new ViewClass("index", "?view=adminProducts");
         $view->render();
     }
-      public function create() {
+
+    public function create() {
         if (!isset($_SESSION)) {
             session_start();
         }
@@ -73,15 +75,16 @@ class ProductController {
         $preu_inicial = $_POST['preu_ini'];
         $nom = $_POST['name'];
         $desc_llarga = $_POST['desc_llarga'];
-        $url_foto=$_POST['url_foto'];
+        $url_foto = $_POST['url_foto'];
 
         $dao = new DAOProduct();
-        $dao->create($id_categoria, $preu_inicial, $nom, $desc_llarga,$url_foto);
+        $dao->create($id_categoria, $preu_inicial, $nom, $desc_llarga, $url_foto);
 
         $view = new ViewClass("index", "?view=adminProductes");
         $view->render();
     }
-        public function createView(){
+
+    public function createView() {
         if (!isset($_SESSION)) {
             session_start();
         }
@@ -89,7 +92,7 @@ class ProductController {
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
             header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
         }
-        
+
         $view = new ViewClass("index", "?view=createProduct");
         $view->render();
     }

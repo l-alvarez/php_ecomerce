@@ -1,6 +1,6 @@
 <?php
 
-$controllers = ["ProductController", "LangController", "CategoryController", "AccesController"];
+$controllers = ["ProductController", "LangController", "CategoryController", "AccesController", "UserController"];
 
 if (isset($_GET['controller']) && in_array($_GET['controller'], $controllers)) {
     require_once($_GET['controller'] . ".php");

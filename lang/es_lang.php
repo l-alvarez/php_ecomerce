@@ -17,8 +17,10 @@ define('LABEL_GREET','Bienvenido, ');
 define('LABEL_NONE','Ninguno');
 define('LABEL_FATHER','Padre');
 define('LABEL_UPDATE','Actualizar');
-define('LABEL_CREATE_CATEGORY','Crear nueva categoria');
-define('LABEL_CREATE_PRODUCT','Crear nuevo producto');
+
+define('LABEL_CREATE_CATEGORY','Crear una nueva categoria');
+define('LABEL_CREATE_PRODUCT','Crear un nuevo producto');
+define('LABEL_CREATE_USER','Crear un nuevo usuario');
 
 define('LABEL_DELETE','Borrar');
 
@@ -32,7 +34,9 @@ define('LABEL_ACCEPT', 'Aceptar');
 define('LABEL_VERIFY_MESSAGE','Si el usuario introducido existe, se ha enviado un correo para recuperar la contraseña.');
 
 define('LABEL_ADMIN_CATEGORIES','Administrar categorias');
-define('LABEL_ADMIN_PRODUCT','Administrar productos');
+define('LABEL_ADMIN_PRODUCTS','Administrar productos');
+define('LABEL_ADMIN_USERS','Administrar usuarios');
+
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', '¡Uuuuups! Algo ha ido mal.');
 define('LABEL_ERROR_0', '<p>Algo ha ido inesperadamente mal.</p><p>No sabemos el que, ni porque.</p><p>Pero ha ido mal.</p>');
