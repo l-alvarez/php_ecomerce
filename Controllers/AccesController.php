@@ -44,9 +44,7 @@ class AccesController {
             $view->render();
         }
 
-        $tmp = mcrypt_create_iv(20);
-
-        $salt = $tmp;
+        $salt = mcrypt_create_iv(20);
 
         $cryptPwd = hash('sha512', $salt . $passwd);
 

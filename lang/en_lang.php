@@ -1,5 +1,10 @@
 <?php
-
+define('LABEL_ADMIN_CODES','Manage codes');
+define('LABEL_UNIQUE_USE','Unique use');
+define('LABEL_ACTIVE','Active');
+define('LABEL_DISCOUNT','Discount');
+define('LABEL_DISCOUNT_ERROR','The discount has to be between 5 and 80');
+define('LABEL_CREATE_CODE','Create a new code');
 
 define('LABEL_BENVINGUDA', 'Welcome to the best videogames on-line shop!');
 define('LABEL_PRODUCTES', 'Shop products:');
@@ -44,9 +49,9 @@ define('LABEL_ACCEPT', 'Accept');
 define('LABEL_VERIFY_MESSAGE','If the user exists, an email has been sent to recovery the password.');
 
 
-define('LABEL_ADMIN_CATEGORIES','Administrate categories');
-define('LABEL_ADMIN_PRODUCT','Administrate products');
-define('LABEL_ADMIN_SUBASTA','Administrate auctions');
+define('LABEL_ADMIN_CATEGORIES','Manage categories');
+define('LABEL_ADMIN_PRODUCT','Manage products');
+define('LABEL_ADMIN_SUBASTA','Manage auctions');
 
 define('LABEL_SUBASTA','Auction');
 define('LABEL_DATA_LIMIT','Deadline');

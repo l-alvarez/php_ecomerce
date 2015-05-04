@@ -1,4 +1,10 @@
 <?php
+define('LABEL_ADMIN_CODES','Administrar códis');
+define('LABEL_UNIQUE_USE','Us únic');
+define('LABEL_ACTIVE','Activat');
+define('LABEL_DISCOUNT','Descompte');
+define('LABEL_DISCOUNT_ERROR','El descompta ha d\'estar entre 5 i 80' );
+define('LABEL_CREATE_CODE','Crear un nou códi');
 
 define('LABEL_BENVINGUDA', 'Benvingut a la millor tenda on-line de videojocs!');
 define('LABEL_PRODUCTES', 'Productes de la tenda:');

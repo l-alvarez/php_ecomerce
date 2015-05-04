@@ -1,6 +1,6 @@
 <?php
 
-$controllers = ["ProductController", "LangController", "CategoryController", "AccesController","SubastaController","UserController"];
+$controllers = ["ProductController", "LangController", "CategoryController", "AccesController","SubastaController","UserController","CodeController"];
 
 
 if (isset($_GET['controller']) && in_array($_GET['controller'], $controllers)) {

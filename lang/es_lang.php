@@ -1,4 +1,10 @@
 <?php
+define('LABEL_ADMIN_CODES','Administrar códigos');
+define('LABEL_UNIQUE_USE','Uso único');
+define('LABEL_ACTIVE','Activo');
+define('LABEL_DISCOUNT','Descuento');
+define('LABEL_DISCOUNT_ERROR','El descuento tiene que estar entre 5 y 80');
+define('LABEL_CREATE_CODE','Crear un nuevo códgo');
 
 define('LABEL_BENVINGUDA', '¡Bienvenido a la mejor tienda on-line de videojuegos!');
 define('LABEL_PRODUCTES', 'Productos de la tienda:');
