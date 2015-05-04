@@ -11,7 +11,6 @@ include_once '../Controllers/SubastaController.php';
 include_once '../Controllers/ProductController.php';
 if (isset($_GET['sub'])) {
     $options = "";
-
     $ctrl = new SubastaController();
     $resultado = $ctrl->selectById($_GET['sub']);
 
