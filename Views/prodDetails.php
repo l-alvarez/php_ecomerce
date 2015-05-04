@@ -9,6 +9,17 @@ if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
 
 include_once '../Controllers/ProductController.php';
 
+function cat($id){
+    include_once '../Controllers/CategoryController.php';
+    if ($id != -1) {
+        $ctrls = new CategoryController();
+        $res = $ctrls->selectById($id);
+        $infos = $res->fetch_assoc();
+        $nomCat = $infos['nom'];
+        return $nomCat;
+    }  
+}
+
 if (isset($_GET['prod'])) {
     $options = "";
 
@@ -27,6 +38,9 @@ if (isset($_GET['prod'])) {
     $nom = $info['nom'];
     $desc_llarga = $info['desc_llarga'];
     $url_foto = $info['url_foto'];
+    $nomCat=cat($id_categoria);
+
+    
 } else {
     header("Location: http://localhost/sce/Views/index.php?view=error&error=1");
 }
@@ -35,10 +49,16 @@ if (isset($_GET['prod'])) {
 <div id="formulari">
     <form method="post" action="../Controllers/Command.php?controller=ProductController&action=update" name="update">
         <fieldset>
-            <input type="hidden" name="id_prod" id="id_prod" value="<?php echo $id_prod?>">
+            <input type="hidden" name="id_prod" id="id_prod" value="<?php echo $id_prod ?>">
             <?php echo "Id: " . $id_prod ?>
             <br>
-             <?php echo LABEL_CATEGORIES ?><input type="text" placeholder="<?php echo LABEL_CATEGORIES ?>" value="<?php echo $id_categoria ?>" name="id_categoria" id="id_categoria"/>
+             <?php echo LABEL_CATEGORIES . ": "?>
+            <?php echo $nomCat?>
+            <select name="cat">
+                <option value="<?php echo $id_categoria ?>"><?php echo LABEL_CHOOSE_NEW ?></option>
+                <option value="-1"><?php echo LABEL_NONE ?></option>
+                <?php echo $options ?>
+            </select>
             <br>
             <?php echo LABEL_NAME ?>: <input type="text" placeholder="<?php echo LABEL_NAME ?>" value="<?php echo $nom ?>" name="nom" id="nom"/>
             <br>
