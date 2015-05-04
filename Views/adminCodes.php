@@ -17,8 +17,8 @@ function list_codes($result) {
     $line = '';
 
     while ($temp = mysql_fetch_assoc($result)) {
-        $line .= '<tr><td><a href="../Controllers/Command.php?controller=CodeController&action=details&code=' . $temp['codigo'] . '">' . $temp['codigo'] . '</a></td>'
-                . '<td><a href="../Controllers/Command.php?controller=CodeController&action=delete&code=' . $temp['codigo'] . '">' . LABEL_DELETE . '</a></td></tr>';
+        $line .= '<tr><td><a href="../Controllers/Command.php?controller=CodeController&action=details&code=' . $temp['short'] . '">' . $temp['codigo'] . '</a></td>'
+                . '<td><a href="../Controllers/Command.php?controller=CodeController&action=delete&code=' . $temp['short'] . '">' . LABEL_DELETE . '</a></td></tr>';
     }
     return '<table id="tabla productos">' . $line . '</table>';
 }

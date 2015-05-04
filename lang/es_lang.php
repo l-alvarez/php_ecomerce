@@ -1,10 +1,4 @@
 <?php
-define('LABEL_ADMIN_CODES','Administrar códigos');
-define('LABEL_UNIQUE_USE','Uso único');
-define('LABEL_ACTIVE','Activo');
-define('LABEL_DISCOUNT','Descuento');
-define('LABEL_DISCOUNT_ERROR','El descuento tiene que estar entre 5 y 80');
-define('LABEL_CREATE_CODE','Crear un nuevo códgo');
 
 define('LABEL_BENVINGUDA', '¡Bienvenido a la mejor tienda on-line de videojuegos!');
 define('LABEL_PRODUCTES', 'Productos de la tienda:');
@@ -19,51 +13,58 @@ define('LABEL_LOGIN', 'Acceder');
 define('LABEL_SIGNUP', 'Registrar');
 define('LABEL_CATEGORIES', 'Categorias');
 define('LABEL_NO_RESULTS', 'No se han encontrado productos con esa búsqueda');
-define('LABEL_GREET','Bienvenido, ');
-define('LABEL_NONE','Ninguno');
-define('LABEL_FATHER','Padre');
-define('LABEL_UPDATE','Actualizar');
+define('LABEL_GREET', 'Bienvenido, ');
+define('LABEL_NONE', 'Ninguno');
+define('LABEL_FATHER', 'Padre');
+define('LABEL_UPDATE', 'Actualizar');
+define('LABEL_ALL', 'Todos/Todas');
 
-define('LABEL_DATE','Fecha');
-define('LABEL_ADMIN','Administrador');
-define('LABEL_USER','Usuario');
-define('LABEL_USER_TYPE','Tipo');
-define('LABEL_VERIFIED','Verificado');
-define('LABEL_YES','Si');
-define('LABEL_NO','No');
-define('LABEL_LANG','Idioma');
+define('LABEL_DATE', 'Fecha');
+define('LABEL_ADMIN', 'Administrador');
+define('LABEL_USER', 'Usuario');
+define('LABEL_USER_TYPE', 'Tipo');
+define('LABEL_VERIFIED', 'Verificado');
+define('LABEL_YES', 'Si');
+define('LABEL_NO', 'No');
+define('LABEL_LANG', 'Idioma');
 
+define('LABEL_UNIQUE_USE', 'Uso único');
+define('LABEL_ACTIVE', 'Activo');
+define('LABEL_DISCOUNT', 'Descuento');
+define('LABEL_CODE', 'Código');
+define('LABEL_CODE_SHORT', 'Código corto');
+define('LABEL_CODE_LONG', 'Código largo');
 
-define('LABEL_CREATE_CATEGORY','Crear una nueva categoria');
-define('LABEL_CREATE_PRODUCT','Crear un nuevo producto');
-define('LABEL_CREATE_USER','Crear un nuevo usuario');
+define('LABEL_CREATE_CATEGORY', 'Crear una nueva categoria');
+define('LABEL_CREATE_PRODUCT', 'Crear un nuevo producto');
+define('LABEL_CREATE_USER', 'Crear un nuevo usuario');
+define('LABEL_CREATE_CODE', 'Crear un nuevo códgo');
 
-define('LABEL_DELETE','Borrar');
+define('LABEL_DELETE', 'Borrar');
 
-define('LABEL_CHOOSE_NEW','Selecciona uno nuevo');
+define('LABEL_CHOOSE_NEW', 'Selecciona uno nuevo');
 
 define('LABEL_PUJAR', 'Subasta');
 
-define('LABEL_LOGOUT','Desconectarse');
+define('LABEL_LOGOUT', 'Desconectarse');
 define('LABEL_PASWD_RECOVERY', 'Recuperar contraseña');
 define('LABEL_ACCEPT', 'Aceptar');
-define('LABEL_VERIFY_MESSAGE','Si el usuario introducido existe, se ha enviado un correo para recuperar la contraseña.');
+define('LABEL_VERIFY_MESSAGE', 'Si el usuario introducido existe, se ha enviado un correo para recuperar la contraseña.');
 
-define('LABEL_ADMIN_CATEGORIES','Administrar categorias');
-define('LABEL_ADMIN_PRODUCT','Administrar productos');
-define('LABEL_ADMIN_SUBASTA','Administrar subasta');
+define('LABEL_ADMIN_CATEGORIES', 'Administrar categorias');
+define('LABEL_ADMIN_PRODUCT', 'Administrar productos');
+define('LABEL_ADMIN_SUBASTA', 'Administrar subasta');
+define('LABEL_ADMIN_USERS', 'Administrar usuarios');
+define('LABEL_ADMIN_CODES', 'Administrar códigos');
 
-define('LABEL_SUBASTA','Subasta');
-define('LABEL_DATA_LIMIT','Fecha limite');
-define('LABEL_TIME','Hora limite');
-define('LABEL_CREATE_SUBASTA','Crear subasta');
-define('LABEL_ESTAT','Estado');
+define('LABEL_SUBASTA', 'Subasta');
+define('LABEL_DATA_LIMIT', 'Fecha limite');
+define('LABEL_TIME', 'Hora limite');
+define('LABEL_CREATE_SUBASTA', 'Crear subasta');
+define('LABEL_ESTAT', 'Estado');
 
-define('LABEL_ADMIN_PRODUCTS','Administrar productos');
-define('LABEL_ADMIN_USERS','Administrar usuarios');
-
-define('LABEL_PREU_INI','Precio inicial');
-define('LABEL_URL_FOTO','URL imagen');
+define('LABEL_PREU_INI', 'Precio inicial');
+define('LABEL_URL_FOTO', 'URL imagen');
 
 /* LABEL's de error */
 define('LABEL_ERROR_TITLE', '¡Uuuuups! Algo ha ido mal.');
@@ -71,14 +72,15 @@ define('LABEL_ERROR_0', '<p>Algo ha ido inesperadamente mal.</p><p>No sabemos el
 define('LABEL_ERROR_1', 'La acción solicitada no se ha podido llevar a cabo debido a que uno o varios de los parámetros era incorrecto. Sentimos las molestias ocasionadas.');
 define('LABEL_ERROR_2', 'La página a la que has intentado acceder no existe.');
 define('LABEL_ERROR_3', 'No tienes permiso para acceder a esta página.');
-define('LABEL_ERROR_LOGIN','El nombre de usuario o la contraseña son incorrectos.');
-define('LABEL_ERROR_SIGNUP_0','La contraseña es demasiado corta. Tiene que tener entre 8 y 20 caracteres.');
-define('LABEL_ERROR_SIGNUP_1','Las contraseñas no coinciden.');
-define('LABEL_ERROR_SIGNUP_2','El nombre de usuario ya existe.');
-define('LABEL_ERROR_SIGNUP_3','El correo electrónico ya existe.');
-define('LABEL_ERROR_SIGNUP_4','No has rellenado el captcha.');
-define('LABEL_ERROR_LOGIN_VERIFIED','La cuenta no ha sido verificada aún.');
-define('LABEL_ERROR_ANSWER_INCORRECT','La respuesta es incorrecta.');
+define('LABEL_ERROR_LOGIN', 'El nombre de usuario o la contraseña son incorrectos.');
+define('LABEL_ERROR_SIGNUP_0', 'La contraseña es demasiado corta. Tiene que tener entre 8 y 20 caracteres.');
+define('LABEL_ERROR_SIGNUP_1', 'Las contraseñas no coinciden.');
+define('LABEL_ERROR_SIGNUP_2', 'El nombre de usuario ya existe.');
+define('LABEL_ERROR_SIGNUP_3', 'El correo electrónico ya existe.');
+define('LABEL_ERROR_SIGNUP_4', 'No has rellenado el captcha.');
+define('LABEL_ERROR_LOGIN_VERIFIED', 'La cuenta no ha sido verificada aún.');
+define('LABEL_ERROR_ANSWER_INCORRECT', 'La respuesta es incorrecta.');
+define('LABEL_DISCOUNT_ERROR', 'El descuento tiene que estar entre 5 y 80');
 
 /* LABEL's legales */
 define('LABEL_CON', 'Videojuegos Subastas es una tienda online donde puedes adquirir juegos usados, en buen estado y comprobado funcionamiento. Procuramos tener juegos de las consolas más conocidas, sobre todo de los sistemas de Microsoft, Sony, Nintendo y Sega.');
@@ -102,8 +104,8 @@ define('LABEL_MAIL', 'Correo');
 
 /* LABEL's del correo */
 define('LABEL_MAIL_VERIFY', 'Verifica tu cuenta.');
-define('LABEL_MAIL_GREET','Estimado/a ');
+define('LABEL_MAIL_GREET', 'Estimado/a ');
 define('LABEL_MAIL_BODY', 'Para activar su cuenta acceda a este enlace: ');
 define('LABEL_MAIL_BODY_RECOVERY', 'Para recuperar su contraseña acceda a este enlace: ');
-define('LABEL_MAIL_END','Saludos.');
+define('LABEL_MAIL_END', 'Saludos.');
 define('LABEL_MAIL_RECOVERY', 'Recuperación de contraseña.');

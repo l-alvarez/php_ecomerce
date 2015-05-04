@@ -14,7 +14,7 @@ class DAOCode extends DBConnection{
 
     public function selectOne($code) {
         $con = parent::getMySQLIConn();
-        $prepStmt = $con->prepare("SELECT * FROM codigo WHERE codigo=?");
+        $prepStmt = $con->prepare("SELECT * FROM codigo WHERE short=?");
         mysqli_query($con, "set character_set_results='utf8'");
         
         $prepStmt->bind_param("s", $code);
@@ -29,7 +29,7 @@ class DAOCode extends DBConnection{
 
     public function update($code, $active) {
         $con = parent::getMySQLIConn();
-        $prepStmt = $con->prepare("UPDATE codigo SET activo=? WHERE codigo=?");
+        $prepStmt = $con->prepare("UPDATE codigo SET activo=? WHERE short=?");
         //echo $con->error;
         $prepStmt->bind_param("is", $active, $code);
         $prepStmt->execute();
@@ -38,11 +38,11 @@ class DAOCode extends DBConnection{
         $con->close();
     }
 
-    public function create($code,$activo) {
+    public function create($code,$activo,$short) {
         $con = parent::getMySQLIConn();
-        $prepStmt = $con->prepare("INSERT INTO codigo (codigo,activo) VALUES (?,?)");
+        $prepStmt = $con->prepare("INSERT INTO codigo (codigo,activo,short) VALUES (?,?,?)");
         //echo $con->error;
-        $prepStmt->bind_param("si", $code, $activo);
+        $prepStmt->bind_param("sis", $code, $activo, $short);
         $prepStmt->execute();
 
         $prepStmt->close();
@@ -51,7 +51,7 @@ class DAOCode extends DBConnection{
 
     public function delete($code) {
         $con = parent::getMySQLIConn();
-        $delete = $con->prepare("DELETE FROM codigo WHERE codigo=?");
+        $delete = $con->prepare("DELETE FROM codigo WHERE short=?");
         
         $delete->bind_param("s", $code);
         $delete->execute();
