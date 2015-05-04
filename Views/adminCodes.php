@@ -30,4 +30,3 @@ if (!$resultado) {
 echo '<a href="../Controllers/Command.php?controller=CodeController&action=createView" >' . LABEL_CREATE_CODE . '</a>';
 
 echo list_codes($resultado);
-
