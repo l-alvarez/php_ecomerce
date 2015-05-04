@@ -10,14 +10,26 @@ if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
 
 include_once '../Controllers/SubastaController.php';
 
-$prod = new SubastaController();
-$resultado = $prod->selectAll();
+
+$sub= new SubastaController();
+$resultado = $sub->selectAll();
 
 function list_subasta($result) {
     $line = '';
 
     while ($temp = mysql_fetch_assoc($result)) {
-        $line .= '<tr><td><a href="../Controllers/Command.php?controller=SubastaController&action=details&sub=' . $temp['id_subhasta'] . '">' . $temp['id_subhasta'] . '</a></td>'
+        include_once '../Controllers/ProductController.php';
+        $id = (double) $temp['id_producte'];
+        $prod = new ProductController();
+        $res = $prod ->selectById($id);
+        $info = $res->fetch_assoc();
+
+        
+        
+        
+        //$hola= $res['nom'];
+        //echo $hola;
+        $line .= '<tr><td><a href="../Controllers/Command.php?controller=SubastaController&action=details&sub=' . $temp['id_subhasta'] . '">' . $info['nom'] . '</a></td>'
                 . '<td><a href="../Controllers/Command.php?controller=SubastaController&action=delete&sub=' . $temp['id_subhasta'] . '">' . LABEL_DELETE . '</a></td></tr>';
     }
     return '<table id="tabla subasta">' . $line . '</table>';

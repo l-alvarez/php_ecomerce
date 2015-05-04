@@ -137,7 +137,7 @@ class ProductController {
             header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
         }
         $id_producte = $_POST['id_prod'];
-        $id_categoria = $_POST['id_categoria'];
+        $id_categoria = $_POST['cat'];
         $preu_inicial = $_POST['preu_ini'];
         $nom = $_POST['nom'];
         $desc_llarga = $_POST['desc_llarga'];
