@@ -91,6 +91,7 @@ class AccesController {
         $_SESSION['user'] = $info['login'];
         $_SESSION['type'] = $info['tipus_usuari'];
         $_SESSION['lang'] = $info['idioma'];
+        $_SESSION['id_user'] = $info['id_usuari'];
 
         $view = new ViewClass("index", "");
         $view->render();
@@ -205,10 +206,10 @@ class AccesController {
         $to = $name . " <" . $dest . ">";
         if ($type == 1) {
             $subject = LABEL_MAIL_VERIFY;
-            $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY . "<a href=\"https://localhost/sce/Controllers/Command.php?controller=AccesController&action=activate&user=" . $name . "\"> Link </a>.<br>" . LABEL_MAIL_END;
+            $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY . "<a href=\"" . $_SERVER['HTTP_HOST'] . "/sce/Controllers/Command.php?controller=AccesController&action=activate&user=" . $name . "\"> Link </a>.<br>" . LABEL_MAIL_END;
         } else {
             $subject = LABEL_MAIL_RECOVERY;
-            $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY_RECOVERY . "<a href=\"https://localhost/sce/Controllers/Command.php?controller=AccesController&action=pwdRec&user=" . $name . "\"> Link </a>.<br>" . LABEL_MAIL_END;
+            $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY_RECOVERY . "<a href=\"" . $_SERVER['HTTP_HOST'] . "/sce/Controllers/Command.php?controller=AccesController&action=pwdRec&user=" . $name . "\"> Link </a>.<br>" . LABEL_MAIL_END;
         }
 
         $host = "smtp.gmail.com";

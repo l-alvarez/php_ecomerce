@@ -70,17 +70,21 @@ class DAOProduct extends DBConnection {
         $con = parent::getMySQLIConn();
         echo $id;
         $con->autocommit(FALSE);
-        echo $con->error;
+        
+        
+        $deleteSub = $con->prepare("DELETE FROM `subhasta` WHERE `id_producte`=?");
+        $deleteSub->bind_param("d",$id);
         $delete = $con->prepare("DELETE FROM `producte` WHERE `id_producte`=?");
         $delete->bind_param("d", $id);
 
-        if (!$delete->execute()) {
+        if (!$delete->execute() || !$deleteSub->execute()) {
             $con->rollback();
         } else {
             $con->commit();
         }
         
         $delete->close();
+        $deleteSub->close();
 
         $con->close();
     }

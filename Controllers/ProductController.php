@@ -110,6 +110,8 @@ class ProductController {
 
         $dao = new DAOProduct();
         $dao->delete($id);
+        
+        
 
         $view = new ViewClass("index", "?view=adminProducts");
         $view->render();
