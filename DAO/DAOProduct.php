@@ -58,7 +58,7 @@ class DAOProduct extends DBConnection {
     
     public function create($id_categoria, $preu_inicial,$nom,$desc_llarga,$url_foto) {
         $con = parent::getMySQLIConn();
-        $prepStmt = $con->prepare("INSERT INTO producte (`id_categoria`,`preu_inicial`,`nom`,`desc_llarga`,`url_foto`) VALUES (?,?,?,?,?)");
+        $prepStmt = $con->prepare("INSERT INTO producte (id_categoria,preu_inicial,nom,desc_llarga,url_foto) VALUES (?,?,?,?,?)");
         
         $prepStmt->bind_param("ddsss",$id_categoria, $preu_inicial, $nom,$desc_llarga,$url_foto );
         $prepStmt->execute();
@@ -71,10 +71,10 @@ class DAOProduct extends DBConnection {
         echo $id;
         $con->autocommit(FALSE);
         
-        
-        $deleteSub = $con->prepare("DELETE FROM `subhasta` WHERE `id_producte`=?");
+        $deleteSub = $con->prepare("DELETE FROM subhasta WHERE id_producte=?");
         $deleteSub->bind_param("d",$id);
-        $delete = $con->prepare("DELETE FROM `producte` WHERE `id_producte`=?");
+        
+        $delete = $con->prepare("DELETE FROM producte WHERE id_producte=?");
         $delete->bind_param("d", $id);
 
         if (!$delete->execute() || !$deleteSub->execute()) {
@@ -90,9 +90,9 @@ class DAOProduct extends DBConnection {
     }
     public function update($id_producte, $id_categoria, $preu_inicial,$nom,$desc_llarga,$url_foto) {
         $con = parent::getMySQLIConn();
-        $prepStmt = $con->prepare("UPDATE `producte` SET `id_producte`=?, `id_categoria`=?, `preu_inicial`=?,`nom`=?,`desc_llarga`=?,`url_foto`=? WHERE `id_producte`=?");       
+        $prepStmt = $con->prepare("UPDATE producte SET id_categoria=?, preu_inicial=?, nom=?, desc_llarga=?, url_foto=? WHERE id_producte=?");       
         echo $id_producte; 
-        $prepStmt->bind_param("dddsssd", $id_producte,$id_categoria,$preu_inicial,$nom,$desc_llarga,$url_foto,$id_producte);
+        $prepStmt->bind_param("ddsssd", $id_categoria,$preu_inicial,$nom,$desc_llarga,$url_foto,$id_producte);
         $prepStmt->execute();
 
         $prepStmt->close();

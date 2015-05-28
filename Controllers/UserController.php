@@ -26,7 +26,7 @@ class UserController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
 
         $view = new ViewClass("index", "?view=createUser");
@@ -39,7 +39,7 @@ class UserController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
 
         $id = $_GET['usr'];
@@ -53,7 +53,7 @@ class UserController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
 
         $view = new ViewClass("index", "?view=adminUsers");
@@ -66,7 +66,7 @@ class UserController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
 
         $username = $_POST['user_name'];
@@ -78,6 +78,10 @@ class UserController {
         $type = $_POST['type'];
         $baixa = $_POST['baixa'];
         $lang = $_POST['lang'];
+        $name = $_POST["name"];
+        $surname = $_POST["surname"];
+        $nif = $_POST["nif"];
+        $direccion = $_POST["direccion"];
         
         if (strlen($passwd) > 20 || strlen($passwd) < 8) {
             $view = new ViewClass("index", "?view=createUser&err=0");
@@ -108,7 +112,7 @@ class UserController {
 
         $cryptAns = hash('sha512', $salt . $respuesta);
 
-        $dao->create($username, $cryptPwd, $email, $pregunta, $cryptAns, $salt, $lang, $type, $baixa);
+        $dao->create($username, $cryptPwd, $email, $pregunta, $cryptAns, $salt, $lang, $type, $baixa,$name,$surname,$nif,$direccion);
         
 
         $dao = new DAOUser();
@@ -124,7 +128,7 @@ class UserController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
 
         $id = $_GET['usr'];
@@ -142,7 +146,7 @@ class UserController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
 
         $id = $_POST['id'];

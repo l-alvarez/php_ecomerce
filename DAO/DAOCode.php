@@ -30,7 +30,7 @@ class DAOCode extends DBConnection{
     public function update($code, $active) {
         $con = parent::getMySQLIConn();
         $prepStmt = $con->prepare("UPDATE codigo SET activo=? WHERE short=?");
-        //echo $con->error;
+
         $prepStmt->bind_param("is", $active, $code);
         $prepStmt->execute();
 
@@ -41,7 +41,7 @@ class DAOCode extends DBConnection{
     public function create($code,$activo,$short) {
         $con = parent::getMySQLIConn();
         $prepStmt = $con->prepare("INSERT INTO codigo (codigo,activo,short) VALUES (?,?,?)");
-        //echo $con->error;
+
         $prepStmt->bind_param("sis", $code, $activo, $short);
         $prepStmt->execute();
 

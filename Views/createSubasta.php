@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 
 if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-    header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+    header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
 }
 
 include_once '../Controllers/ProductController.php';
@@ -22,8 +22,6 @@ while ($next = mysql_fetch_assoc($all)) {
     <form method="post" action="../Controllers/Command.php?controller=SubastaController&action=create" name="create">
         <fieldset>
             <br>
-            <h2><?php echo LABEL_SUBASTA?></h2>
-            <br>
             <?php echo LABEL_PRODUCTES?>
             <select name="id_prod">
                 <option value="-1"><?php echo LABEL_NONE ?></option>
@@ -34,6 +32,8 @@ while ($next = mysql_fetch_assoc($all)) {
             <?php echo LABEL_DATA_LIMIT ?>: <input type="date" placeholder="<?php echo LABEL_DATA_LIMIT ?>" name="data_limit" id="data_limit"/>
             <br>
             <?php echo LABEL_TIME ?>: <input type="time" placeholder="<?php echo LABEL_TIME ?>" name="time" id="time"/>
+            <br>
+            <?php echo LABEL_PRICE ?>: <input type="text" placeholder="<?php echo LABEL_PRICE ?>" value="0" name="price" id="price"/> €
             <br>
             <input type="submit" value="<?php echo LABEL_ACCEPT ?>"/>
             <br>

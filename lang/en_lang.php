@@ -59,7 +59,7 @@ define('LABEL_ADMIN_SUBASTA', 'Manage auctions');
 define('LABEL_ADMIN_USERS', 'Manage users');
 define('LABEL_ADMIN_CODES', 'Manage codes');
 
-define('LABEL_SUBASTA', 'Auction');
+define('LABEL_SUBASTA', 'Bid');
 define('LABEL_DATA_LIMIT', 'Deadline');
 define('LABEL_TIME', 'Time limit');
 define('LABEL_CREATE_SUBASTA', 'Create auction');

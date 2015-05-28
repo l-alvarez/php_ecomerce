@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 
 if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-    header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+    header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
 }
 
 include_once '../Controllers/ProductController.php';
@@ -21,7 +21,6 @@ while ($next = mysql_fetch_assoc($all)) {
 <div id="formulari">
     <form method="post" action="../Controllers/Command.php?controller=ProductController&action=create" name="update">
         <fieldset>
-            <br>
             <?php echo LABEL_CATEGORIES?>
             <select name="id_cat">
                 <option value="-1"><?php echo LABEL_NONE ?></option>

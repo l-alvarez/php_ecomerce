@@ -4,6 +4,7 @@ require_once "Mail.php";
 require_once '../Models/ViewClass.php';
 require_once '../Config/mailConfig.php';
 require_once '../DAO/DAOUser.php';
+require_once '../Models/Email.php';
 
 class AccesController {
 
@@ -16,6 +17,10 @@ class AccesController {
         $respuesta = $_POST["respuesta"];
         $mail = $_POST["email"];
         $lang = $_COOKIE["lang"];
+        $name = $_POST["name"];
+        $surname = $_POST["surname"];
+        $nif = $_POST["nif"];
+        $direccion = $_POST["direccion"];
 
         $captcha = $_POST["g-recaptcha-response"];
 
@@ -43,6 +48,10 @@ class AccesController {
             $view = new ViewClass("index", "?view=signup&err=4");
             $view->render();
         }
+        if (strlen($nif) > 9) {
+            $view = new ViewClass("index", "?view=signup&err=5");
+            $view->render();
+        }
 
         $salt = mcrypt_create_iv(20);
 
@@ -50,9 +59,10 @@ class AccesController {
 
         $cryptAns = hash('sha512', $salt . $respuesta);
 
-        $dao->create($username, $cryptPwd, $mail, $pregunta, $cryptAns, $salt, $lang, 0, 0);
+        $dao->create($username, $cryptPwd, $mail, $pregunta, $cryptAns, $salt, $lang, 0, 0, $name, $surname, $nif, $direccion);
 
-        $this->sendMail($username, $mail, $lang, 1);
+        $mail = new Email();
+        $mail->verifyMail($username, $mail, $lang);
 
         $view = new ViewClass("index", "");
         $view->render();
@@ -102,6 +112,10 @@ class AccesController {
         $_SESSION['loged'] = 0;
         $_SESSION['user'] = "";
         $_SESSION['type'] = "";
+        $_SESSION['lang'] = "";
+        $_SESSION['id_user'] = "";
+        
+        session_destroy();
 
         $view = new ViewClass("index", "");
         $view->render();
@@ -132,7 +146,8 @@ class AccesController {
 
         if ($found) {
             $mail = $found['email'];
-            $this->sendMail($user, $mail, $lang, 0);
+            $email = new Email();
+            $email->recoveryMail($user, $mail, $lang);
         }
 
         $view = new ViewClass("index", "?view=paswdRecovery&st=end");
@@ -199,43 +214,4 @@ class AccesController {
         $view = new ViewClass("index", "");
         $view->render();
     }
-
-    private function sendMail($name, $dest, $lang, $type) {
-        include_once '../lang/' . $lang . '_lang.php';
-        $from = "SCE <luis.marc.sce2015@gmail.com>";
-        $to = $name . " <" . $dest . ">";
-        if ($type == 1) {
-            $subject = LABEL_MAIL_VERIFY;
-            $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY . "<a href=\"" . $_SERVER['HTTP_HOST'] . "/sce/Controllers/Command.php?controller=AccesController&action=activate&user=" . $name . "\"> Link </a>.<br>" . LABEL_MAIL_END;
-        } else {
-            $subject = LABEL_MAIL_RECOVERY;
-            $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY_RECOVERY . "<a href=\"" . $_SERVER['HTTP_HOST'] . "/sce/Controllers/Command.php?controller=AccesController&action=pwdRec&user=" . $name . "\"> Link </a>.<br>" . LABEL_MAIL_END;
-        }
-
-        $host = "smtp.gmail.com";
-        $port = "587";
-        $username = "luis.marc.sce2015@gmail.com";
-        $password = "sce20142015";
-
-        $headers = array('From' => $from,
-            'To' => $to,
-            'Subject' => $subject,
-            'MIME-Version' => '1.0',
-            'Content-type' => 'text/html; charset=iso-8859-1');
-
-        $smtp = Mail::factory('smtp', array('host' => $host,
-                    'port' => $port,
-                    'auth' => true,
-                    'username' => $username,
-                    'password' => $password));
-
-        $mail = $smtp->send($to, $headers, $body);
-
-        if (PEAR::isError($mail)) {
-            echo("<p>" . $mail->getMessage() . "</p>");
-        } else {
-            $mis = "email enviat OK";
-        }
-    }
-
 }

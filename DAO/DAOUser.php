@@ -81,11 +81,11 @@ class DAOUser extends DBConnection {
         $con->close();
     }
 
-    public function create($name, $pwd, $mail, $pregunta, $respuesta, $salt, $lang, $type, $baixa) {
+    public function create($username, $pwd, $mail, $pregunta, $respuesta, $salt, $lang, $type, $baixa, $name, $surname, $nif, $direccio) {
         $con = parent::getMySQLIConn();
-        $prepStmt = $con->prepare("INSERT INTO usuaris (login,pwd,tipus_usuari,baixa_logica,email,pregunta,respuesta,salt,idioma) VALUES (?,?,?,?,?,?,?,?,?)");
+        $prepStmt = $con->prepare("INSERT INTO usuaris (login,pwd,tipus_usuari,baixa_logica,email,pregunta,respuesta,salt,idioma,nom,cognom,nif,direccio) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
         echo $con->error;
-        $prepStmt->bind_param("ssiisssss", $name, $pwd, $type, $baixa, $mail, $pregunta, $respuesta, $salt, $lang);
+        $prepStmt->bind_param("ssiisssssssss", $username, $pwd, $type, $baixa, $mail, $pregunta, $respuesta, $salt, $lang, $name, $surname, $nif, $direccio);
         $prepStmt->execute();
 
         $prepStmt->close();

@@ -15,11 +15,12 @@ class DAOCategory extends DBConnection {
     public function selectById($id) {
         $con = parent::getMySQLIConn();
         $prepStmt = $con->prepare("SELECT * FROM categoria WHERE id_categoria = ?");
-        $id_find = $id;
+
         mysqli_query($con, "set character_set_results='utf8'");
-        $prepStmt->bind_param("s", $id_find);
+        $prepStmt->bind_param("s", $id);
         $prepStmt->execute();
         $res = $prepStmt->get_result();
+        
         $prepStmt->close();
         $con->close();
         return $res;
@@ -28,7 +29,7 @@ class DAOCategory extends DBConnection {
     public function update($name, $desc, $father, $id) {
         $con = parent::getMySQLIConn();
         $prepStmt = $con->prepare("UPDATE `categoria` SET `id_categoria_pare`=?, `nom`=?, `descripcio`=? WHERE `id_categoria`=?");
-        //echo $con->error;
+
         $prepStmt->bind_param("dssd", $father, $name, $desc, $id);
         $prepStmt->execute();
 
@@ -39,7 +40,7 @@ class DAOCategory extends DBConnection {
     public function create($name, $desc, $father) {
         $con = parent::getMySQLIConn();
         $prepStmt = $con->prepare("INSERT INTO categoria (`id_categoria_pare`,`nom`,`descripcio`) VALUES (?,?,?)");
-        //echo $con->error;
+
         $prepStmt->bind_param("dss", $father, $name, $desc);
         $prepStmt->execute();
 

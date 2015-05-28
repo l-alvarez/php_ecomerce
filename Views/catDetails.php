@@ -4,7 +4,7 @@ if (!isset($_SESSION)){
 }
 
 if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-    header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+    header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
 }
 
 include_once '../Controllers/CategoryController.php';
@@ -44,7 +44,7 @@ if (isset($_GET['cat'])) {
         $father_id = -1;
     }
 } else {
-    header("Location: http://localhost/sce/Views/index.php?view=error&error=1");
+    header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=1");
 }
 ?>
 

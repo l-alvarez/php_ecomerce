@@ -1,5 +1,16 @@
 <?php
 
+/* * * * * * * * * */
+define('LABEL_SURNAME', 'Apellido');
+define('LABEL_NIF', 'NIF');
+define('LABEL_DIRECCION', 'Dirección');
+define('LABEL_ERROR_SIGNUP_5', 'El NIF es demasiado largo (8 números y una letra)');
+define('LABEL_LEFT_TIME', 'Tiempo restante');
+define('LABEL_PRODUCT', 'Producto');
+define('LABEL_PRICE', 'Precio');
+define('LABEL_MAIL_BODY_CODE', '¡Te regalamos este código de descuento para que lo utilices en tus compras!');
+/* * * * * * * * * */
+
 define('LABEL_BENVINGUDA', '¡Bienvenido a la mejor tienda on-line de videojuegos!');
 define('LABEL_PRODUCTES', 'Productos de la tienda:');
 define('LABEL_MENU', 'Menú');
@@ -44,7 +55,7 @@ define('LABEL_DELETE', 'Borrar');
 
 define('LABEL_CHOOSE_NEW', 'Selecciona uno nuevo');
 
-define('LABEL_PUJAR', 'Subasta');
+define('LABEL_PUJAR', 'Pujar');
 
 define('LABEL_LOGOUT', 'Desconectarse');
 define('LABEL_PASWD_RECOVERY', 'Recuperar contraseña');

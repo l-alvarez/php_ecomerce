@@ -11,7 +11,7 @@ if (isset($_GET['find'])) {
     $cat = (int) $_GET['filtr'];
     $resultado = $prod->selectByCategory($cat);
 } else {
-    header("Location: http://localhost/sce/Views/index.php?view=error&error=1");
+    header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=1");
 }
 
 function sql_dump_result($result) {

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION)) {
+if (isset($_SESSION['loged'])) {
     $idioma = $_SESSION['lang'];
     setcookie("lang", $idioma, time() + 3600, "/sce/");
 } else {
@@ -27,8 +27,6 @@ if ($_SERVER['SERVER_PORT'] != '443') {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <link rel="stylesheet" type="text/css" href="../stylesheet/cssresponsivedesign.css">
-
-        <script src='https://www.google.com/recaptcha/api.js'></script>
 
         <!-- css3-mediaqueries.js for IE8 or older -->
         <!--[if lt IE 9]>
@@ -69,7 +67,7 @@ if ($_SERVER['SERVER_PORT'] != '443') {
                     if (file_exists('./' . $_GET['view'] . '.php')) {
                         include_once './' . $_GET['view'] . '.php';
                     } else {
-                        header("Location: http://localhost/sce/Views/index.php?view=error&error=2");
+                        header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=2");
                     }
                 } else {
                     include_once './list.php';

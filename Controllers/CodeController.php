@@ -2,7 +2,9 @@
 
 include_once '../Config/codeKey.php';
 include_once '../DAO/DAOCode.php';
+include_once '../DAO/DAOUser.php';
 include_once '../Models/ViewClass.php';
+include_once '../Models/Email.php';
 
 class CodeController {
 
@@ -22,7 +24,7 @@ class CodeController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
         }
 
         $code = $_GET['code'];
@@ -36,24 +38,24 @@ class CodeController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
         }
 
         $view = new ViewClass("index", "?view=adminCodes");
         $view->render();
     }
-    
+
     public function update() {
         if (!isset($_SESSION)) {
             session_start();
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
         }
 
         $code = $_POST['code'];
-        
+
         if (isset($_POST['active'])) {
             $active = 1;
         } else {
@@ -61,7 +63,7 @@ class CodeController {
         }
 
         $dao = new DAOCode();
-        $dao->update($code,$active);
+        $dao->update($code, $active);
 
         $view = new ViewClass("index", "?view=codeDetails&code=" . $code);
         $view->render();
@@ -73,7 +75,7 @@ class CodeController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
         }
 
         if (!isset($_POST['discount'])) {
@@ -125,24 +127,40 @@ class CodeController {
             $date = "-1";
         }
 
-        $info = $discount . '|' . $date . '|' . $unique . '|' . $usersId . '|' . $categoriesId ;
+        $info = $discount . '|' . $date . '|' . $unique . '|' . $usersId . '|' . $categoriesId;
 
         $code = $this->encrypt_decrypt('encrypt', $info);
-        
+
         $short = substr($code, 0, 16);
 
         try {
             $dao = new DAOCode();
             $dao->create($code, $active, $short);
 
-            //TODO: send email to users
+            if ($usersId != -1) {
+                $this->sendMails($usersId, $users, $code);
+            }
+
             $view = new ViewClass("index", "?view=codeDetails&code=" . $short);
         } catch (Exception $e) {
             $view = new ViewClass("index", "?view=adminCodes");
         }
 
-
         $view->render();
+    }
+
+    private function sendMails($users, $code) {
+        $mail = new Email();
+        $lang = $_COOKIE['lang'];
+        $dao = new DAOUser();
+
+        for ($i = 0; $i < count($users); $i++) {
+
+            $fetch = $dao->selectById($users[i]);
+            $user = $fetch->fetch_assoc();
+
+            $mail->codeMail($user['login'], $user['email'], $lang, $code);
+        }
     }
 
     public function createView() {
@@ -151,7 +169,7 @@ class CodeController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
         }
 
         $view = new ViewClass("index", "?view=createCode");
@@ -164,7 +182,7 @@ class CodeController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
         }
 
         $code = $_GET['code'];

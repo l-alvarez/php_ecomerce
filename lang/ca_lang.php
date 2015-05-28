@@ -57,7 +57,7 @@ define('LABEL_ADMIN_SUBASTA', 'Administrar subhasta');
 define('LABEL_ADMIN_USERS', 'Administrar usuaris');
 define('LABEL_ADMIN_CODES', 'Administrar códis');
 
-define('LABEL_SUBASTA', 'Subhasta');
+define('LABEL_SUBASTA', 'Licitar');
 define('LABEL_DATA_LIMIT', 'Data límit');
 define('LABEL_TIME', 'Hora límit');
 define('LABEL_CREATE_SUBASTA', 'Crear subhasta');

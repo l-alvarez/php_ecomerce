@@ -21,7 +21,7 @@ class CategoryController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . " /sce/Views/index.php?view=error&error=3");
         }
 
         $id = $_GET['cat'];
@@ -35,7 +35,7 @@ class CategoryController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
 
         $name = $_POST['name'];
@@ -56,7 +56,7 @@ class CategoryController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
 
         $view = new ViewClass("index", "?view=adminCategories");
@@ -69,7 +69,7 @@ class CategoryController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
 
         $name = $_POST['name'];
@@ -83,38 +83,39 @@ class CategoryController {
         $view->render();
     }
 
-    public function createView(){
+    public function createView() {
         if (!isset($_SESSION)) {
             session_start();
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
-        
+
         $view = new ViewClass("index", "?view=createCategory");
         $view->render();
     }
-    
+
     public function delete() {
         if (!isset($_SESSION)) {
             session_start();
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
 
         $id = $_GET['cat'];
-        
+
         $fetch = $this->selectById($id);
         $info = $fetch->fetch_assoc();
         $father = $info['id_categoria_pare'];
-        
-        $dao = new DAOCategory();     
-        $dao->delete($id,$father);
-        
+
+        $dao = new DAOCategory();
+        $dao->delete($id, $father);
+
         $view = new ViewClass("index", "?view=adminCategories");
         $view->render();
     }
+
 }

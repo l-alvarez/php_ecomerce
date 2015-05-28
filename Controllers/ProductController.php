@@ -39,28 +39,18 @@ class ProductController {
         $view->render();
     }
 
-    public function show() {
-        if (isset($_GET['id'])) {
-            $id = (int) $_GET['id'];
-            $view = new ViewClass("index", "?view=showProduct&id=$id");
-        } else {
-            $view = new ViewClass("index", "?view=error&error=1");
+    public function admin() {
+        if (!isset($_SESSION)) {
+            session_start();
         }
+
+        if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
+        }
+
+        $view = new ViewClass("index", "?view=adminProducts");
         $view->render();
     }
-
-        public function admin() {
-            if (!isset($_SESSION)) {
-                session_start();
-            }
-
-            if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-                header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
-            }
-
-            $view = new ViewClass("index", "?view=adminProducts");
-            $view->render();
-        }
 
     public function create() {
         if (!isset($_SESSION)) {
@@ -68,7 +58,7 @@ class ProductController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
 
         $id_categoria = $_POST['id_cat'];
@@ -90,7 +80,7 @@ class ProductController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
 
         $view = new ViewClass("index", "?view=createProduct");
@@ -103,15 +93,15 @@ class ProductController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
 
         $id = $_GET['prod'];
 
         $dao = new DAOProduct();
         $dao->delete($id);
-        
-        
+
+
 
         $view = new ViewClass("index", "?view=adminProducts");
         $view->render();
@@ -123,20 +113,21 @@ class ProductController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
 
         $id = $_GET['prod'];
         $view = new ViewClass("index", "?view=prodDetails&prod=" . $id);
         $view->render();
     }
-       public function update() {
+
+    public function update() {
         if (!isset($_SESSION)) {
             session_start();
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
         }
         $id_producte = $_POST['id_prod'];
         $id_categoria = $_POST['cat'];
@@ -144,10 +135,10 @@ class ProductController {
         $nom = $_POST['nom'];
         $desc_llarga = $_POST['desc_llarga'];
         $url_foto = $_POST['url_foto'];
-         
+
 
         $dao = new DAOProduct();
-        $dao->update($id_producte,$id_categoria, $preu_inicial, $nom, $desc_llarga, $url_foto);
+        $dao->update($id_producte, $id_categoria, $preu_inicial, $nom, $desc_llarga, $url_foto);
 
         $view = new ViewClass("index", "?view=prodDetails&prod=" . $id_producte);
         $view->render();

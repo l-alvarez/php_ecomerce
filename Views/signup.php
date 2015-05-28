@@ -17,6 +17,9 @@ if (isset($_GET['err'])) {
         case 4:
             $label = LABEL_ERROR_SIGNUP_4;
             break;
+        case 5:
+            $label = LABEL_ERROR_SIGNUP_5;
+            break;
     }
     echo $label;
 }
@@ -30,23 +33,35 @@ if (isset($_GET['err'])) {
                 <?php echo '<legend>' . LABEL_SIGNUP . '</legend>' ?>
                 <input type="hidden" name="form_action" value="signin" />
 
-                <div id="userIdMessage">
-                    <input type="text" placeholder="<?php echo LABEL_USERNAME; ?>" name="user_name" value="" required="required" id="username"/>
+                <div>
+                    <input type="text" placeholder="<?php echo LABEL_USERNAME; ?>" name="user_name" required="" id="username"/>
                 </div>
                 <div>
-                    <input type="password" placeholder="<?php echo LABEL_PASS; ?>" name="password" value="" required="required" id="passwordsign"/>
+                    <input type="text" placeholder="<?php echo LABEL_NAME; ?>" name="name" required="" id="name"/>
                 </div>
                 <div>
-                    <input type="password" placeholder="<?php echo LABEL_PASS; ?>" name="password2" value="" required="required" id="passwordsign2"/>
+                    <input type="text" placeholder="<?php echo LABEL_SURNAME; ?>" name="surname" required="" id="surname"/>
                 </div>
                 <div>
-                    <input type="text" placeholder="<?php echo LABEL_QUESTION; ?>" name="pregunta" value=""  id="pregunta" />
+                    <input type="text" placeholder="<?php echo LABEL_NIF; ?>" name="nif" required="" id="nif"/>
                 </div>
                 <div>
-                    <input type="text" placeholder="<?php echo LABEL_ANSWER; ?>" name="respuesta" value=""  id="respuesta" />
+                    <input type="password" placeholder="<?php echo LABEL_PASS; ?>" name="password" required="" id="passwordsign"/>
                 </div>
                 <div>
-                    <input type="email" placeholder="<?php echo LABEL_MAIL; ?>" name="email" value="" required="required" id="email" />
+                    <input type="password" placeholder="<?php echo LABEL_PASS; ?>" name="password2" required="" id="passwordsign2"/>
+                </div>
+                <div>
+                    <input type="text" placeholder="<?php echo LABEL_QUESTION; ?>" name="pregunta" required="" id="pregunta" />
+                </div>
+                <div>
+                    <input type="text" placeholder="<?php echo LABEL_ANSWER; ?>" name="respuesta" required=""  id="respuesta" />
+                </div>
+                <div>
+                    <input type="email" placeholder="<?php echo LABEL_MAIL; ?>" name="email" required="" id="email" />
+                </div>
+                <div>
+                    <input type="text" placeholder="<?php echo LABEL_DIRECCION; ?>" name="direccion" required="" id="direccion"/>
                 </div>
                 <div>
                     <div class="g-recaptcha" data-sitekey="6LfbVwUTAAAAALvm41fBHov9zLAEOTvO-nJ4AGKp"></div>

@@ -4,11 +4,13 @@ if (!isset($_SESSION)) {
 }
 
 if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-    header("Location: http://localhost/sce/Views/index.php?view=error&error=3");
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
 }
 
 include_once '../Controllers/SubastaController.php';
+include_once '../Controllers/UserController.php';
 include_once '../Controllers/ProductController.php';
+
 if (isset($_GET['sub'])) {
     $options = "";
     $ctrl = new SubastaController();
@@ -26,21 +28,24 @@ if (isset($_GET['sub'])) {
     $data_limit = $info['data_limit'];
     $hora_limit = $info['hora_limit'];
     $estat = $info['estat'];
+    $price = $info['preu_actual'];
+    
+    $nomUsr = LABEL_NONE;
 
-    $options = "";
-    $ctrl = new ProductController();
-    $all = $ctrl->selectAll();
-
-    while ($next = mysql_fetch_assoc($all)) {
-        if($next['id_producte']!= $id_prod){
-             $options .='<option value="' . $next['id_producte'] . '">' . $next['nom'] . '</option>';
-        }
+    if($id_max_postor != -1) {
+        $ctrl = new UserController();
+        $fetch = $ctrl->selectById($id_max_postor);
+        $aux = $fetch->fetch_assoc();
+        $nomUsr = $aux['login'];
     }
-    $fetch =  $ctrl->selectById($id_prod);
+
+
+    $ctrl = new ProductController();
+    $fetch = $ctrl->selectById($id_prod);
     $aux = $fetch->fetch_assoc();
     $nomProd = $aux['nom'];
 } else {
-    header("Location: http://localhost/sce/Views/index.php?view=error&error=1");
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=1");
 }
 ?>
 
@@ -50,20 +55,17 @@ if (isset($_GET['sub'])) {
             <input type="hidden" name="id_sub" id="id_sub" value="<?php echo $id_subhasta ?>">
             <?php echo "Id: " . $id_subhasta ?>
             <br>
-            <?php echo LABEL_PRODUCTES ?>
-            <select name="id_prod">
-                <option value="<?php echo $id_prod ?>"><?php echo $nomProd?></option>
-                <option value="-1"><?php echo LABEL_NONE ?></option>
-                <?php echo $options ?>
-            </select>
+            <?php echo LABEL_PRODUCT . ": " . $nomProd ?>
             <br>
-            <?php echo LABEL_USERNAME ?>: <input type="text" placeholder="<?php echo LABEL_USERNAME ?>" value="<?php echo $id_max_postor ?>" name="id_max_postor" id="id_max_postor"/>
+            <?php echo LABEL_USERNAME . ": " . $nomUsr ?>
             <br>
             <?php echo LABEL_DATA_LIMIT ?>: <input type="date" placeholder="<?php echo LABEL_DATA_LIMIT ?>" value="<?php echo $data_limit ?>" name="data_limit" id="data_limit"/>
             <br>
             <?php echo LABEL_TIME ?><input type="time" placeholder="<?php echo LABEL_TIME ?>" value="<?php echo $hora_limit ?>" name="hora_limit" id="hora_limit"/>
             <br>
             <?php echo LABEL_ESTAT ?>: <input type="text" placeholder="<?php echo LABEL_ESTAT ?>" value="<?php echo $estat ?>" name="estat" id="estat"/>
+            <br>
+            <?php echo LABEL_PRICE ?>: <input type="text" placeholder="<?php echo LABEL_PRICE ?>" value="<?php echo $price ?>" name="price" id="price"/> €
             <br>
             <input type="submit" value="<?php echo LABEL_UPDATE ?>"/>
             <br>
