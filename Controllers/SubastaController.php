@@ -2,13 +2,30 @@
 
 include_once '../DAO/DAOSubasta.php';
 include_once '../Controllers/ProductController.php';
+include_once '../Controllers/UserController.php';
 include_once '../Models/ViewClass.php';
+include_once '../Models/Email.php';
 
 class SubastaController {
 
     public function selectAll() {
         $dao = new DAOSubasta();
         return $dao->selectAll();
+    }
+    
+    public function selectNotFinished() {
+        $dao = new DAOSubasta();
+        return $dao->selectNotFinished();
+    }
+    
+    public function selectAuctionParticipants($id) {
+        $dao = new DAOSubasta();
+        return $dao->selectAuctionParticipants($id);
+    }
+    
+    public function setAlert($id) {
+        $dao = new DAOSubasta();
+        return $dao->setAlert($id);
     }
 
     public function admin() {
@@ -125,14 +142,23 @@ class SubastaController {
         }
 
         $id_sub = $_POST['id_sub'];
+
+        $dao = new DAOSubasta();
+        $fetch = $dao->selectById($id_sub);
+        $subasta = $fetch->fetch_assoc();
+
         $data_limit = $_POST['data_limit'];
         $hora_limit = $_POST['hora_limit'];
         $estat = $_POST['estat'];
         $price = $_POST['price'];
 
-        $inc = $price * 0.05;
+        if ($subasta['preu_actual'] != $price) {
+            $inc = $price * 0.05;
+        } else {
+            $inc = $subasta['increment'];
+        }
 
-        $dao = new DAOSubasta();
+
         $dao->update($id_sub, $data_limit, $hora_limit, $estat, $price, $inc);
 
         $view = new ViewClass("index", "?view=subDetails&sub=" . $id_sub);
@@ -143,7 +169,7 @@ class SubastaController {
         if (!isset($_SESSION)) {
             session_start();
         }
-        if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
+        if (!isset($_SESSION['loged']) || $_SESSION['loged'] != 1) {
             header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
         }
 
@@ -153,6 +179,17 @@ class SubastaController {
         $fetch = $dao->selectById($id_sub);
         $subasta = $fetch->fetch_assoc();
 
+        $milliseconds = round(microtime(true) * 1000);
+        $mili = strtotime($subasta['hora_limit'] . $subasta['data_limit']) - strtotime($milliseconds);
+
+        $end = strtotime($subasta['hora_limit'] . $subasta['data_limit']);
+        $actual = time();
+
+        if ($end <= $actual) {
+            $view = new ViewClass("index", "?view=showSubasta&id=" . $id_sub . "&err");
+            $view->render();
+        }
+
         $id_usr = $_SESSION['id_user'];
 
         $id_old = $subasta['id_max_postor'];
@@ -160,12 +197,20 @@ class SubastaController {
         $inc = $subasta['increment'];
         $newPrice = $price + $inc;
 
-        if($id_old != $id_usr) {
+        if ($id_old != $id_usr) {
             $dao = new DAOSubasta();
             $dao->bid($id_sub, $id_usr, $newPrice);
+            
+            $usrCtrl = new UserController();
+            $fetch = $usrCtrl->selectById($id_old);
+            $user = $fetch->fetch_assoc();
+
+            $link = "https://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=showSubasta&id=" . $id_sub;
+            $lang = $_COOKIE['lang'];
+
+            $email = new Email();
+            $email->bidOver($user['login'], $user['email'], $lang, $link);
         }
-        
-        //TODO: send Emails to users
 
         $view = new ViewClass("index", "?view=showSubasta&id=" . $id_sub);
         $view->render();

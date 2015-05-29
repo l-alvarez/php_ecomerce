@@ -44,7 +44,7 @@ define('LABEL_DELETE', 'Esborrar');
 
 define('LABEL_CHOOSE_NEW', 'Selecciona un nou');
 
-define('LABEL_PUJAR', 'Subhasta');
+define('LABEL_PUJAR', 'Licitar');
 
 define('LABEL_LOGOUT', 'Desconectar-se');
 define('LABEL_PASWD_RECOVERY', 'Recuperar contrassenya');
@@ -57,7 +57,7 @@ define('LABEL_ADMIN_SUBASTA', 'Administrar subhasta');
 define('LABEL_ADMIN_USERS', 'Administrar usuaris');
 define('LABEL_ADMIN_CODES', 'Administrar códis');
 
-define('LABEL_SUBASTA', 'Licitar');
+define('LABEL_SUBASTA', 'Subhasta');
 define('LABEL_DATA_LIMIT', 'Data límit');
 define('LABEL_TIME', 'Hora límit');
 define('LABEL_CREATE_SUBASTA', 'Crear subhasta');

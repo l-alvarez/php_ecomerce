@@ -45,7 +45,7 @@ define('LABEL_DELETE', 'Delete');
 
 define('LABEL_CHOOSE_NEW', 'Choose a new one');
 
-define('LABEL_PUJAR', 'Auction');
+define('LABEL_PUJAR', 'Bid');
 
 define('LABEL_LOGOUT', 'Logout');
 define('LABEL_PASWD_RECOVERY', 'Password recovery');
@@ -59,7 +59,7 @@ define('LABEL_ADMIN_SUBASTA', 'Manage auctions');
 define('LABEL_ADMIN_USERS', 'Manage users');
 define('LABEL_ADMIN_CODES', 'Manage codes');
 
-define('LABEL_SUBASTA', 'Bid');
+define('LABEL_SUBASTA', 'Auction');
 define('LABEL_DATA_LIMIT', 'Deadline');
 define('LABEL_TIME', 'Time limit');
 define('LABEL_CREATE_SUBASTA', 'Create auction');

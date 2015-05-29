@@ -1,5 +1,7 @@
 <?php
 
+include_once "Mail.php";
+
 class Email {
 
     private function sendMail($name, $dest, $body, $subject) {
@@ -15,7 +17,7 @@ class Email {
             'To' => $to,
             'Subject' => $subject,
             'MIME-Version' => '1.0',
-            'Content-type' => 'text/html; charset=iso-8859-1');
+            'Content-type' => 'text/html; charset=UTF-8');
 
         $smtp = Mail::factory('smtp', array('host' => $host,
                     'port' => $port,
@@ -54,14 +56,33 @@ class Email {
         $this->sendMail($name, $dest, $body, $subject);
     }
 
-    public function codeMail($name, $dest, $lang, $code) {
+    public function codeMail($name, $dest, $lang, $code, $categories) {
         include_once '../lang/' . $lang . '_lang.php';
 
-        $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY_CODE . ": " . $code . ".<br>" . LABEL_MAIL_END;
+        $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY_CODE . ": <b>" . $code . "</b><br>" . LABEL_CATEGORIES . ": " . $categories . "<br>" . LABEL_MAIL_END;
 
         $subject = LABEL_CODE;
 
         $this->sendMail($name, $dest, $body, $subject);
     }
 
+    public function bidOver($name, $dest, $lang, $link) {
+        include_once '../lang/' . $lang . '_lang.php';
+
+        $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY_BIDOVER . "<br><a href=\"" . $link . "\"> " . LABEL_PUJAR . " </a><br>" . LABEL_MAIL_END;
+
+        $subject = LABEL_BIDOVER;
+
+        $this->sendMail($name, $dest, $body, $subject);
+    }
+
+    public function auctionAlert($name, $dest, $lang, $link) {
+        include_once '../lang/' . $lang . '_lang.php';
+
+        $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY_ALERT . "<br><a href=\"" . $link . "\"> " . LABEL_PUJAR . " </a><br>" . LABEL_MAIL_END;
+
+        $subject = LABEL_ALERT;
+
+        $this->sendMail($name, $dest, $body, $subject);
+    }
 }

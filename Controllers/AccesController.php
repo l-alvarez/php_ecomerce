@@ -1,10 +1,9 @@
 <?php
 
-require_once "Mail.php";
-require_once '../Models/ViewClass.php';
-require_once '../Config/mailConfig.php';
-require_once '../DAO/DAOUser.php';
-require_once '../Models/Email.php';
+include_once '../Models/ViewClass.php';
+include_once '../Config/mailConfig.php';
+include_once '../DAO/DAOUser.php';
+include_once '../Models/Email.php';
 
 class AccesController {
 

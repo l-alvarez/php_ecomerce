@@ -84,7 +84,7 @@ class DAOUser extends DBConnection {
     public function create($username, $pwd, $mail, $pregunta, $respuesta, $salt, $lang, $type, $baixa, $name, $surname, $nif, $direccio) {
         $con = parent::getMySQLIConn();
         $prepStmt = $con->prepare("INSERT INTO usuaris (login,pwd,tipus_usuari,baixa_logica,email,pregunta,respuesta,salt,idioma,nom,cognom,nif,direccio) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-        echo $con->error;
+        // echo $con->error;
         $prepStmt->bind_param("ssiisssssssss", $username, $pwd, $type, $baixa, $mail, $pregunta, $respuesta, $salt, $lang, $name, $surname, $nif, $direccio);
         $prepStmt->execute();
 
@@ -92,11 +92,11 @@ class DAOUser extends DBConnection {
         $con->close();
     }
 
-    public function update($id, $login, $mail, $type, $baixa, $lang) {
+    public function update($id, $login, $mail, $type, $baixa, $lang, $name, $surname, $nif, $direccio) {
         $con = parent::getMySQLIConn();
-        $prepStmt = $con->prepare("UPDATE usuaris SET login=?, email=?, tipus_usuari=?, baixa_logica=?, idioma=? WHERE id_usuari=?");
-        //echo $con->error;
-        $prepStmt->bind_param("ssiisd", $login, $mail, $type, $baixa, $lang, $id);
+        $prepStmt = $con->prepare("UPDATE usuaris SET login=?, email=?, tipus_usuari=?, baixa_logica=?, idioma=?, nom=?, cognom=?, nif=?, direccio=? WHERE id_usuari=?");
+        echo $con->error;
+        $prepStmt->bind_param("ssiisssssd", $login, $mail, $type, $baixa, $lang, $name, $surname, $nif, $direccio, $id);
         $prepStmt->execute();
 
         $prepStmt->close();

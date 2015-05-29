@@ -8,7 +8,13 @@ define('LABEL_ERROR_SIGNUP_5', 'El NIF es demasiado largo (8 números y una letr
 define('LABEL_LEFT_TIME', 'Tiempo restante');
 define('LABEL_PRODUCT', 'Producto');
 define('LABEL_PRICE', 'Precio');
-define('LABEL_MAIL_BODY_CODE', '¡Te regalamos este código de descuento para que lo utilices en tus compras!');
+define('LABEL_MAIL_BODY_CODE', '¡Te regalamos este código de descuento para que lo utilices en tus compras en las categorias indicadas a continuación!');
+define('LABEL_ANY', 'Cualquiera');
+define('LABEL_MAIL_BODY_BIDOVER', '¡Tu puja ha sido superada, sigue el siguiente enlace si quieres volver a pujar!');
+define('LABEL_BIDOVER', 'Puja superada');
+define('LABEL_AUCTION_FINISHED', 'Esta subasta ha acabado');
+define('LABEL_MAIL_BODY_ALERT','Una subasta en la que has participado está a punto de finalizar. Si deseas volver a pujar en dicha subasta, utiliza el enlace que te facilitamos.');
+define('LABEL_ALERT','Subasta a punto de finalizar');
 /* * * * * * * * * */
 
 define('LABEL_BENVINGUDA', '¡Bienvenido a la mejor tienda on-line de videojuegos!');

@@ -138,7 +138,9 @@ class CodeController {
             $dao->create($code, $active, $short);
 
             if ($usersId != -1) {
-                $this->sendMails($usersId, $users, $code);
+                $this->sendMails($usersId, $users, $code, $categories);
+            } else {
+                $this->sendAllMails($code, $categories);
             }
 
             $view = new ViewClass("index", "?view=codeDetails&code=" . $short);
@@ -149,17 +151,54 @@ class CodeController {
         $view->render();
     }
 
-    private function sendMails($users, $code) {
+    private function sendMails($users, $code, $categories) {
         $mail = new Email();
         $lang = $_COOKIE['lang'];
         $dao = new DAOUser();
+        $cat = new DAOCategory();
+
+        if ($categories == "-1") {
+            $categories = LABEL_ANY;
+        } else {
+            for ($i = 0; $i < count($categories); $i++) {
+                $fetch = $cat->selectById($categories[i]);
+                $info = $fetch->fetch_assoc();
+                
+                $categ .= $info['nom'] . ',';
+            }
+            $categ = substr($categ, 0, -1);
+        }
 
         for ($i = 0; $i < count($users); $i++) {
 
             $fetch = $dao->selectById($users[i]);
             $user = $fetch->fetch_assoc();
 
-            $mail->codeMail($user['login'], $user['email'], $lang, $code);
+            $mail->codeMail($user['login'], $user['email'], $lang, $code, $categ);
+        }
+    }
+    
+    private function sendAllMails($code, $categories) {
+        $mail = new Email();
+        $lang = $_COOKIE['lang'];
+        $dao = new DAOUser();
+        $users = $dao->selectAll();
+        $cat = new DAOCategory();
+
+        if ($categories == "-1") {
+            $categories = LABEL_ANY;
+        } else {
+            for ($i = 0; $i < count($categories); $i++) {
+                $fetch = $cat->selectById($categories[i]);
+                $info = $fetch->fetch_assoc();
+                
+                $categ .= $info['nom'] . ',';
+            }
+            $categ = substr($categ, 0, -1);
+        }
+
+        while ($user = $users->fetch_assoc()) {
+            $mail->codeMail($user['login'], $user['email'], $lang, $code, $categ);
         }
     }
 

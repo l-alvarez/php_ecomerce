@@ -26,7 +26,7 @@ class UserController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
         }
 
         $view = new ViewClass("index", "?view=createUser");
@@ -39,7 +39,7 @@ class UserController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
         }
 
         $id = $_GET['usr'];
@@ -53,7 +53,7 @@ class UserController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
         }
 
         $view = new ViewClass("index", "?view=adminUsers");
@@ -66,7 +66,7 @@ class UserController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
         }
 
         $username = $_POST['user_name'];
@@ -82,7 +82,7 @@ class UserController {
         $surname = $_POST["surname"];
         $nif = $_POST["nif"];
         $direccion = $_POST["direccion"];
-        
+
         if (strlen($passwd) > 20 || strlen($passwd) < 8) {
             $view = new ViewClass("index", "?view=createUser&err=0");
             $view->render();
@@ -112,8 +112,8 @@ class UserController {
 
         $cryptAns = hash('sha512', $salt . $respuesta);
 
-        $dao->create($username, $cryptPwd, $email, $pregunta, $cryptAns, $salt, $lang, $type, $baixa,$name,$surname,$nif,$direccion);
-        
+        $dao->create($username, $cryptPwd, $email, $pregunta, $cryptAns, $salt, $lang, $type, $baixa, $name, $surname, $nif, $direccion);
+
 
         $dao = new DAOUser();
         $dao->create();
@@ -128,7 +128,7 @@ class UserController {
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
         }
 
         $id = $_GET['usr'];
@@ -140,32 +140,64 @@ class UserController {
         $view->render();
     }
 
-    public function update() {
+    public function modify() {
         if (!isset($_SESSION)) {
             session_start();
         }
 
         if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-            header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
         }
 
         $id = $_POST['id'];
-        $login = $_POST['name'];
+        $login = $_POST['login'];
         $mail = $_POST['email'];
         $type = $_POST['type'];
         $baixa = $_POST['baixa'];
         $lang = $_POST['lang'];
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+        $direccio = $_POST['direccio'];
+        $nif = $_POST['nif'];
 
         $dao = new DAOUser();
-        $dao->update($id,$login,$mail,$type,$baixa,$lang);
+        $dao->update($id, $login, $mail, $type, $baixa, $lang, $name, $surname, $nif, $direccio);
 
         $view = new ViewClass("index", "?view=userDetails&usr=" . $id);
         $view->render();
     }
-    
+
+    public function update() {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        
+        $id = $_POST['id'];
+        
+        if (!isset($_SESSION['id_user']) || $_SESSION['id_user'] != $id) {
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
+        }
+
+        $login = $_POST['login'];
+        $mail = $_POST['email'];
+        $type = $_POST['type'];
+        $baixa = $_POST['baixa'];
+        $lang = $_POST['lang'];
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+        $direccio = $_POST['direccio'];
+        $nif = $_POST['nif'];
+
+        $dao = new DAOUser();
+        $dao->update($id, $login, $mail, $type, $baixa, $lang, $name, $surname, $nif, $direccio);
+
+        $view = new ViewClass("index", "?view=modifyUserData");
+        $view->render();
+    }
+
     public function setLang($name, $lang) {
         $dao = new DAOUser();
-        $dao->setLang($name,$lang);
+        $dao->setLang($name, $lang);
     }
 
 }

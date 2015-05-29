@@ -12,10 +12,37 @@ class DAOSubasta extends DBConnection {
         return $resultado;
     }
 
+    public function selectNotFinished() {
+        $con = parent::getMySQLConn();
+        $sentencia = "SELECT * FROM subhasta WHERE estat=0 AND notificada=0";
+        $resultado = mysql_query($sentencia, $con);
+        mysql_close($con);
+        return $resultado;
+    }
+
+    public function selectAuctionParticipants($id) {
+        $con = parent::getMySQLConn();
+        $sentencia = "SELECT * FROM participantsubasta WHERE id_subasta=" . $id;
+        $resultado = mysql_query($sentencia, $con);
+        mysql_close($con);
+        return $resultado;
+    }
+
+    public function setAlert($id) {
+        $con = parent::getMySQLIConn();
+        $prepStmt = $con->prepare("UPDATE subhasta SET notificada=1 WHERE id_subhasta=?");
+
+        $prepStmt->bind_param("d", $id);
+        $prepStmt->execute();
+
+        $prepStmt->close();
+        $con->close();
+    }
+
     public function create($id_producte, $data_limit, $hora_limit, $preu, $inc) {
         $con = parent::getMySQLIConn();
         $prepStmt = $con->prepare("INSERT INTO subhasta (id_producte,data_limit,hora_limit,preu_actual,increment) VALUES (?,?,?,?,?)");
-        echo $con->error;
+        // echo $con->error;
         $prepStmt->bind_param("dssdd", $id_producte, $data_limit, $hora_limit, $preu, $inc);
         $prepStmt->execute();
 

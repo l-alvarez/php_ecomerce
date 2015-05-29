@@ -13,7 +13,7 @@ if (isset($_SESSION['loged'])) {
     }
 }
 
-include_once "../lang/{$idioma}_lang.php";
+include_once "../lang/" . $idioma . "_lang.php";
 
 if ($_SERVER['SERVER_PORT'] != '443') {
     header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
@@ -50,7 +50,7 @@ if ($_SERVER['SERVER_PORT'] != '443') {
                     <?php
                     if (isset($_SESSION['user']) && $_SESSION['loged'] == 1) {
                         echo "<div id = 'login' style = \"width: auto; float: right; height: 20px\">";
-                        echo LABEL_GREET . $_SESSION['user'] . " (<a href = \"../Controllers/Command.php?controller=AccesController&action=logout\">" . LABEL_LOGOUT . "</a>)";
+                        echo LABEL_GREET . "<a href = \"./index.php?view=modifyUserData\">" . $_SESSION['user'] . "</a> (<a href = \"../Controllers/Command.php?controller=AccesController&action=logout\">" . LABEL_LOGOUT . "</a>)";
                         echo "</div>";
                     } else {
                         echo "<div id = 'login' style = \"width: 150px; float: right; height: 20px\">";

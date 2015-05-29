@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 
 if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-    header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
 }
 
 include_once '../Controllers/UserController.php';
@@ -35,20 +35,34 @@ if (isset($_GET['usr'])) {
         $verified = LABEL_NO;
     }
 
+    $direccio = $user['direccio'];
+    $name = $user['nom'];
+    $surname = $user['cognom'];
+    $nif = $user['nif'];
+
     $lang = $user['idioma'];
     $pregunta = $user['pregunta'];
 } else {
-    header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=1");
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=1");
 }
 ?>
 
 <div id="formulari">
-    <form method="post" action="../Controllers/Command.php?controller=UserController&action=update" name="update">
+    <form method="post" action="../Controllers/Command.php?controller=UserController&action=modify" name="update">
         <fieldset>
             <input type="hidden" name="id" value="<?php echo $id ?>">
+            <input type="hidden" value="<?php echo $nif ?>" name="nif" id="nif"/>
             <?php echo "Id: " . $id ?>
             <br>
-            <?php echo LABEL_USERNAME ?>: <input type="text" value="<?php echo $name ?>" name="name" id="name"/>
+            <?php echo LABEL_NIF . ": " . $nif ?> 
+            <br>
+            <?php echo LABEL_USERNAME ?>: <input type="text" value="<?php echo $name ?>" name="login" id="login"/>
+            <br>
+            <?php echo LABEL_NAME ?>: <input type="text" value="<?php echo $name ?>" name="name" id="name"/>
+            <br>
+            <?php echo LABEL_SURNAME ?>: <input type="text" value="<?php echo $surname ?>" name="surname" id="surname"/>
+            <br>
+            <?php echo LABEL_DIRECCION . ": " ?><input type="text" name="direccio" value="<?php echo $direccio ?>">
             <br>
             <?php echo LABEL_MAIL ?>: <input type="text" name="email" value="<?php echo $mail; ?>" />
             <br>
