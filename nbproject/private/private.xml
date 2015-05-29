@@ -7,11 +7,10 @@
             <file>file:/F:/Programs/xampp/htdocs/sce/DAO/DAOSubasta.php</file>
             <file>file:/F:/Programs/xampp/htdocs/sce/Views/index.php</file>
             <file>file:/F:/Programs/xampp/htdocs/sce/lang/ca_lang.php</file>
+            <file>file:/F:/Programs/xampp/htdocs/sce/CronTasks/AlertAuctionEnding.php</file>
             <file>file:/F:/Programs/xampp/htdocs/sce/lang/es_lang.php</file>
             <file>file:/F:/Programs/xampp/htdocs/sce/Models/Email.php</file>
             <file>file:/F:/Programs/xampp/htdocs/sce/Controllers/SubastaController.php</file>
-            <file>file:/F:/Programs/xampp/htdocs/sce/Views/showSubasta.php</file>
-            <file>file:/F:/Programs/xampp/htdocs/sce/Controllers/CodeController.php</file>
         </group>
     </open-files>
 </project-private>

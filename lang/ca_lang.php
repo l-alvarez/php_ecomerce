@@ -1,5 +1,30 @@
 <?php
 
+/* * * * * * * * * */
+define('LABEL_SURNAME', 'Cognom');
+define('LABEL_NIF', 'NIF');
+define('LABEL_DIRECCION', 'Direcció');
+define('LABEL_ERROR_SIGNUP_5', 'El NIF es massa llarg (8 números i una lletra)');
+define('LABEL_LEFT_TIME', 'Temps restant');
+define('LABEL_PRODUCT', 'Producte');
+define('LABEL_PRICE', 'Preu');
+define('LABEL_MAIL_BODY_CODE', 'Et regalem aquest códi de descompte per a que l\'utilitzis en les teves compres de les següents categoríes!');
+define('LABEL_ANY', 'Qualsevol');
+define('LABEL_MAIL_BODY_BIDOVER', 'La teva licitació ha sigut superada, segueix el següent ellaç si vols tornar a licitar!');
+define('LABEL_BIDOVER', 'Licitació superada');
+define('LABEL_AUCTION_FINISHED', 'Aquesta subhasta ha acabat');
+define('LABEL_MAIL_BODY_ALERT', 'Una subhasta a la qual has participat està a punt d\'acabar. Si vols tornar a licitar, utilitza el següent enllaç.');
+define('LABEL_ALERT', 'Subhasta a punt de finalitzar');
+//TODO
+define('LABEL_MAIL_BODY_WIN', '¡Felicidades, Has ganado una subasta! Para pagar el producto y empezar a tramitar el envío sigue el siguiente enlace y rellena la información de pago.');
+define('LABEL_MAIL_BODY_LOSE', 'Sentimos comunicarte que has perdido una subasta en la que habías participado. Te deseamos mas suerte la próxima vez.');
+define('LABEL_END', 'Subasta finalizada');
+define('LABEL_PAY_PAYPAL', 'Paga con PayPal');
+define('LABEL_PAY_STRIPE', 'Paga con Stripe');
+define('LABEL_MAIL_BODY_PAYED', 'El pago del producto indicado a continuación ha sido aceptado y se te enviará el producto dentro de poco.');
+define('LABEL_PAYED', 'Pdocuto pagado');
+/* * * * * * * * * */
+
 define('LABEL_BENVINGUDA', 'Benvingut a la millor tenda on-line de videojocs!');
 define('LABEL_PRODUCTES', 'Productes de la tenda:');
 define('LABEL_MENU', 'Menú');

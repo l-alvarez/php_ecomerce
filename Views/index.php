@@ -3,11 +3,11 @@ session_start();
 
 if (isset($_SESSION['loged'])) {
     $idioma = $_SESSION['lang'];
-    setcookie("lang", $idioma, time() + 3600, "/sce/");
+    setcookie("lang", $idioma, time() + 3600, "/");
 } else {
     if (!isset($_COOKIE["lang"])) {
         $idioma = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2);
-        setcookie("lang", $idioma, time() + 3600, "/sce/");
+        setcookie("lang", $idioma, time() + 3600, "/");
     } else {
         $idioma = $_COOKIE["lang"];
     }
@@ -28,10 +28,6 @@ if ($_SERVER['SERVER_PORT'] != '443') {
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <link rel="stylesheet" type="text/css" href="../stylesheet/cssresponsivedesign.css">
 
-        <!-- css3-mediaqueries.js for IE8 or older -->
-        <!--[if lt IE 9]>
-                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-        <![endif]-->
         <title>Index</title>
     </head>
     <body>
@@ -48,7 +44,7 @@ if ($_SERVER['SERVER_PORT'] != '443') {
                         <a href="../Controllers/Command.php?controller=LangController&action=setLang&idioma=ca"> <img class="langimg" src="../img/cat.png"> </a>
                     </div>
                     <?php
-                    if (isset($_SESSION['user']) && $_SESSION['loged'] == 1) {
+                    if (isset($_SESSION['loged']) && $_SESSION['loged'] == 1) {
                         echo "<div id = 'login' style = \"width: auto; float: right; height: 20px\">";
                         echo LABEL_GREET . "<a href = \"./index.php?view=modifyUserData\">" . $_SESSION['user'] . "</a> (<a href = \"../Controllers/Command.php?controller=AccesController&action=logout\">" . LABEL_LOGOUT . "</a>)";
                         echo "</div>";

@@ -13,8 +13,15 @@ define('LABEL_ANY', 'Cualquiera');
 define('LABEL_MAIL_BODY_BIDOVER', '¡Tu puja ha sido superada, sigue el siguiente enlace si quieres volver a pujar!');
 define('LABEL_BIDOVER', 'Puja superada');
 define('LABEL_AUCTION_FINISHED', 'Esta subasta ha acabado');
-define('LABEL_MAIL_BODY_ALERT','Una subasta en la que has participado está a punto de finalizar. Si deseas volver a pujar en dicha subasta, utiliza el enlace que te facilitamos.');
-define('LABEL_ALERT','Subasta a punto de finalizar');
+define('LABEL_MAIL_BODY_ALERT', 'Una subasta en la que has participado está a punto de finalizar. Si deseas volver a pujar en dicha subasta, utiliza el enlace que te facilitamos.');
+define('LABEL_ALERT', 'Subasta a punto de finalizar');
+define('LABEL_MAIL_BODY_WIN', '¡Felicidades, Has ganado una subasta! Para pagar el producto y empezar a tramitar el envío sigue el siguiente enlace y rellena la información de pago.');
+define('LABEL_MAIL_BODY_LOSE', 'Sentimos comunicarte que has perdido una subasta en la que habías participado. Te deseamos mas suerte la próxima vez.');
+define('LABEL_END', 'Subasta finalizada');
+define('LABEL_PAY_PAYPAL', 'Paga con PayPal');
+define('LABEL_PAY_STRIPE', 'Paga con Stripe');
+define('LABEL_MAIL_BODY_PAYED', 'El pago del producto indicado a continuación ha sido aceptado y se te enviará el producto dentro de poco.');
+define('LABEL_PAYED', 'Pdocuto pagado');
 /* * * * * * * * * */
 
 define('LABEL_BENVINGUDA', '¡Bienvenido a la mejor tienda on-line de videojuegos!');

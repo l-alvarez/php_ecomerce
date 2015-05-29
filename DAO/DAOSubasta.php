@@ -6,7 +6,7 @@ class DAOSubasta extends DBConnection {
 
     public function selectAll() {
         $con = parent::getMySQLConn();
-        $sentencia = "SELECT * FROM subhasta";
+        $sentencia = "SELECT * FROM subhasta WHERE estat=0";
         $resultado = mysql_query($sentencia, $con);
         mysql_close($con);
         return $resultado;
@@ -15,6 +15,14 @@ class DAOSubasta extends DBConnection {
     public function selectNotFinished() {
         $con = parent::getMySQLConn();
         $sentencia = "SELECT * FROM subhasta WHERE estat=0 AND notificada=0";
+        $resultado = mysql_query($sentencia, $con);
+        mysql_close($con);
+        return $resultado;
+    }
+
+    public function selectFinished() {
+        $con = parent::getMySQLConn();
+        $sentencia = "SELECT * FROM subhasta WHERE estat=0 AND notificada=1";
         $resultado = mysql_query($sentencia, $con);
         mysql_close($con);
         return $resultado;
@@ -31,6 +39,17 @@ class DAOSubasta extends DBConnection {
     public function setAlert($id) {
         $con = parent::getMySQLIConn();
         $prepStmt = $con->prepare("UPDATE subhasta SET notificada=1 WHERE id_subhasta=?");
+
+        $prepStmt->bind_param("d", $id);
+        $prepStmt->execute();
+
+        $prepStmt->close();
+        $con->close();
+    }
+
+    public function setState($id) {
+        $con = parent::getMySQLIConn();
+        $prepStmt = $con->prepare("UPDATE subhasta SET estat=1 WHERE id_subhasta=?");
 
         $prepStmt->bind_param("d", $id);
         $prepStmt->execute();
@@ -63,12 +82,27 @@ class DAOSubasta extends DBConnection {
 
     public function selectById($id) {
         $con = parent::getMySQLIConn();
-        $prepStmt = $con->prepare("SELECT * FROM subhasta WHERE id_subhasta = ?");
+        $prepStmt = $con->prepare("SELECT * FROM subhasta WHERE id_subhasta=?");
 
         mysqli_query($con, "set character_set_results='utf8'");
         $prepStmt->bind_param("s", $id);
         $prepStmt->execute();
         $res = $prepStmt->get_result();
+
+        $prepStmt->close();
+        $con->close();
+        return $res;
+    }
+
+    public function selectByProduct($prodId) {
+        $con = parent::getMySQLIConn();
+        $prepStmt = $con->prepare("SELECT * FROM subhasta WHERE id_producte=? AND estat=0");
+
+        mysqli_query($con, "set character_set_results='utf8'");
+        $prepStmt->bind_param("s", $prodId);
+        $prepStmt->execute();
+        $res = $prepStmt->get_result();
+
         $prepStmt->close();
         $con->close();
         return $res;
@@ -96,11 +130,31 @@ class DAOSubasta extends DBConnection {
         $participant->bind_param("dd", $id_sub, $id_new);
         $participant->execute();
 
-        echo $con->error;
-
         $updateSub->close();
         $participant->close();
 
+        $con->close();
+    }
+
+    public function endAuction($idSub, $idUsr, $direccio) {
+        $con = parent::getMySQLIConn();
+
+        $con->autocommit(FALSE);
+
+        $updateSub = $con->prepare("UPDATE subhasta SET pagada=1 WHERE id_subhasta=?");
+        $updateSub->bind_param("d", $idSub);
+
+        $addCommand = $con->prepare("INSERT INTO comanda (id_subhasta,id_usuari,direccio) VALUES (?,?,?)");
+        $addCommand->bind_param("dds", $idSub, $idUsr, $direccio);
+
+        if (!$updateSub->execute() || !$addCommand->execute()) {
+            $con->rollback();
+        } else {
+            $con->commit();
+        }
+
+        $updateSub->close();
+        $addCommand->close();
         $con->close();
     }
 

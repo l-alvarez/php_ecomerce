@@ -12,20 +12,35 @@ class SubastaController {
         $dao = new DAOSubasta();
         return $dao->selectAll();
     }
-    
+
+    public function selectByProduct($prodId) {
+        $dao = new DAOSubasta();
+        return $dao->selectByProduct($prodId);
+    }
+
     public function selectNotFinished() {
         $dao = new DAOSubasta();
         return $dao->selectNotFinished();
     }
-    
+
+    public function selectFinished() {
+        $dao = new DAOSubasta();
+        return $dao->selectFinished();
+    }
+
     public function selectAuctionParticipants($id) {
         $dao = new DAOSubasta();
         return $dao->selectAuctionParticipants($id);
     }
-    
+
     public function setAlert($id) {
         $dao = new DAOSubasta();
         return $dao->setAlert($id);
+    }
+
+    public function setState($id) {
+        $dao = new DAOSubasta();
+        return $dao->setState($id);
     }
 
     public function admin() {
@@ -200,7 +215,7 @@ class SubastaController {
         if ($id_old != $id_usr) {
             $dao = new DAOSubasta();
             $dao->bid($id_sub, $id_usr, $newPrice);
-            
+
             $usrCtrl = new UserController();
             $fetch = $usrCtrl->selectById($id_old);
             $user = $fetch->fetch_assoc();
@@ -214,6 +229,11 @@ class SubastaController {
 
         $view = new ViewClass("index", "?view=showSubasta&id=" . $id_sub);
         $view->render();
+    }
+
+    public function endAuction($idSub, $idUsr, $direccio) {
+        $dao = new DAOSubasta();
+        return $dao->endAuction($idSub, $idUsr, $direccio);
     }
 
 }

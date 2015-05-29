@@ -85,4 +85,35 @@ class Email {
 
         $this->sendMail($name, $dest, $body, $subject);
     }
+
+    public function auctionWin($name, $dest, $lang, $link) {
+        include_once '../lang/' . $lang . '_lang.php';
+
+        $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY_WIN . "<br><a href=\"" . $link . "\"> " . LABEL_PAY . " </a><br>" . LABEL_MAIL_END;
+
+        $subject = LABEL_END;
+
+        $this->sendMail($name, $dest, $body, $subject);
+    }
+
+    public function auctionLose($name, $dest, $lang) {
+        include_once '../lang/' . $lang . '_lang.php';
+
+        $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY_LOSE . "<br>" . LABEL_MAIL_END;
+
+        $subject = LABEL_END;
+
+        $this->sendMail($name, $dest, $body, $subject);
+    }
+
+    public function paymentComplete($name, $dest, $lang, $prod) {
+        include_once '../lang/' . $lang . '_lang.php';
+
+        $body = LABEL_MAIL_GREET . $name . ";<br>" . LABEL_MAIL_BODY_PAYED . "<br>" . $prod . "<br>" . LABEL_MAIL_END;
+
+        $subject = LABEL_PAYED;
+
+        $this->sendMail($name, $dest, $body, $subject);
+    }
+
 }
