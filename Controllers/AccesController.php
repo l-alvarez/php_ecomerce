@@ -60,8 +60,8 @@ class AccesController {
 
         $dao->create($username, $cryptPwd, $mail, $pregunta, $cryptAns, $salt, $lang, 0, 0, $name, $surname, $nif, $direccion);
 
-        $mail = new Email();
-        $mail->verifyMail($username, $mail, $lang);
+        $email = new Email();
+        $email->verifyMail($username, $mail, $lang);
 
         $view = new ViewClass("index", "");
         $view->render();
