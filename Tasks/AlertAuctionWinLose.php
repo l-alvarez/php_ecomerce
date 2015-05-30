@@ -24,7 +24,7 @@ while ($subasta = mysql_fetch_assoc($fetch)) {
             $lang = $user['idioma'];
 
             if ($user['id_usuari'] == $subasta['id_max_postor']) {
-                $link = "https://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=showSubasta&id=" . $subasta['id_subhasta']; //TODO
+                $link = "https://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=insertCodeView&id=" . $subasta['id_subhasta'];
                 $email->auctionWin($user['login'], $user['email'], $lang, $link);
             } else {
                 $email->auctionLose($user['login'], $user['email'], $lang);

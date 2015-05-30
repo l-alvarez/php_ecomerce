@@ -173,7 +173,6 @@ class SubastaController {
             $inc = $subasta['increment'];
         }
 
-
         $dao->update($id_sub, $data_limit, $hora_limit, $estat, $price, $inc);
 
         $view = new ViewClass("index", "?view=subDetails&sub=" . $id_sub);
@@ -193,9 +192,6 @@ class SubastaController {
         $dao = new DAOSubasta();
         $fetch = $dao->selectById($id_sub);
         $subasta = $fetch->fetch_assoc();
-
-        $milliseconds = round(microtime(true) * 1000);
-        $mili = strtotime($subasta['hora_limit'] . $subasta['data_limit']) - strtotime($milliseconds);
 
         $end = strtotime($subasta['hora_limit'] . $subasta['data_limit']);
         $actual = time();

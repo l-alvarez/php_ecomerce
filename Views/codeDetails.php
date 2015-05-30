@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 
 if (!isset($_SESSION['type']) || $_SESSION['type'] != 1) {
-    header("Location: http://". $_SERVER['HTTP_HOST'] ."/sce/Views/index.php?view=error&error=3");
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
 }
 
 include_once '../Controllers/CodeController.php';
@@ -20,7 +20,7 @@ $infos = $all->fetch_assoc();
 $code = $infos['codigo'];
 
 $active = $infos['activo'];
-if($active == 1) {
+if ($active == 1) {
     $chkActive = 'checked=""';
 } else {
     $chkActive = "";
@@ -82,7 +82,8 @@ if ($cat == -1) {
 <div id="formulari">
     <form method="post" action="../Controllers/Command.php?controller=CodeController&action=update" name="update">
         <fieldset>
-            <?php echo LABEL_CODE_SHORT ?>: <input type="text" disabled="" value="<?php echo $short ?>" name="code"/>
+            <input type="hidden" value="<?php echo $short ?>" name="code" id="code"/>
+            <?php echo LABEL_CODE_SHORT . ': ' . $short ?>
             <br>
             <?php echo LABEL_CODE_LONG . ': ' . $code ?>
             <br><br>

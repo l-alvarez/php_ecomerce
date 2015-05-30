@@ -1,12 +1,38 @@
 <?php
 
+define('LABEL_CODE_INVALID', 'The code introduced is invalid.');
+define('LABEL_PAY', 'CheckOut');
+
+/* * * * * * * * * */
+define('LABEL_SURNAME', 'Surname');
+define('LABEL_NIF', 'NIF');
+define('LABEL_DIRECCION', 'Adderss');
+define('LABEL_ERROR_SIGNUP_5', 'NIF is too long (8 numbers and one character)');
+define('LABEL_LEFT_TIME', 'Time left');
+define('LABEL_PRODUCT', 'Product');
+define('LABEL_PRICE', 'Price');
+define('LABEL_MAIL_BODY_CODE', 'We give you this discount code for you to use on your purchases in the categories listed below!');
+define('LABEL_ANY', 'Any');
+define('LABEL_MAIL_BODY_BIDOVER', 'Your bid has been surpassed, follow the link if you want to bid again!');
+define('LABEL_BIDOVER', 'Overcome auction');
+define('LABEL_AUCTION_FINISHED', 'This auction has ended');
+define('LABEL_MAIL_BODY_ALERT', 'An auction in which you participated is about to end. If you wish to bi againd in this auction, use the link we provide you.');
+define('LABEL_ALERT', 'Auction nearly finished');
+define('LABEL_MAIL_BODY_WIN', 'Congratulations, you won an auction! To pay for the product and start the delivery process use the following link and fill out payment information.');
+define('LABEL_MAIL_BODY_LOSE', 'Sorry to inform you that you have lost an auction in which you had participated. We wish you more luck next time.');
+define('LABEL_END', 'Auction finished');
+define('LABEL_PAY_PAYPAL', 'Pay with PayPal');
+define('LABEL_PAY_STRIPE', 'Pay with Stripe');
+define('LABEL_MAIL_BODY_PAYED', 'The payment of the following products has been accepted and the product will be dispatched shortly.');
+define('LABEL_PAYED', 'Paid product');
+/* * * * * * * * * */
+
 define('LABEL_BENVINGUDA', 'Welcome to the best videogames on-line shop!');
 define('LABEL_PRODUCTES', 'Shop products:');
 define('LABEL_MENU', 'Menu');
 define('LABEL_INFO', 'Legal information');
 define('LABEL_NOM', 'Name');
 define('LABEL_DESCRIPTION', 'Description');
-define('LABEL_ESTOC', 'Stock');
 define('LABEL_FOTO', 'Photo');
 define('LABEL_SEARCH', 'Search');
 define('LABEL_LOGIN', 'Login');
@@ -14,7 +40,7 @@ define('LABEL_SIGNUP', 'SignUp');
 define('LABEL_CATEGORIES', 'Categories');
 define('LABEL_NO_RESULTS', 'No products found with that search.');
 define('LABEL_GREET', 'Welcome, ');
-define('LABEL_NONE', 'Any');
+define('LABEL_NONE', 'None');
 define('LABEL_FATHER', 'Father');
 define('LABEL_UPDATE', 'Update');
 define('LABEL_ALL', 'All');

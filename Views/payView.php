@@ -9,6 +9,9 @@ if (!isset($_SESSION['loged']) || $_SESSION['loged'] != 1 || !isset($_GET['id'])
 
 include_once '../Controllers/SubastaController.php';
 include_once '../Controllers/ProductController.php';
+include_once '../Controllers/CodeController.php';
+include_once '../Controllers/UserController.php';
+include_once '../Controllers/CategoryController.php';
 
 $idSub = $_GET['id'];
 
@@ -24,9 +27,81 @@ $prodCtrl = new ProductController();
 $fetch = $prodCtrl->selectById($subasta['id_producte']);
 $producte = $fetch->fetch_assoc();
 
-$price = $subasta['preu_actual'];
+$err = "";
+
+if ($_POST['code'] != "") {
+    $codeCtrl = new CodeController();
+    $short = $_POST['code'];
+
+    $fetch = $codeCtrl->selectOne($short);
+    $info = $fetch->fetch_assoc();
+    $code = $info['codigo'];
+
+    $active = $info['activo'];
+
+    $dec = $codeCtrl->encrypt_decrypt('decrypt', $code);
+
+    $discount = strtok($dec, '|');
+    $date = strtok('|');
+    $unique = strtok('|');
+    $users = strtok('|');
+    $cat = strtok('|');
+
+    $validUser = false;
+    $validCat = false;
+
+    if ($users != -1) {
+        $usrCtrl = new UserController();
+        $userId = strtok($users, ",");
+
+        while ($userId !== false || $validUser !== true) {
+            $fetch = $usrCtrl->selectById($userId);
+            $usrInfo = $fetch->fetch_assoc();
+
+            if ($userId == $subasta['id_max_postor']) {
+                $validUser = true;
+            }
+
+            $userId = strtok(",");
+        }
+    } else {
+        $validUser = true;
+    }
+
+    if ($cat != -1) {
+        $catCtrl = new CategoryController();
+        $catId = strtok($cat, ",");
+
+        while ($catId !== false || $validCat !== true) {
+            $fetch = $catCtrl->selectById($catId);
+            $catInfo = $fetch->fetch_assoc();
+
+            if ($catId == $producte['id_categoria']) {
+                $validCat = true;
+            }
+
+            $catId = strtok(",");
+        }
+    } else {
+        $validCat = true;
+    }
+
+    if ($active != 1 || ($unique == 1 && $info['used'] == 1) || !$validCat || !$validUser || (strtotime("00:00:00" . $date) <= time())) {
+        $err = LABEL_CODE_INVALID;
+        $price = $subasta['preu_actual'];
+    } else {
+        $price = $subasta['preu_actual'] - ($subasta['preu_actual'] * ( $discount / 100 ));
+        $codeCtrl->disable($short);
+    }
+} else {
+    $price = $subasta['preu_actual'];
+}
+
 $name = $producte['nom'];
+
+echo $err;
 ?>
+
 <div style="margin-left: 10em">
     <?php echo $name ?>
     <br>

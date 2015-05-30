@@ -11,7 +11,7 @@ class Email {
         $host = "smtp.gmail.com";
         $port = "587";
         $username = "luis.marc.sce2015@gmail.com";
-        $password = "sce20142015";
+        $password = "luismarcsce";
 
         $headers = array('From' => $from,
             'To' => $to,

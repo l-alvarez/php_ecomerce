@@ -37,6 +37,17 @@ class DAOCode extends DBConnection{
         $prepStmt->close();
         $con->close();
     }
+    
+    public function disable($code, $used) {
+        $con = parent::getMySQLIConn();
+        $prepStmt = $con->prepare("UPDATE codigo SET usada=? WHERE short=?");
+
+        $prepStmt->bind_param("is", $used, $code);
+        $prepStmt->execute();
+
+        $prepStmt->close();
+        $con->close();
+    }
 
     public function create($code,$activo,$short) {
         $con = parent::getMySQLIConn();

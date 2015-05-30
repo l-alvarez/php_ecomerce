@@ -3,6 +3,7 @@
 include_once '../Config/codeKey.php';
 include_once '../DAO/DAOCode.php';
 include_once '../DAO/DAOUser.php';
+include_once '../DAO/DAOCategory.php';
 include_once '../Models/ViewClass.php';
 include_once '../Models/Email.php';
 
@@ -43,6 +44,21 @@ class CodeController {
 
         $view = new ViewClass("index", "?view=adminCodes");
         $view->render();
+    }
+
+    public function disable($code) {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['loged']) || $_SESSION['loged'] != 1) {
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=error&error=3");
+        }
+
+        $used = 0;
+
+        $dao = new DAOCode();
+        $dao->disable($code, $used);
     }
 
     public function update() {
@@ -138,7 +154,7 @@ class CodeController {
             $dao->create($code, $active, $short);
 
             if ($usersId != -1) {
-                $this->sendMails($usersId, $users, $code, $categories);
+                $this->sendMails($users, $short, $categories);
             } else {
                 $this->sendAllMails($code, $categories);
             }
@@ -156,28 +172,28 @@ class CodeController {
         $lang = $_COOKIE['lang'];
         $dao = new DAOUser();
         $cat = new DAOCategory();
+        $categ = '';
 
         if ($categories == "-1") {
             $categories = LABEL_ANY;
         } else {
             for ($i = 0; $i < count($categories); $i++) {
-                $fetch = $cat->selectById($categories[i]);
+                $fetch = $cat->selectById($categories[$i]);
                 $info = $fetch->fetch_assoc();
-                
+
                 $categ .= $info['nom'] . ',';
             }
             $categ = substr($categ, 0, -1);
         }
 
         for ($i = 0; $i < count($users); $i++) {
-
-            $fetch = $dao->selectById($users[i]);
+            $fetch = $dao->selectById($users[$i]);
             $user = $fetch->fetch_assoc();
 
             $mail->codeMail($user['login'], $user['email'], $lang, $code, $categ);
         }
     }
-    
+
     private function sendAllMails($code, $categories) {
         $mail = new Email();
         $lang = $_COOKIE['lang'];
@@ -191,7 +207,7 @@ class CodeController {
             for ($i = 0; $i < count($categories); $i++) {
                 $fetch = $cat->selectById($categories[i]);
                 $info = $fetch->fetch_assoc();
-                
+
                 $categ .= $info['nom'] . ',';
             }
             $categ = substr($categ, 0, -1);

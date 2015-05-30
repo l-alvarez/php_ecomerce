@@ -1,5 +1,8 @@
 <?php
 
+define('LABEL_CODE_INVALID', 'El código introducido no es válido');
+define('LABEL_PAY', 'Pagar');
+
 /* * * * * * * * * */
 define('LABEL_SURNAME', 'Apellido');
 define('LABEL_NIF', 'NIF');
@@ -30,7 +33,6 @@ define('LABEL_MENU', 'Menú');
 define('LABEL_INFO', 'Información legal');
 define('LABEL_NOM', 'Nombre');
 define('LABEL_DESCRIPTION', 'Descripción');
-define('LABEL_ESTOC', 'Cantidad');
 define('LABEL_FOTO', 'Fotografia');
 define('LABEL_SEARCH', 'Buscar');
 define('LABEL_LOGIN', 'Acceder');

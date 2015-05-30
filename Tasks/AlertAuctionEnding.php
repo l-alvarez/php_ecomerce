@@ -14,7 +14,6 @@ $actual = time();
 
 while ($subasta = mysql_fetch_assoc($fetch)) {
     $end = strtotime($subasta['hora_limit'] . $subasta['data_limit']);
-
     if (($end - $actual) < $hours) {
         $allInfo = $subCtrl->selectAuctionParticipants($subasta['id_subhasta']);
 
@@ -25,9 +24,9 @@ while ($subasta = mysql_fetch_assoc($fetch)) {
             $link = "https://" . $_SERVER['HTTP_HOST'] . "/sce/Views/index.php?view=showSubasta&id=" . $subasta['id_subhasta'];
             $lang = $user['idioma'];
 
-            $email->auctionAlert($user['login'], $user['email'], $lang, $link);   
+            $email->auctionAlert($user['login'], $user['email'], $lang, $link);
         }
-        
+
         $subCtrl->setAlert($subasta['id_subhasta']);
     }
 }

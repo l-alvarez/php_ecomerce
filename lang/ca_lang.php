@@ -1,5 +1,8 @@
 <?php
 
+define('LABEL_CODE_INVALID', 'El códi introduit no es vàlid.');
+define('LABEL_PAY', 'Pagar');
+
 /* * * * * * * * * */
 define('LABEL_SURNAME', 'Cognom');
 define('LABEL_NIF', 'NIF');
@@ -15,14 +18,13 @@ define('LABEL_BIDOVER', 'Licitació superada');
 define('LABEL_AUCTION_FINISHED', 'Aquesta subhasta ha acabat');
 define('LABEL_MAIL_BODY_ALERT', 'Una subhasta a la qual has participat està a punt d\'acabar. Si vols tornar a licitar, utilitza el següent enllaç.');
 define('LABEL_ALERT', 'Subhasta a punt de finalitzar');
-//TODO
-define('LABEL_MAIL_BODY_WIN', '¡Felicidades, Has ganado una subasta! Para pagar el producto y empezar a tramitar el envío sigue el siguiente enlace y rellena la información de pago.');
-define('LABEL_MAIL_BODY_LOSE', 'Sentimos comunicarte que has perdido una subasta en la que habías participado. Te deseamos mas suerte la próxima vez.');
-define('LABEL_END', 'Subasta finalizada');
-define('LABEL_PAY_PAYPAL', 'Paga con PayPal');
-define('LABEL_PAY_STRIPE', 'Paga con Stripe');
-define('LABEL_MAIL_BODY_PAYED', 'El pago del producto indicado a continuación ha sido aceptado y se te enviará el producto dentro de poco.');
-define('LABEL_PAYED', 'Pdocuto pagado');
+define('LABEL_MAIL_BODY_WIN', 'Felicitats, has guanyat una subhasta! Per a pagar el producte i tramitar l\'enviament segueix el següent enllaç i omple l\'informació de pagament.');
+define('LABEL_MAIL_BODY_LOSE', 'Sentim comunicar-te que has perdut una subgasta en la que havies participat. Et desitjem més sort el próxim cop.');
+define('LABEL_END', 'Subhasta finalitzada');
+define('LABEL_PAY_PAYPAL', 'Paga amb PayPal');
+define('LABEL_PAY_STRIPE', 'Paga amb Stripe');
+define('LABEL_MAIL_BODY_PAYED', 'El pagament del producte indicat a continuació ha sigut acceptat i se t\'enviarà el producte dintre de poc.');
+define('LABEL_PAYED', 'Pdocute pagat');
 /* * * * * * * * * */
 
 define('LABEL_BENVINGUDA', 'Benvingut a la millor tenda on-line de videojocs!');
@@ -31,7 +33,6 @@ define('LABEL_MENU', 'Menú');
 define('LABEL_INFO', 'Informació legal');
 define('LABEL_NOM', 'Nom');
 define('LABEL_DESCRIPTION', 'Descripció');
-define('LABEL_ESTOC', 'Estoc');
 define('LABEL_FOTO', 'Foto');
 define('LABEL_SEARCH', 'Cercar');
 define('LABEL_LOGIN', 'Accedir');

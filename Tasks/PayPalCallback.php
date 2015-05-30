@@ -23,4 +23,4 @@ $fetch = $prodCtrl->selectById($subasta['id_producte']);
 $producte = $fetch->fetch_assoc();
 
 $email = new Email();
-$email->paymentComplete($user['nom'], $user['email'], $user['lang'], $producte['nom']);
+$email->paymentComplete($user['nom'], $user['email'], $user['idioma'], $producte['nom']);
